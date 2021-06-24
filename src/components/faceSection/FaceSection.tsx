@@ -1,5 +1,6 @@
 import React from 'react';
 import './FaceSection.css'
+import Menu from "../menu/Menu";
 
 const FaceSection = () => {
   return (
@@ -14,15 +15,7 @@ const FaceSection = () => {
           <img className="profile__avatar" src="https://s.starladder.com/uploads/user_logo/5/c/9/d/meta_tag_1039d807e6e9d7e403ecd6510eb61d83.jpg" alt=""/>
           <h2>Енот обормот</h2>
         </div>
-        <nav className="menu">
-          <a className="menu__item" href="#">Публикации</a>
-          <a className="menu__item" href="#">Информация</a>
-          <a className="menu__item" href="#">Друзья</a>
-          <a className="menu__item" href="#">Фото</a>
-          <a className="menu__item" href="#">Архив историй</a>
-          <a className="menu__item" href="#">Видео</a>
-          <a className="menu__item" href="#">Еще</a>
-        </nav>
+        <Menu/>
       </div>
     </>
   )

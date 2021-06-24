@@ -1,0 +1,10 @@
+.menu {
+  display: flex;
+}
+
+.menu__item {
+  display: block;
+  padding: 20px;
+  text-decoration: none;
+  color: #65676B;
+}

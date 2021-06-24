@@ -1,7 +1,8 @@
 import React from 'react';
 import './App.css';
-import Header from "./Header";
-import FaceSection from "./components/FaceSection/FaceSection";
+import Header from "./components/header/Header";
+import FaceSection from "./components/faceSection/FaceSection";
+import {Main} from "./Main";
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
         <div className="container">
           <FaceSection/>
         </div>
+        {/* главная страница */}
         <div className="page">
           {/* сайт-бар */}
           <aside className="side-bar">
@@ -20,11 +22,8 @@ const App = () => {
             <div className="side-bar__friends">Друзья</div>
             <div className="footer">Подвал сайта</div>
           </aside>
-
           {/* главный контент */}
-          <main className="main">
-            главный контент
-          </main>
+          <Main />
         </div>
       </div>
     </div>
