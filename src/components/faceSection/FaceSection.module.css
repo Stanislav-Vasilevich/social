@@ -8,7 +8,7 @@
 
 }
 
-.background__image {
+.image {
   display: block;
   width: 100%;
   max-height: 400px;
@@ -21,7 +21,7 @@
   align-items: center;
 }
 
-.profile__avatar {
+.avatar {
   width: 200px;
   height: 200px;
   border-radius: 50%;
