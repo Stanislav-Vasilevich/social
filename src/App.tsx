@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from './App.module.css';
-import Header from "./components/header/Header";
-import FaceSection from "./components/faceSection/FaceSection";
-import {Main} from "./components/main/Main";
+import Header from "./components/Header/Header";
+import {Main} from "./components/Main/Main";
+import FaceSection from "./components/FaceSection/FaceSection";
 
 // деструктуризация CSS
 const {app, body, container, page, sideBar, info, photo, friends, footer} = styles;

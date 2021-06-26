@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './FaceSection.module.css'
-import Menu from "../menu/Menu";
+import Menu from "../Menu/Menu";
 
 // деструктуризация CSS
 const {face, background, image, profile, avatar} = styles;
