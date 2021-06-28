@@ -1,4 +1,4 @@
-# Учебный проект it-incubator
+# Учебный проект it-incubator (социальная сеть)
 ## Создан на react tsx
 
 Посмотреть в браузере [Create React App](https://github.com/facebook/create-react-app).
