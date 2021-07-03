@@ -4,7 +4,7 @@ import Header from "./components/Header/Header";
 import {Main} from "./components/Main/Main";
 import FaceSection from "./components/FaceSection/FaceSection";
 
-// деструктуризация CSS
+// деструктуризация CSS модулей
 const {app, body, container, page, sideBar, info, photo, friends, footer} = styles;
 
 const App = () => {
