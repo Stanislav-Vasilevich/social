@@ -1,19 +1,20 @@
 import React from 'react';
 import styles from './Menu.module.css';
+import {NavLink} from "react-router-dom";
 
 // деструктуризация CSS
-const {menu, item} = styles;
+const {menu, item, active} = styles;
 
 const Menu = () => {
   return (
     <nav className={menu}>
-      <a className={item} href="#">Публикации</a>
-      <a className={item} href="#">Информация</a>
-      <a className={item} href="#">Друзья</a>
-      <a className={item} href="#">Фото</a>
-      <a className={item} href="#">Архив историй</a>
-      <a className={item} href="#">Видео</a>
-      <a className={item} href="#">Еще</a>
+      <NavLink className={item} activeClassName={active} to="/publications">Публикации</NavLink>
+      <NavLink className={item} activeClassName={active} to="/information">Информация</NavLink>
+      <NavLink className={item} activeClassName={active} to="/friends">Друзья</NavLink>
+      <NavLink className={item} activeClassName={active} to="/photo">Фото</NavLink>
+      <NavLink className={item} activeClassName={active} to="/stories">Архив историй</NavLink>
+      <NavLink className={item} activeClassName={active} to="/video">Видео</NavLink>
+      <NavLink className={item} activeClassName={active} to="/else">Еще</NavLink>
     </nav>
   )
 }

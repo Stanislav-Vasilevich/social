@@ -1,0 +1,26 @@
+.friend {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 2fr 10fr;
+  align-items: center;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #65676B;
+}
+
+.active {
+  text-decoration: none;
+  background-color: #efdbb4;
+  color: #87346d;
+}
+
+.friend:not(:first-child) {
+  margin: 10px 0 0 0;
+  background-color: #d75858;
+}
+
+.friend img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
