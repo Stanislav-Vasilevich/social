@@ -1,0 +1,28 @@
+.main {
+  display: flex;
+}
+
+.sideBar {
+  width: 400px;
+  background-color: #f0fffa;
+}
+
+.publications {
+  background-color: #f0faff;
+}
+
+.info {
+  background-color: aliceblue;
+}
+
+.photo {
+  background-color: #d8eafa;
+}
+
+.friends {
+  background-color: #f7d8fa;
+}
+
+.footer {
+  background-color: #faf2d8;
+}

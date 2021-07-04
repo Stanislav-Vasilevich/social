@@ -1,11 +1,12 @@
 import React from 'react';
 import styles from './App.module.css';
 import Header from "./components/Header/Header";
-import {Main} from "./components/Main/Main";
 import FaceSection from "./components/FaceSection/FaceSection";
+import Publications from "./components/Publications/Publications";
+import Information from "./components/Information/Information";
 
 // деструктуризация CSS модулей
-const {app, body, container, page, sideBar, info, photo, friends, footer} = styles;
+const {app, body, container, page} = styles;
 
 const App = () => {
   return (
@@ -18,15 +19,8 @@ const App = () => {
         </div>
         {/* главная страница */}
         <div className={page}>
-          {/* сайт-бар */}
-          <aside className={sideBar}>
-            <div className={info}>Краткая информация</div>
-            <div className={photo}>Фото</div>
-            <div className={friends}>Друзья</div>
-            <div className={footer}>Подвал сайта</div>
-          </aside>
-          {/* главный контент */}
-          <Main />
+          <Publications />
+          <Information />
         </div>
       </div>
     </div>

@@ -8,9 +8,9 @@ const {main} = styles;
 
 export function Main() {
   return (
-    <main className={main}>
+    <section className={main}>
       <AddPost />
       <Posts />
-    </main>
+    </section>
   )
 }

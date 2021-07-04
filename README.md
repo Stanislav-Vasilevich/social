@@ -15,4 +15,4 @@
 
 1. запустить проект:
 
-    `npm start`
+    `yarn start`
