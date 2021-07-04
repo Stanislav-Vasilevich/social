@@ -4,6 +4,7 @@ import Header from "./components/Header/Header";
 import FaceSection from "./components/FaceSection/FaceSection";
 import Publications from "./components/Publications/Publications";
 import Information from "./components/Information/Information";
+import {Route} from "react-router-dom";
 
 // деструктуризация CSS модулей
 const {app, body, container, page} = styles;
@@ -19,8 +20,8 @@ const App = () => {
         </div>
         {/* главная страница */}
         <div className={page}>
-          <Publications />
-          <Information />
+          <Route component={Publications} />
+          <Route component={Information} />
         </div>
       </div>
     </div>
