@@ -7,7 +7,7 @@
 
    1. клонировать на локальный компьютер:
 
-      `git clone https://github.com/Stanislav-Vasilevich/react-tsx-it-incubator.git`
+      `git clone https://github.com/Stanislav-Vasilevich/social-it-incrbator-react-tsx.git`
    2. установить yarn
       `yarn install`
 
