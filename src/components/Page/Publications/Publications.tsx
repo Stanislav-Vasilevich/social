@@ -1,6 +1,6 @@
 import React from "react";
 import styles from './Publications.module.css';
-import {Main} from "../Main/Main";
+import {Main} from "./Main/Main";
 
 // деструктуризация CSS модулей
 const {main, sideBar, info, photo, friends, footer} = styles;

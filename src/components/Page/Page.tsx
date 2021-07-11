@@ -1,13 +1,13 @@
 import React from "react";
 import styles from "./Page.module.css";
 import {Route} from "react-router-dom";
-import Publications from "../Publications/Publications";
-import Information from "../Information/Information";
 import Friends from "./Friends/Friends";
 import Photo from "./Photo/Photo";
 import Stories from "./Stories/Stories";
 import Video from "./Video/Video";
 import Else from "./Else/Else";
+import Publications from "./Publications/Publications";
+import Information from "./Information/Information";
 
 const {main} = styles;
 
