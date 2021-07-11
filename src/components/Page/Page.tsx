@@ -8,15 +8,18 @@ import Video from "./Video/Video";
 import Else from "./Else/Else";
 import Publications from "./Publications/Publications";
 import Information from "./Information/Information";
+import {stateType} from "../../redux/state";
 
 const {main} = styles;
 
-function Page() {
+function Page(props: stateType) {
   return (
     <section className={main}>
       <Route path='/publications' component={Publications}/>
       <Route path='/information' component={Information}/>
-      <Route path='/friends' component={Friends}/>
+      <Route path='/friends'>
+        <Friends globalState={props.globalState} />
+      </Route>
       <Route path='/photo' component={Photo}/>
       <Route path='/stories' component={Stories}/>
       <Route path='/video' component={Video}/>

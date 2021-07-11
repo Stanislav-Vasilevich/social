@@ -1,17 +1,13 @@
 import React from "react";
 import styles from "./Dialogs.module.css";
+import {stateType} from "../../../../redux/state";
 
 const {main, item} = styles;
 
-type DialogsPropsType = {
-  id: number
-  message: string
-}
-
-const Dialogs: React.FC<DialogsPropsType> = ({message}) => {
+const Dialogs = (props: stateType) => {
   return (
     <section className={main}>
-      <div className={item}>{message}</div>
+      <div className={item}>{props.message}</div>
     </section>
   )
 }

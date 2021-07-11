@@ -1,9 +1,7 @@
 import React from "react";
 import styles from "./Post.module.css";
 
-console.log(styles)
-
-const {section, avatar, text, likes, likesHand} = styles;
+const {section, avatar, text, likesHand} = styles;
 
 type PostPropsType = {
   id: number
