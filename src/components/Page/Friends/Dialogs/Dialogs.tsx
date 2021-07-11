@@ -4,6 +4,7 @@ import styles from "./Dialogs.module.css";
 const {main, item} = styles;
 
 type DialogsPropsType = {
+  id: number
   message: string
 }
 

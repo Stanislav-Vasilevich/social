@@ -4,6 +4,7 @@ import styles from "./Post.module.css";
 const {section, avatar, text} = styles;
 
 type PostPropsType = {
+  id: number
   title: string,
   img: string
 }
