@@ -1,15 +1,15 @@
-type friendDataType = {
+export type friendDataType = {
   id: number
   name: string
   img: string
 }
 
-type dialogsDataType = {
+export type dialogsDataType = {
   id: number
   message: string
 }
 
-type friendsPageType = {
+export type friendsPageType = {
   friends: Array<friendDataType>
   dialogs: Array<dialogsDataType>
 }

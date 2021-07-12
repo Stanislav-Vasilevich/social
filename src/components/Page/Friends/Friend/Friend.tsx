@@ -1,11 +1,11 @@
 import React from "react";
 import {NavLink} from "react-router-dom";
 import styles from "./Friend.module.css";
-import {stateType} from "../../../../redux/state";
+import {friendDataType} from "../../../../redux/state";
 
 const {main, friend, active} = styles;
 
-const Friend = (props: stateType) => {
+const Friend = (props: friendDataType) => {
   return (
     <section className={main}>
       <NavLink className={friend} activeClassName={active} to={`/friends/${props.id}`}>
