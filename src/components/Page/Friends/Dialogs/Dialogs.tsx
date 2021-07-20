@@ -1,13 +1,12 @@
 import React from "react";
 import styles from "./Dialogs.module.css";
-import {dialogsDataType} from "../../../../redux/state";
 
 const {main, item} = styles;
 
-const Dialogs = (props: dialogsDataType) => {
+const Dialogs: React.FC<any> = ({globalState}) => {
   return (
     <section className={main}>
-      <div className={item}>{props.message}</div>
+      <div className={item}>{globalState.friendsPage.dialogs.message}</div>
     </section>
   )
 }

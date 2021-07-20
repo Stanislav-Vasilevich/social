@@ -4,12 +4,12 @@ export type friendDataType = {
   img: string
 }
 
-export type dialogsDataType = {
+type dialogsDataType = {
   id: number
   message: string
 }
 
-export type friendsPageType = {
+type friendsPageType = {
   friends: Array<friendDataType>
   dialogs: Array<dialogsDataType>
 }

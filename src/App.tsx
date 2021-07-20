@@ -3,12 +3,11 @@ import styles from './App.module.css';
 import Header from "./components/Header/Header";
 import FaceSection from "./components/FaceSection/FaceSection";
 import Page from "./components/Page/Page";
-import {stateType} from "./redux/state";
+import {globalState} from "./redux/state";
 
-// деструктуризация CSS модулей
 const {app, body, container} = styles;
 
-const App = (props: stateType) => {
+const App: React.FC<any> = () => {
   return (
     <div className={app}>
       <Header/>
@@ -18,7 +17,7 @@ const App = (props: stateType) => {
           <FaceSection/>
         </div>
         {/* главная страница */}
-        <Page globalState={props.globalState}/>
+        <Page globalState={globalState}/>
       </div>
     </div>
   );
