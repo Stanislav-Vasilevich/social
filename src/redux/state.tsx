@@ -21,7 +21,7 @@ export type GlobalStateType = {
   friendsPage: FriendsPageType
 }
 
-export const globalState: GlobalStateType = {
+export const state: GlobalStateType = {
   friendsPage: {
     friends: [
       {id: v1(), name: 'Катя', img: 'https://avatarko.ru/img/kartinka/16/Joker_minion_15661.jpg'},
@@ -41,7 +41,9 @@ export const globalState: GlobalStateType = {
 export const addMessage = (massage: string) => {
   const newMessage = {id: v1(), message: massage};
 
-  console.log(globalState.friendsPage.dialogs);
+  console.log(state.friendsPage.dialogs);
 
-  globalState.friendsPage.dialogs.push(newMessage);
+  state.friendsPage.dialogs.push(newMessage);
+
+  render(state);
 }

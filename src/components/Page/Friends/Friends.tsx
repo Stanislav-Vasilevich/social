@@ -7,19 +7,20 @@ import {GlobalStateType} from "../../../redux/state";
 const {main, page, people, dialogsStyle, writeSend, textArea, button} = styles;
 
 type PropsType = {
-  globalState: GlobalStateType
+  state: GlobalStateType
+  addMessage: (massage: string) => void
 }
 
-const Friends: React.FC<PropsType> = ({globalState}) => {
+const Friends: React.FC<PropsType> = ({state, addMessage}) => {
   const textAreaRef = createRef<HTMLTextAreaElement>();
 
   // массив друзей => друг
-  const arrayFriends = globalState.friendsPage.friends.map(i => {
+  const arrayFriends = state.friendsPage.friends.map(i => {
     return <Friend key={i.id} id={i.id} name={i.name} img={i.img}/>
   });
 
   // массив диалогов => диалог
-  const arrayDialogs = globalState.friendsPage.dialogs.map(i => {
+  const arrayDialogs = state.friendsPage.dialogs.map(i => {
     return <Dialogs key={i.id} id={i.id} message={i.message}/>
   });
 
@@ -27,7 +28,7 @@ const Friends: React.FC<PropsType> = ({globalState}) => {
   const addMessageHandler = () => {
     // console.log(textAreaRef.current?.value);
     if(textAreaRef.current) {
-      // addMessage(textAreaRef.current?.value);
+      addMessage(textAreaRef.current?.value);
     }
   }
 

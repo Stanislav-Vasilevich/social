@@ -13,16 +13,17 @@ import {GlobalStateType} from "../../redux/state";
 const {main} = styles;
 
 type PropsType = {
-  globalState: GlobalStateType
+  state: GlobalStateType
+  addMessage: (massage: string) => void
 }
 
-const Page: React.FC<PropsType> = ({ globalState }) => {
+const Page: React.FC<PropsType> = ({ state, addMessage }) => {
   return (
     <section className={main}>
       <Route path='/publications' component={Publications}/>
       <Route path='/information' component={Information}/>
       <Route path='/friends'>
-        <Friends globalState={globalState}/>
+        <Friends globalState={state} addMessage={addMessage}/>
       </Route>
       <Route path='/photo' component={Photo}/>
       <Route path='/stories' component={Stories}/>
