@@ -1,4 +1,4 @@
-import React, {PropsWithChildren} from "react";
+import React from "react";
 import styles from "./Page.module.css";
 import {Route} from "react-router-dom";
 import Friends from "./Friends/Friends";
