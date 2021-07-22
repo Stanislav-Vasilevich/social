@@ -4,7 +4,7 @@ import styles from "./Dialogs.module.css";
 const {main, item} = styles;
 
 type PropsType = {
-  id: number
+  id: string
   message: string
 }
 

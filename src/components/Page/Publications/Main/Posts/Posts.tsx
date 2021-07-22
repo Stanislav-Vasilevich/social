@@ -39,7 +39,7 @@ function Posts() {
     }
   ]
 
-  const arrayPosts = posts.map(i => <Post id={i.id} title={i.title} img={i.img} likesCount={i.likesCount}/>)
+  const arrayPosts = posts.map(i => <Post key={i.id} id={i.id} title={i.title} img={i.img} likesCount={i.likesCount}/>)
 
   return (
     <div className={section}>

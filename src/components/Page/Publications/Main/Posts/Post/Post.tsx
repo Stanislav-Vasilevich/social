@@ -13,7 +13,7 @@ type PostPropsType = {
 const Post: React.FC<PostPropsType> = (props) => {
   return (
     <div className={section}>
-      <img className={avatar} src={props.img}></img>
+      <img className={avatar} src={props.img} alt={''} />
       <div>
         <p className={text}>{props.title}</p>
         <span className={likesHand}>&#128077;</span>

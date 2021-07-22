@@ -11,3 +11,42 @@
   border-radius: 10px;
   padding: 15px;
 }
+
+.writeSend {
+  display: flex;
+  align-items: flex-end;
+}
+
+.textArea {
+  width: 80%;
+  min-height: 50px;
+  outline: none;
+  border: none;
+  background-color: #f0fff1;
+  border-radius: 10px;
+  resize: none;
+  padding: 5px;
+  margin: 0 5px 0 0;
+}
+
+.button {
+  width: 19%;
+  height: 30px;
+  outline: none;
+  border: 1px solid #f0fff1;
+  background-color: #9ff5a4;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: .4s all;
+  padding: 0;
+  margin: 0;
+}
+
+.button:hover {
+  border: 1px solid #70ef7a;
+  background-color: #bbf6bf;
+}
+
+.button:active {
+  background-color: #f68402;
+}

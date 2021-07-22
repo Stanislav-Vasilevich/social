@@ -4,12 +4,14 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from "react-router-dom";
-import {globalState} from "./redux/state";
+import {addMessage, globalState} from "./redux/state";
+
+addMessage('hey bro!!')
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App globalState={globalState}/>
+      <App globalState={globalState} />
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')

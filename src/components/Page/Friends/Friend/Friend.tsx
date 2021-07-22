@@ -5,7 +5,7 @@ import styles from "./Friend.module.css";
 const {main, friend, active} = styles;
 
 type PropsType = {
-  id: number
+  id: string
   name: string
   img: string
 }
