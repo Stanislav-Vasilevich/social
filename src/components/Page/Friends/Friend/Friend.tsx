@@ -4,12 +4,18 @@ import styles from "./Friend.module.css";
 
 const {main, friend, active} = styles;
 
-const Friend: React.FC<any> = ({globalState}) => {
+type PropsType = {
+  id: number
+  name: string
+  img: string
+}
+
+const Friend: React.FC<PropsType> = ({id, name, img}) => {
   return (
     <section className={main}>
-      <NavLink className={friend} activeClassName={active} to={`/friends/${globalState.friendsPage.friends.id}`}>
-        <img src={globalState.friendsPage.friends.img} alt={globalState.friendsPage.friends.name} />
-        <h2>{globalState.friendsPage.friends.name}</h2>
+      <NavLink className={friend} activeClassName={active} to={`/friends/${id}`}>
+        <img src={img} alt={name}/>
+        <h2>{name}</h2>
       </NavLink>
     </section>
   )

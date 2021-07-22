@@ -3,11 +3,15 @@ import styles from './App.module.css';
 import Header from "./components/Header/Header";
 import FaceSection from "./components/FaceSection/FaceSection";
 import Page from "./components/Page/Page";
-import {globalState} from "./redux/state";
+import {GlobalStateType} from "./redux/state";
 
 const {app, body, container} = styles;
 
-const App: React.FC<any> = () => {
+type PropsType = {
+  globalState: GlobalStateType
+}
+
+const App: React.FC<PropsType> = ({globalState}) => {
   return (
     <div className={app}>
       <Header/>

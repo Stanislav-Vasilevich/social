@@ -1,24 +1,24 @@
-export type friendDataType = {
+export type FriendDataType = {
   id: number
   name: string
   img: string
 }
 
-type dialogsDataType = {
+type DialogsDataType = {
   id: number
   message: string
 }
 
-type friendsPageType = {
-  friends: Array<friendDataType>
-  dialogs: Array<dialogsDataType>
+type FriendsPageType = {
+  friends: Array<FriendDataType>
+  dialogs: Array<DialogsDataType>
 }
 
-export type stateType = {
-  friendsPage: friendsPageType
+export type GlobalStateType = {
+  friendsPage: FriendsPageType
 }
 
-export const globalState: stateType = {
+export const globalState: GlobalStateType = {
   friendsPage: {
     friends: [
       {id: 1, name: 'Катя', img: 'https://avatarko.ru/img/kartinka/16/Joker_minion_15661.jpg'},

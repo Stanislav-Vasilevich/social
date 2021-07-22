@@ -3,10 +3,15 @@ import styles from "./Dialogs.module.css";
 
 const {main, item} = styles;
 
-const Dialogs: React.FC<any> = ({globalState}) => {
+type PropsType = {
+  id: number
+  message: string
+}
+
+const Dialogs: React.FC<PropsType> = ({id, message}) => {
   return (
     <section className={main}>
-      <div className={item}>{globalState.friendsPage.dialogs.message}</div>
+      <div className={item}>{message}</div>
     </section>
   )
 }
