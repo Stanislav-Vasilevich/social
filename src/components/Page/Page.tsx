@@ -14,16 +14,18 @@ const {main} = styles;
 
 type PropsType = {
   state: GlobalStateType
-  addMessage: (massage: string) => void
+  addMessage: () => void
+  changeDialogsMessage: (message: string) => void
+  addMessageByEnter: () => void
 }
 
-const Page: React.FC<PropsType> = ({ state, addMessage }) => {
+const Page: React.FC<PropsType> = ({ state, changeDialogsMessage, addMessage, addMessageByEnter }) => {
   return (
     <section className={main}>
       <Route path='/publications' component={Publications}/>
       <Route path='/information' component={Information}/>
       <Route path='/friends'>
-        <Friends globalState={state} addMessage={addMessage}/>
+        <Friends state={state} changeDialogsMessage={changeDialogsMessage} addMessage={addMessage} addMessageByEnter={addMessageByEnter}/>
       </Route>
       <Route path='/photo' component={Photo}/>
       <Route path='/stories' component={Stories}/>

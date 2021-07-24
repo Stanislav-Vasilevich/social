@@ -1,5 +1,5 @@
 import {v1} from "uuid";
-import {useState} from "react";
+import {rerender} from "../render";
 
 export type FriendDataType = {
   id: string
@@ -14,6 +14,7 @@ type DialogsDataType = {
 
 type FriendsPageType = {
   friends: Array<FriendDataType>
+  valueMessage: string
   dialogs: Array<DialogsDataType>
 }
 
@@ -28,22 +29,30 @@ export const state: GlobalStateType = {
       {id: v1(), name: 'Паша', img: 'https://klike.net/uploads/posts/2018-06/1528369868_15.jpg'},
       {id: v1(), name: 'Вова', img: 'https://pbs.twimg.com/media/Ce43PAzW4AA_g9g.jpg'}
     ],
+    valueMessage: 'Как твои дела бро?',
     dialogs: [
       {id: v1(), message: 'Hello! How are you?'},
       {id: v1(), message: 'Hey! I`m work, I`m find!'},
       {id: v1(), message: 'It`s good))'}
-    ]
+    ],
   }
 }
 
-// const [dialogs, setDialogs] = useState(globalState);
+export const changeDialogsMessage = (message: string) => {
+  state.friendsPage.valueMessage = message;
 
-export const addMessage = (massage: string) => {
-  const newMessage = {id: v1(), message: massage};
+  rerender(state);
+}
 
-  console.log(state.friendsPage.dialogs);
+export const addMessage = () => {
+  const newMessage = {id: v1(), message: state.friendsPage.valueMessage};
 
   state.friendsPage.dialogs.push(newMessage);
+  state.friendsPage.valueMessage = '';
 
-  render(state);
+  rerender(state);
+}
+
+export const addMessageByEnter = () => {
+  addMessage();
 }

@@ -1,18 +1,19 @@
-import React, {createRef} from "react";
+import React, {ChangeEvent, KeyboardEvent} from "react";
 import styles from "./Friends.module.css";
 import Friend from "./Friend/Friend";
 import Dialogs from "./Dialogs/Dialogs";
-import {GlobalStateType} from "../../../redux/state";
+import {addMessageByEnter, GlobalStateType} from "../../../redux/state";
 
 const {main, page, people, dialogsStyle, writeSend, textArea, button} = styles;
 
 type PropsType = {
   state: GlobalStateType
-  addMessage: (massage: string) => void
+  addMessage: () => void
+  changeDialogsMessage: (massage: string) => void
+  addMessageByEnter: () => void
 }
 
-const Friends: React.FC<PropsType> = ({state, addMessage}) => {
-  const textAreaRef = createRef<HTMLTextAreaElement>();
+const Friends: React.FC<PropsType> = ({state, changeDialogsMessage, addMessage, addMessageByEnter}) => {
 
   // массив друзей => друг
   const arrayFriends = state.friendsPage.friends.map(i => {
@@ -24,19 +25,21 @@ const Friends: React.FC<PropsType> = ({state, addMessage}) => {
     return <Dialogs key={i.id} id={i.id} message={i.message}/>
   });
 
-  // добавляем сообщение в диалог по кнопке
-  const addMessageHandler = () => {
-    // console.log(textAreaRef.current?.value);
-    if(textAreaRef.current) {
-      addMessage(textAreaRef.current?.value);
-    }
+  // обновляем значение change у textarea
+  const onChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    changeDialogsMessage(e.currentTarget.value);
   }
 
   // добавляем сообщение в диалог по нажатию Enter
-  const addMessageHandlerByEnter = () => {
-    if(textAreaRef.current) {
-      // addMessage(textAreaRef.current?.value);
+  const addMessageHandlerByEnter = (e: KeyboardEvent<HTMLTextAreaElement>) => {
+    if(e.key === 'Enter') {
+      addMessageByEnter();
     }
+  }
+
+  // добавляем сообщение в диалог по нажатию на кнопку
+  const addMessageHandler = () => {
+    addMessage();
   }
 
   return (
@@ -57,7 +60,7 @@ const Friends: React.FC<PropsType> = ({state, addMessage}) => {
 
           {/* написать и отправить сообщение */}
           <div className={writeSend}>
-            <textarea className={textArea} ref={textAreaRef} onKeyPress={addMessageHandlerByEnter}></textarea>
+            <textarea className={textArea} onChange={onChangeHandler} onKeyPress={addMessageHandlerByEnter} value={state.friendsPage.valueMessage}></textarea>
             <button className={button} onClick={addMessageHandler}>Отправить</button>
           </div>
         </div>
