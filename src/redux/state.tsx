@@ -1,5 +1,6 @@
 import {v1} from "uuid";
-import {rerender} from "../render";
+
+let rerender: any;
 
 export type FriendDataType = {
   id: string
@@ -41,7 +42,7 @@ export const state: GlobalStateType = {
 export const changeDialogsMessage = (message: string) => {
   state.friendsPage.valueMessage = message;
 
-  rerender(state);
+  rerender();
 }
 
 export const addMessage = () => {
@@ -50,9 +51,13 @@ export const addMessage = () => {
   state.friendsPage.dialogs.push(newMessage);
   state.friendsPage.valueMessage = '';
 
-  rerender(state);
+  rerender();
 }
 
 export const addMessageByEnter = () => {
   addMessage();
+}
+
+export const subscriber = (observer: any) => {
+  rerender = observer;
 }
