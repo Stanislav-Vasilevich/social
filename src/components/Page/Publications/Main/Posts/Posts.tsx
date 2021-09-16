@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import styles from "./Posts.module.css";
 import Post from "./Post/Post";
 
@@ -12,12 +12,12 @@ function Posts() {
     likesCount: number
   }
 
-  const posts: Array<postDataType> = [
+  const [posts, setPosts] = useState<Array<postDataType>>([
     {
       id: 1,
-      title: "Аффирмация на каждый день и далее пошел целый сплошной текст, который приводит к каким-то посдедствиям и заставляет нас применить свои усилия, чтобы понять, что тут вобще написано",
+      title: "Аффирмация на каждый день и далее пошел целый сплошной текст, который приводит к каким-то последствиям и заставляет нас применить свои усилия, чтобы понять, что тут вобще написано",
       img: "https://im0-tub-ru.yandex.net/i?id=70bde5566a6078f6bca01933fc2a412f&ref=rim&n=33&w=300&h=300",
-      likesCount: 4
+      likesCount: 6
     },
     {
       id: 2,
@@ -37,9 +37,30 @@ function Posts() {
       img: "https://yt3.ggpht.com/a/AATXAJzp71mv5MJ56d1-PrE7tL31GVRDbGP73QmS1Q=s900-c-k-c0xffffffff-no-rj-mo",
       likesCount: 2
     }
-  ]
+  ])
 
-  const arrayPosts = posts.map(i => <Post key={i.id} id={i.id} title={i.title} img={i.img} likesCount={i.likesCount}/>)
+  const changeLikesCount = (likesId: number) => {
+    const array = posts.map(p => {
+      if(p.id === likesId) {
+        console.log(p.likesCount + 1);
+        return p.likesCount + 1;
+      } else {
+        return p;
+      }
+    })
+    console.log(array);
+  }
+
+  const arrayPosts = posts.map(i => {
+    return <Post
+      key={i.id}
+      id={i.id}
+      title={i.title}
+      img={i.img}
+      likesCount={i.likesCount}
+      changeLikesCount={changeLikesCount}
+    />
+  })
 
   return (
     <div className={section}>
