@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from './App.module.css';
-import Header from "./components/Header/Header";
-import FaceSection from "./components/FaceSection/FaceSection";
-import Page from "./components/Page/Page";
-import {GlobalStateType} from "./redux/state";
+import Header from './components/Header/Header';
+import FaceSection from './components/FaceSection/FaceSection';
+import Page from './components/Page/Page';
+import {GlobalStateType} from './redux/state';
 
 const {app, body, container} = styles;
 
@@ -14,7 +14,7 @@ type PropsType = {
   addMessageByEnter: () => void
 }
 
-const App: React.FC<PropsType> = ({state, changeDialogsMessage,  addMessage, addMessageByEnter}) => {
+const App: React.FC<PropsType> = ({state, changeDialogsMessage, addMessage, addMessageByEnter}) => {
   return (
     <div className={app}>
       <Header/>
@@ -24,7 +24,8 @@ const App: React.FC<PropsType> = ({state, changeDialogsMessage,  addMessage, add
           <FaceSection/>
         </div>
         {/* главная страница */}
-        <Page state={state} changeDialogsMessage={changeDialogsMessage} addMessage={addMessage} addMessageByEnter={addMessageByEnter}/>
+        <Page state={state} changeDialogsMessage={changeDialogsMessage} addMessage={addMessage}
+              addMessageByEnter={addMessageByEnter}/>
       </div>
     </div>
   );

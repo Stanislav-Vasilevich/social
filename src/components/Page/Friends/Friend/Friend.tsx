@@ -1,6 +1,6 @@
-import React from "react";
-import {NavLink} from "react-router-dom";
-import styles from "./Friend.module.css";
+import React from 'react';
+import {NavLink} from 'react-router-dom';
+import styles from './Friend.module.css';
 
 const {main, friend, active} = styles;
 

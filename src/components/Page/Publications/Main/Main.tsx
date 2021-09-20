@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 import styles from './Main.module.css';
-import AddPost from "./AddPost/AddPost";
-import Posts from "./Posts/Posts";
+import AddPost from './AddPost/AddPost';
+import Posts from './Posts/Posts';
 
 // деструктуризация CSS
 const {main} = styles;
@@ -9,8 +9,8 @@ const {main} = styles;
 export function Main() {
   return (
     <section className={main}>
-      <AddPost />
-      <Posts />
+      <AddPost/>
+      <Posts/>
     </section>
   )
 }

@@ -1,5 +1,5 @@
-import React from "react";
-import styles from "./Else.module.css";
+import React from 'react';
+import styles from './Else.module.css';
 
 const {main} = styles;
 

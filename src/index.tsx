@@ -1,8 +1,8 @@
-import {state, changeDialogsMessage, addMessage, addMessageByEnter, subscriber, GlobalStateType} from "./redux/state";
-import ReactDOM from "react-dom";
-import React from "react";
-import {BrowserRouter} from "react-router-dom";
-import App from "./App";
+import {state, changeDialogsMessage, addMessage, addMessageByEnter, subscriber, GlobalStateType} from './redux/state';
+import ReactDOM from 'react-dom';
+import React from 'react';
+import {BrowserRouter} from 'react-router-dom';
+import App from './App';
 
 export const rerender = (state: GlobalStateType) => {
   ReactDOM.render(

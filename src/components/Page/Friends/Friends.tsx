@@ -1,8 +1,8 @@
-import React, {ChangeEvent, KeyboardEvent} from "react";
-import styles from "./Friends.module.css";
-import Friend from "./Friend/Friend";
-import Dialogs from "./Dialogs/Dialogs";
-import {addMessageByEnter, GlobalStateType} from "../../../redux/state";
+import React, {ChangeEvent, KeyboardEvent} from 'react';
+import styles from './Friends.module.css';
+import Friend from './Friend/Friend';
+import Dialogs from './Dialogs/Dialogs';
+import {addMessageByEnter, GlobalStateType} from '../../../redux/state';
 
 const {main, page, people, dialogsStyle, writeSend, textArea, button} = styles;
 
@@ -32,7 +32,7 @@ const Friends: React.FC<PropsType> = ({state, changeDialogsMessage, addMessage, 
 
   // добавляем сообщение в диалог по нажатию Enter
   const addMessageHandlerByEnter = (e: KeyboardEvent<HTMLTextAreaElement>) => {
-    if(e.key === 'Enter') {
+    if (e.key === 'Enter') {
       addMessageByEnter();
     }
   }
@@ -60,7 +60,8 @@ const Friends: React.FC<PropsType> = ({state, changeDialogsMessage, addMessage, 
 
           {/* написать и отправить сообщение */}
           <div className={writeSend}>
-            <textarea className={textArea} onChange={onChangeHandler} onKeyPress={addMessageHandlerByEnter} value={state.friendsPage.valueMessage}></textarea>
+            <textarea className={textArea} onChange={onChangeHandler} onKeyPress={addMessageHandlerByEnter}
+                      value={state.friendsPage.valueMessage}></textarea>
             <button className={button} onClick={addMessageHandler}>Отправить</button>
           </div>
         </div>
