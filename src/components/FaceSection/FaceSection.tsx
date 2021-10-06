@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './FaceSection.module.css'
 import Menu from '../Menu/Menu';
 
-// деструктуризация CSS
+// CSS
 const {face, background, image, profile, avatar} = styles;
 
 const FaceSection = () => {

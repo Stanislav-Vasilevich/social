@@ -6,17 +6,17 @@ import {NavLink} from 'react-router-dom';
 const Header = () => {
   return (
     <div className="header">
-      <div className="header__logo">
+      <div className="logo">
         <img src={logo} alt="logo"/>
       </div>
-      <div className="header__menu">
-        <NavLink to="/publications">Главная</NavLink>
-        <NavLink to="Friends">Друзья</NavLink>
-        <NavLink to="Watch">Watch</NavLink>
-        <NavLink to="#">Группы</NavLink>
-        <NavLink to="#">Игры</NavLink>
+      <div className="menu">
+        <NavLink className="item" activeClassName="active" to="/publications">Главная</NavLink>
+        <NavLink className="item" activeClassName="active" to="/friends">Друзья</NavLink>
+        <NavLink className="item" activeClassName="active" to="/watch">Watch</NavLink>
+        <NavLink className="item" activeClassName="active" to="/group">Группы</NavLink>
+        <NavLink className="item" activeClassName="active" to="/games">Игры</NavLink>
       </div>
-      <div className="header__user">Stanislav Vasilevich</div>
+      <div className="user">Станислав</div>
     </div>
   )
 }

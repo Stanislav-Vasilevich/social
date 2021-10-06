@@ -33,7 +33,7 @@ function Posts() {
     },
     {
       id: 4,
-      title: 'Поездка на Бали и далее пошел целый сплошной текст, который приводит к каким-то посдедствиям и заставляет нас применить свои усилия, чтобы понять, что тут вобще написано',
+      title: 'Поездка на Бали и далее пошел целый сплошной текст, который приводит к каким-то посдедствиям и заставляет нас применить свои усилия, чтобы понять, что тут вообще написано',
       img: 'https://yt3.ggpht.com/a/AATXAJzp71mv5MJ56d1-PrE7tL31GVRDbGP73QmS1Q=s900-c-k-c0xffffffff-no-rj-mo',
       likesCount: 2
     }
@@ -42,8 +42,9 @@ function Posts() {
   const changeLikesCount = (likesId: number) => {
     const array = posts.map(p => {
       if (p.id === likesId) {
-        console.log(p.likesCount + 1);
-        return p.likesCount + 1;
+        const count = p.likesCount + 1;
+        console.log(count);
+        return count;
       } else {
         return p;
       }
