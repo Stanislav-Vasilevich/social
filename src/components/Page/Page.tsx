@@ -1,38 +1,41 @@
 import React from 'react';
-import styles from './Page.module.css';
-import {Route} from 'react-router-dom';
-import Friends from './Friends/Friends';
-import Photo from './Photo/Photo';
-import Stories from './Stories/Stories';
-import Video from './Video/Video';
-import Else from './Else/Else';
-import Publications from './Publications/Publications';
-import Information from './Information/Information';
-import {GlobalStateType} from '../../redux/state';
+import styles from './Page.module.css'
+import Menu from '../Menu/Menu';
+import Navigation from '../Navigation/Navigation';
+import {addMessage, addMessageByEnter, changeDialogsMessage, state} from '../../redux/state';
 
-const {main} = styles;
+// CSS
+const {face, background, image, profile, avatar} = styles;
 
-type PropsType = {
-  state: GlobalStateType
-  addMessage: () => void
-  changeDialogsMessage: (message: string) => void
-  addMessageByEnter: () => void
-}
-
-const Page: React.FC<PropsType> = ({state, changeDialogsMessage, addMessage, addMessageByEnter}) => {
+const Page = () => {
   return (
-    <section className={main}>
-      <Route path="/publications" component={Publications}/>
-      <Route path="/information" component={Information}/>
-      <Route path="/friends">
-        <Friends state={state} changeDialogsMessage={changeDialogsMessage} addMessage={addMessage}
-                 addMessageByEnter={addMessageByEnter}/>
-      </Route>
-      <Route path="/photo" component={Photo}/>
-      <Route path="/stories" component={Stories}/>
-      <Route path="/video" component={Video}/>
-      <Route path="/else" component={Else}/>
-    </section>
+    <>
+      <div className={face}>
+        {/* фон первого блока */}
+        <div className={background}>
+          <img className={image}
+               src="https://news-day-top.ru/iimnws/aHR0cDovL2luYy1uZXdzLnJ1L2RhdGEvaW5jL3VwbG9hZC8yMDIxLTA0LzIxL2ltYWdlLTUxNTktMTYxODk3MzA3NC5qcGc="
+               alt="Сочи"/>
+        </div>
+
+        {/* профиль пользователя */}
+        <div className={profile}>
+          <img className={avatar}
+               src="https://s.starladder.com/uploads/user_logo/5/c/9/d/meta_tag_1039d807e6e9d7e403ecd6510eb61d83.jpg"
+               alt=""/>
+          <h2>Енот обормот</h2>
+        </div>
+
+        {/* навигация */}
+        <Menu/>
+
+        {/* главная страница */}
+        <Navigation state={state}
+                    changeDialogsMessage={changeDialogsMessage}
+                    addMessage={addMessage}
+                    addMessageByEnter={addMessageByEnter}/>
+      </div>
+    </>
   )
 }
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from './App.module.css';
 import Header from './components/Header/Header';
-import FaceSection from './components/FaceSection/FaceSection';
 import Page from './components/Page/Page';
+import Navigation from './components/Navigation/Navigation';
 import {GlobalStateType} from './redux/state';
 
 const {app, body, container} = styles;
@@ -21,11 +21,8 @@ const App: React.FC<PropsType> = ({state, changeDialogsMessage, addMessage, addM
       <div className={body}>
         {/* первый блок */}
         <div className={container}>
-          <FaceSection/>
+          <Page/>
         </div>
-        {/* главная страница */}
-        <Page state={state} changeDialogsMessage={changeDialogsMessage} addMessage={addMessage}
-              addMessageByEnter={addMessageByEnter}/>
       </div>
     </div>
   );
