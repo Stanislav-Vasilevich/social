@@ -2,9 +2,9 @@ import React, {ChangeEvent, KeyboardEvent} from 'react';
 import styles from './Friends.module.css';
 import Friend from './Friend/Friend';
 import Dialogs from './Dialogs/Dialogs';
-import {addMessageByEnter, GlobalStateType} from '../../../redux/state';
+import {GlobalStateType} from "../../../../redux/state";
 
-const {main, page, people, dialogsStyle, writeSend, textArea, button} = styles;
+const {page, dialogsStyle, writeSend, textArea, button} = styles;
 
 type PropsType = {
   state: GlobalStateType
@@ -43,14 +43,14 @@ const Friends: React.FC<PropsType> = ({state, changeDialogsMessage, addMessage, 
   }
 
   return (
-    <section className={main}>
+    <section>
       <h2>Друзья</h2>
 
       {/* блок с друзьями */}
       <div className={page}>
 
         {/* друзья */}
-        <div className={people}>
+        <div>
           {arrayFriends}
         </div>
 
@@ -60,7 +60,9 @@ const Friends: React.FC<PropsType> = ({state, changeDialogsMessage, addMessage, 
 
           {/* написать и отправить сообщение */}
           <div className={writeSend}>
-            <textarea className={textArea} onChange={onChangeHandler} onKeyPress={addMessageHandlerByEnter}
+            <textarea className={textArea}
+                      onChange={onChangeHandler}
+                      onKeyPress={addMessageHandlerByEnter}
                       value={state.friendsPage.valueMessage}></textarea>
             <button className={button} onClick={addMessageHandler}>Отправить</button>
           </div>

@@ -2,7 +2,6 @@ import React from 'react';
 import styles from './App.module.css';
 import Header from './components/Header/Header';
 import Page from './components/Page/Page';
-import Navigation from './components/Navigation/Navigation';
 import {GlobalStateType} from './redux/state';
 
 const {app, body, container} = styles;

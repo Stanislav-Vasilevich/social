@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from './Page.module.css'
 import Menu from '../Menu/Menu';
-import Navigation from '../Navigation/Navigation';
 import {addMessage, addMessageByEnter, changeDialogsMessage, state} from '../../redux/state';
+import Navigation from "./Navigation/Navigation";
 
 // CSS
 const {face, background, image, profile, avatar} = styles;
