@@ -2,19 +2,14 @@ import React from 'react';
 import './Header.css';
 import logo from '../../image/logo.png';
 import {NavLink} from 'react-router-dom';
-import Menu from '../Menu/Menu';
-
-export type menuItemsType = {
-  item: string
-  path: string
-}
+import Menu, {menuItemsType} from '../Menu/Menu';
 
 export const menuItems: Array<menuItemsType> = [
-  {item: 'Главная', path: '/publications'},
-  {item: 'Друзья', path: '/friends'},
-  {item: 'Watch', path: '/watch'},
-  {item: 'Группы', path: '/group'},
-  {item: 'Игры', path: '/games'}
+  {id: 1, item: 'Главная', path: '/publications'},
+  {id: 2, item: 'Друзья', path: '/friends'},
+  {id: 3, item: 'Watch', path: '/watch'},
+  {id: 4, item: 'Группы', path: '/group'},
+  {id: 5, item: 'Игры', path: '/games'}
 ];
 
 const Header = () => {
