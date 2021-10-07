@@ -27,7 +27,7 @@ const Page = () => {
         </div>
 
         {/* навигация */}
-        <Menu/>
+        {/*<Menu/>*/}
 
         {/* главная страница */}
         <Navigation state={state}
