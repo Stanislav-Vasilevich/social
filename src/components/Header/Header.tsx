@@ -1,10 +1,11 @@
 import React from 'react';
 import './Header.css';
 import logo from '../../image/logo.png';
-import Menu, {menuItemsType} from "../Menu/Menu";
+import Menu from "../Menu/Menu";
+import {menuDataType} from "../../index";
 
 type PropsType = {
-  menuItems: Array<menuItemsType>
+  menuData: menuDataType
 }
 
 const Header = (props: PropsType) => {
@@ -13,14 +14,7 @@ const Header = (props: PropsType) => {
       <div className="logo">
         <img src={logo} alt="logo"/>
       </div>
-      <Menu menuItems={props.menuItems}/>
-      {/*<nav className="menu">*/}
-      {/*  <NavLink className="item" activeClassName="active" to="/publications">Главная</NavLink>*/}
-      {/*  <NavLink className="item" activeClassName="active" to="/friends">Друзья</NavLink>*/}
-      {/*  <NavLink className="item" activeClassName="active" to="/watch">Watch</NavLink>*/}
-      {/*  <NavLink className="item" activeClassName="active" to="/group">Группы</NavLink>*/}
-      {/*  <NavLink className="item" activeClassName="active" to="/games">Игры</NavLink>*/}
-      {/*</nav>*/}
+      <Menu menuData={props.menuData}/>
       <div className="user">Станислав</div>
     </div>
   )
