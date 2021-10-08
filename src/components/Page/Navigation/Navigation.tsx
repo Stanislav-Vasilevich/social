@@ -9,7 +9,6 @@ import Else from './Else/Else';
 import Publications from './Publications/Publications';
 import Information from './Information/Information';
 import {GlobalStateType} from '../../../redux/state';
-import {menuItemsType} from "../../Menu/Menu";
 
 const {main} = styles;
 

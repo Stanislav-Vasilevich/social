@@ -2,19 +2,20 @@ import React from 'react';
 import './Header.css';
 import logo from '../../image/logo.png';
 import Menu from "../Menu/Menu";
-import {menuDataType} from "../../index";
+import {menuType} from "../../index";
 
 type PropsType = {
-  menuData: menuDataType
+  menuData: menuType
 }
 
 const Header = (props: PropsType) => {
+  const header = props.menuData.header;
   return (
     <div className="header">
       <div className="logo">
         <img src={logo} alt="logo"/>
       </div>
-      <Menu menuData={props.menuData}/>
+      <Menu menuItems={header}/>
       <div className="user">Станислав</div>
     </div>
   )

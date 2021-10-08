@@ -3,14 +3,19 @@ import ReactDOM from 'react-dom';
 import React from 'react';
 import {BrowserRouter} from 'react-router-dom';
 import App from './App';
-import {menuItemsType} from "./components/Menu/Menu";
 
-export type menuDataType = {
+export type menuItemsType = {
+  id: number
+  item: string
+  path: string
+}
+
+export type menuType = {
   header: Array<menuItemsType>
   page: Array<menuItemsType>
 }
 
-const menuData: menuDataType = {
+const menuData: menuType = {
   header: [
     {id: 1, item: 'Главная', path: '/publications'},
     {id: 2, item: 'Друзья', path: '/friends'},

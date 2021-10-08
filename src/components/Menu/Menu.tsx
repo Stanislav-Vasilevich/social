@@ -1,31 +1,23 @@
 import React from 'react';
 import styles from './Menu.module.css';
-import {NavLink} from 'react-router-dom';
-import {menuDataType} from "../../index";
+import {NavLink} from "react-router-dom";
+import {menuItemsType} from "../../index";
 
 // CSS
-const {menu, item, active} = styles;
-
-export type menuItemsType = {
-  id: number
-  item: string
-  path: string
-}
+const {menu} = styles;
 
 type PropsType = {
-  menuData: menuDataType
+  menuItems: Array<menuItemsType>
 }
 
 const Menu = (props: PropsType) => {
-  // const itemMenu = props.menuItems.map(i => {
-  //   return <NavLink key={i.id} className={item} activeClassName={active} to={i.path}>{i.item}</NavLink>
-  // });
-
-  console.log(props)
+  const itemMenu = props.menuItems.map(i => {
+    return <NavLink key={i.id} className={styles.item} activeClassName={styles.active} to={i.path}>{i.item}</NavLink>
+  });
 
   return (
     <nav className={menu}>
-      {/*{itemMenu}*/}
+      {itemMenu}
     </nav>
   );
 }
