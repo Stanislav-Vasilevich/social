@@ -19,11 +19,28 @@ type FriendsPageType = {
   dialogs: Array<DialogsDataType>
 }
 
-export type GlobalStateType = {
-  friendsPage: FriendsPageType
+export type MenuItemsType = {
+  id: number
+  item: string
+  path: string
 }
 
-export const state: GlobalStateType = {
+type MenuType = {
+  header: Array<MenuItemsType>
+  page: Array<MenuItemsType>
+}
+
+type HeaderType = {}
+type PageType = {}
+
+export type StateType = {
+  friendsPage: FriendsPageType
+  menu: MenuType
+  header: HeaderType
+  page: PageType
+}
+
+export const state: StateType = {
   friendsPage: {
     friends: [
       {id: v1(), name: 'Катя', img: 'https://avatarko.ru/img/kartinka/16/Joker_minion_15661.jpg'},
@@ -36,7 +53,27 @@ export const state: GlobalStateType = {
       {id: v1(), message: 'Hey! I`m work, I`m find!'},
       {id: v1(), message: 'It`s good))'}
     ],
-  }
+  },
+  menu: {
+    header: [
+      {id: 1, item: 'Главная', path: '/publications'},
+      {id: 2, item: 'Друзья', path: '/friends'},
+      {id: 3, item: 'Watch', path: '/watch'},
+      {id: 4, item: 'Группы', path: '/group'},
+      {id: 5, item: 'Игры', path: '/games'}
+    ],
+    page: [
+      {id: 1, item: 'Публикации', path: '/publications'},
+      {id: 2, item: 'Информация', path: '/information'},
+      {id: 3, item: 'Друзья', path: '/friends'},
+      {id: 4, item: 'Фото', path: '/photo'},
+      {id: 5, item: 'Архив историй', path: '/stories'},
+      {id: 6, item: 'Видео', path: '/video'},
+      {id: 7, item: 'Еще', path: '/else'}
+    ]
+  },
+  header: {},
+  page: {},
 }
 
 export const changeDialogsMessage = (message: string) => {

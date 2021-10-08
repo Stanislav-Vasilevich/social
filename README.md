@@ -16,3 +16,10 @@
 1. запустить проект:
 
     `yarn start`
+
+## Структура **state**
+- state
+    - menu
+    - header
+    - page
+    

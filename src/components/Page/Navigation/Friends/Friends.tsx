@@ -2,12 +2,12 @@ import React, {ChangeEvent, KeyboardEvent} from 'react';
 import styles from './Friends.module.css';
 import Friend from './Friend/Friend';
 import Dialogs from './Dialogs/Dialogs';
-import {GlobalStateType} from "../../../../redux/state";
+import {StateType} from "../../../../redux/state";
 
 const {page, dialogsStyle, writeSend, textArea, button} = styles;
 
 type PropsType = {
-  state: GlobalStateType
+  state: StateType
   addMessage: () => void
   changeDialogsMessage: (massage: string) => void
   addMessageByEnter: () => void

@@ -2,14 +2,14 @@ import React from 'react';
 import './Header.css';
 import logo from '../../image/logo.png';
 import Menu from "../Menu/Menu";
-import {menuType} from "../../index";
+import {StateType} from '../../redux/state';
 
 type PropsType = {
-  menuData: menuType
+  state: StateType
 }
 
 const Header = (props: PropsType) => {
-  const header = props.menuData.header;
+  const header = props.state.menu.header;
   return (
     <div className="header">
       <div className="logo">

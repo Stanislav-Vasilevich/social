@@ -37,7 +37,7 @@ function Posts() {
       img: 'https://yt3.ggpht.com/a/AATXAJzp71mv5MJ56d1-PrE7tL31GVRDbGP73QmS1Q=s900-c-k-c0xffffffff-no-rj-mo',
       likesCount: 2
     }
-  ])
+  ]);
 
   const changeLikesCount = (likesId: number) => {
     const array = posts.map(p => {

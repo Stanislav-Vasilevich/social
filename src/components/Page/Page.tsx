@@ -1,19 +1,18 @@
 import React from 'react';
 import styles from './Page.module.css'
-import {addMessage, addMessageByEnter, changeDialogsMessage, state} from '../../redux/state';
+import {addMessage, addMessageByEnter, changeDialogsMessage, state, StateType} from '../../redux/state';
 import Navigation from "./Navigation/Navigation";
 import Menu from "../Menu/Menu";
-import {menuType} from "../../index";
 
 // CSS
 const {face, background, image, profile, avatar} = styles;
 
 type PropsType = {
-  menuData: menuType
+  state: StateType
 }
 
 const Page = (props: PropsType) => {
-  const page = props.menuData.page;
+  const page = props.state.menu.page;
 
   return (
     <>
