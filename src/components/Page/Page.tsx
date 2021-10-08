@@ -1,13 +1,17 @@
 import React from 'react';
 import styles from './Page.module.css'
-import Menu from '../Menu/Menu';
 import {addMessage, addMessageByEnter, changeDialogsMessage, state} from '../../redux/state';
 import Navigation from "./Navigation/Navigation";
+import Menu, {menuItemsType} from "../Menu/Menu";
 
 // CSS
 const {face, background, image, profile, avatar} = styles;
 
-const Page = () => {
+type PropsType = {
+  menuItems: Array<menuItemsType>
+}
+
+const Page = (props: PropsType) => {
   return (
     <>
       <div className={face}>
@@ -27,7 +31,7 @@ const Page = () => {
         </div>
 
         {/* навигация */}
-        {/*<Menu/>*/}
+        <Menu menuItems={props.menuItems}/>
 
         {/* главная страница */}
         <Navigation state={state}

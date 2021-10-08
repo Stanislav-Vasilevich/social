@@ -6,7 +6,7 @@ import {NavLink} from 'react-router-dom';
 const {menu, item, active} = styles;
 
 type PropsType = {
-  items: Array<menuItemsType>
+  menuItems: Array<menuItemsType>
 }
 
 export type menuItemsType = {
@@ -17,7 +17,7 @@ export type menuItemsType = {
 
 const Menu = (props: PropsType) => {
 
-  const itemMenu = props.items.map(i => {
+  const itemMenu = props.menuItems.map(i => {
     return <NavLink key={i.id} className={item} activeClassName={active} to={i.path}>{i.item}</NavLink>
   });
 

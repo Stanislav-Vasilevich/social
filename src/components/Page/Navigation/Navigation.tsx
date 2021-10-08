@@ -9,7 +9,7 @@ import Else from './Else/Else';
 import Publications from './Publications/Publications';
 import Information from './Information/Information';
 import {GlobalStateType} from '../../../redux/state';
-import Menu, {menuItemsType} from "../../Menu/Menu";
+import {menuItemsType} from "../../Menu/Menu";
 
 const {main} = styles;
 
@@ -33,7 +33,7 @@ export const menuItems: Array<menuItemsType> = [
 const Navigation: React.FC<PropsType> = ({state, changeDialogsMessage, addMessage, addMessageByEnter}) => {
   return (
     <section className={main}>
-      <Menu items={menuItems}/>
+      {/*<Menu items={menuItems}/>*/}
       <Route path="/publications" component={Publications}/>
       <Route path="/information" component={Information}/>
       <Route path="/friends">
