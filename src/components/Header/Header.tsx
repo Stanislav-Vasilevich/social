@@ -1,5 +1,5 @@
 import React from 'react';
-import './Header.css';
+import s from './Header.module.css';
 import logo from '../../image/logo.png';
 import Menu from "../Menu/Menu";
 import {StateType} from '../../redux/state';
@@ -11,8 +11,8 @@ type PropsType = {
 const Header = (props: PropsType) => {
   const header = props.state.menu.header;
   return (
-    <div className="header">
-      <div className="logo">
+    <div className={s.header}>
+      <div className={s.logo}>
         <img src={logo} alt="logo"/>
       </div>
       <Menu menuItems={header}/>
