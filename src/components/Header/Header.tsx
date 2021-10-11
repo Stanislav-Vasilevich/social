@@ -9,6 +9,7 @@ type PropsType = {
 }
 
 const Header = (props: PropsType) => {
+  console.log(props)
   const header = props.state.menu.header;
   return (
     <div className={s.header}>
