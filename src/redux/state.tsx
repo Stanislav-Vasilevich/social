@@ -81,12 +81,6 @@ const store: StoreType = {
     header: {},
     page: {},
   },
-  changeDialogsMessage(message: string) {
-
-  },
-  addMessage() {
-
-  },
   addMessageByEnter() {
     this.addMessage();
   },

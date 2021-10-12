@@ -7,19 +7,18 @@ import {StoreType} from "./redux/state";
 const {app, body, container} = styles;
 
 type PropsType = {
-  store: StoreType
+  state: () => void
 }
 
-const App: React.FC<PropsType> = (props: PropsType) => {
-  const state = props.store.getState();
-
+const App: React.FC<PropsType> = (props) => {
   return (
     <div className={app}>
-      <Header state={state}/>
+      {/* шапка сайта */}
+      <Header state={props.state}/>
       <div className={body}>
-        {/* первый блок */}
         <div className={container}>
-          <Page state={state}/>
+          {/* страница */}
+          <Page state={props.state}/>
         </div>
       </div>
     </div>

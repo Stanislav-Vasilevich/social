@@ -5,7 +5,7 @@ import Menu from "../Menu/Menu";
 import {StateType} from '../../redux/state';
 
 type PropsType = {
-  state: StateType
+  state: () => void
 }
 
 const Header = (props: PropsType) => {
