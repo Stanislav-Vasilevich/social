@@ -8,32 +8,29 @@ const {page, dialogsStyle, writeSend, textArea, button} = styles;
 
 type PropsType = {
   state: StateType
-  addMessage: () => void
-  changeDialogsMessage: (massage: string) => void
-  addMessageByEnter: () => void
 }
 
-const Friends: React.FC<PropsType> = ({state, changeDialogsMessage, addMessage, addMessageByEnter}) => {
+const Friends: React.FC<PropsType> = (props: PropsType) => {
 
   // массив друзей => друг
-  const arrayFriends = state.friendsPage.friends.map(i => {
+  const arrayFriends = props.state.friendsPage.friends.map(i => {
     return <Friend key={i.id} id={i.id} name={i.name} img={i.img}/>
   });
 
   // массив диалогов => диалог
-  const arrayDialogs = state.friendsPage.dialogs.map(i => {
+  const arrayDialogs = props.state.friendsPage.dialogs.map(i => {
     return <Dialogs key={i.id} id={i.id} message={i.message}/>
   });
 
   // обновляем значение change у textarea
   const onChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
-    changeDialogsMessage(e.currentTarget.value);
+    props.changeDialogsMessage(e.currentTarget.value);
   }
 
   // добавляем сообщение в диалог по нажатию Enter
   const addMessageHandlerByEnter = (e: KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === 'Enter') {
-      addMessageByEnter();
+      props.addMessageByEnter();
     }
   }
 

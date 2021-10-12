@@ -2,25 +2,17 @@ import React from 'react';
 import styles from './App.module.css';
 import Header from './components/Header/Header';
 import Page from './components/Page/Page';
-import {StateType} from './redux/state';
+import {StoreType} from "./redux/state";
 
 const {app, body, container} = styles;
 
 type PropsType = {
-  state: StateType
-  addMessage: () => void
-  changeDialogsMessage: (massage: string) => void
-  addMessageByEnter: () => void
+  store: StoreType
 }
 
-const App: React.FC<PropsType> = (
-  {
-    state,
-    changeDialogsMessage,
-    addMessage,
-    addMessageByEnter,
-  }
-) => {
+const App: React.FC<PropsType> = (props: PropsType) => {
+  const state = props.store.getState();
+
   return (
     <div className={app}>
       <Header state={state}/>

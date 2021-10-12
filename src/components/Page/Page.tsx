@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Page.module.css'
-import {addMessage, addMessageByEnter, changeDialogsMessage, state, StateType} from '../../redux/state';
+import {StateType} from '../../redux/state';
 import Navigation from "./Navigation/Navigation";
 import Menu from "../Menu/Menu";
 
@@ -36,10 +36,7 @@ const Page = (props: PropsType) => {
         <Menu menuItems={page}/>
 
         {/* главная страница */}
-        <Navigation state={state}
-                    changeDialogsMessage={changeDialogsMessage}
-                    addMessage={addMessage}
-                    addMessageByEnter={addMessageByEnter}/>
+        <Navigation state={props.state}/>
       </div>
     </>
   )

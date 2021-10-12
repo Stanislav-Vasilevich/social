@@ -14,20 +14,17 @@ const {main} = styles;
 
 type PropsType = {
   state: StateType
-  addMessage: () => void
-  changeDialogsMessage: (message: string) => void
-  addMessageByEnter: () => void
 }
 
-const Navigation: React.FC<PropsType> = ({state, changeDialogsMessage, addMessage, addMessageByEnter}) => {
+const Navigation: React.FC<PropsType> = (props: PropsType) => {
   return (
     <section className={main}>
       <Route path="/publications" component={Publications}/>
       <Route path="/information" component={Information}/>
       <Route path="/friends">
-        <Friends state={state}
-                 changeDialogsMessage={changeDialogsMessage}
-                 addMessage={addMessage}
+        <Friends state={props.state}
+                 changeDialogsMessage={props.changeDialogsMessage}
+                 addMessage={props.addMessage}
                  addMessageByEnter={addMessageByEnter}/>
       </Route>
       <Route path="/photo" component={Photo}/>
