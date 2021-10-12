@@ -33,17 +33,21 @@ export type StateType = {
 }
 export type StoreType = {
   _state: StateType
-  changeDialogsMessage: (message: string) => void
-  addMessage: () => void
   addMessageByEnter: () => void
   rerender: () => void
   subscriber: (callback: () => void) => void
   getState: () => void
-  dispatch: (action: any) => void
+  dispatch: (action: ActionType) => void
 }
 type ActionAddMessageType = {
   type: "ADD-MESSAGE"
 }
+type ChangeDialogMessageType = {
+  type: "CHANGE-DIALOG-MESSAGE"
+  message: string
+}
+
+export type ActionType = ActionAddMessageType | ChangeDialogMessageType;
 
 const store: StoreType = {
   _state: {
@@ -82,7 +86,7 @@ const store: StoreType = {
     page: {},
   },
   addMessageByEnter() {
-    this.addMessage();
+    // this.addMessage();
   },
   rerender() {
     console.log('обновил state');
