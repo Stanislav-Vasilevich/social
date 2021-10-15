@@ -33,11 +33,12 @@ export type StateType = {
 }
 export type StoreType = {
   _state: StateType
+  addMessage: () => void
   addMessageByEnter: () => void
+  changeDialogsMessage: (message: string) => void
   rerender: () => void
   subscriber: (callback: () => void) => void
   getState: () => void
-  dispatch: (action: ActionType) => void
 }
 type ActionAddMessageType = {
   type: "ADD-MESSAGE"
@@ -85,8 +86,24 @@ const store: StoreType = {
     header: {},
     page: {},
   },
+  addMessage() {
+    const newMessage: DialogsDataType = {
+      id: v1(),
+      message: this._state.friendsPage.valueMessage
+    };
+
+    this._state.friendsPage.dialogs.push(newMessage);
+    this._state.friendsPage.valueMessage = '';
+
+    this.rerender();
+  },
   addMessageByEnter() {
-    // this.addMessage();
+    this.addMessage();
+  },
+  changeDialogsMessage(message) {
+    this._state.friendsPage.valueMessage = message;
+
+    this.rerender();
   },
   rerender() {
     console.log('обновил state');
@@ -97,24 +114,6 @@ const store: StoreType = {
   getState() {
     return this._state;
   },
-  dispatch(action) {
-    if(action.type === "ADD-MESSAGE") {
-      const newMessage: DialogsDataType = {
-        id: v1(),
-        message: this._state.friendsPage.valueMessage
-      };
-
-      this._state.friendsPage.dialogs.push(newMessage);
-      this._state.friendsPage.valueMessage = '';
-
-      this.rerender();
-    }
-    else if(action.type === "CHANGE-DIALOG-MESSAGE") {
-      this._state.friendsPage.valueMessage = action.message;
-
-      this.rerender();
-    }
-  }
 }
 
 export default store;

@@ -8,7 +8,7 @@ import Menu from "../Menu/Menu";
 const {face, background, image, profile, avatar} = styles;
 
 type PropsType = {
-  state: () => void
+  state: StateType
 }
 
 const Page = (props: PropsType) => {

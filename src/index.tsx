@@ -5,16 +5,18 @@ import App from './App';
 import store from './redux/state';
 
 export const rerender = () => {
+  const state = store.getState();
+
   ReactDOM.render(
     <React.StrictMode>
       <BrowserRouter>
-        <App state={store.getState()} dispatch={store.dispatch.bind(store)}/>
+        <App state={state}/>
       </BrowserRouter>
     </React.StrictMode>,
     document.getElementById('root')
   );
 }
 
-rerender();
+store.rerender();
 
 store.subscriber(rerender);
