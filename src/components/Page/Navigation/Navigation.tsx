@@ -23,9 +23,9 @@ const Navigation: React.FC<PropsType> = (props: PropsType) => {
       <Route path="/information" component={Information}/>
       <Route path="/friends">
         <Friends state={props.store.getState()}
-                 changeDialogsMessage={props.store.changeDialogsMessage}
-                 addMessage={props.store.addMessage}
-                 addMessageByEnter={props.store.addMessageByEnter}/>
+                 changeDialogsMessage={props.store.changeDialogsMessage.bind(props.store)}
+                 addMessage={props.store.addMessage.bind(props.store)}
+                 addMessageByEnter={props.store.addMessageByEnter.bind(props.store)}/>
       </Route>
       <Route path="/photo" component={Photo}/>
       <Route path="/stories" component={Stories}/>
