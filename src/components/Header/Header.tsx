@@ -9,15 +9,12 @@ type PropsType = {
 }
 
 const Header = (props: PropsType) => {
-  const state = props.store.getState();
-  const menuItemsHeader = state;
-
   return (
     <div className={s.header}>
       <div className={s.logo}>
         <img src={logo} alt="logo"/>
       </div>
-      <Menu menuItems={menuItemsHeader}/>
+      <Menu state={props.store.getState()}/>
       <div className="user">Станислав</div>
     </div>
   )

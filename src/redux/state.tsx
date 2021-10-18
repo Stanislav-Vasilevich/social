@@ -38,17 +38,8 @@ export type StoreType = {
   changeDialogsMessage: (message: string) => void
   rerender: () => void
   subscriber: (callback: () => void) => void
-  getState: () => void
+  getState: () => StateType
 }
-type ActionAddMessageType = {
-  type: "ADD-MESSAGE"
-}
-type ChangeDialogMessageType = {
-  type: "CHANGE-DIALOG-MESSAGE"
-  message: string
-}
-
-export type ActionType = ActionAddMessageType | ChangeDialogMessageType;
 
 const store: StoreType = {
   _state: {

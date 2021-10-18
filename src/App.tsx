@@ -1,24 +1,24 @@
 import React from 'react';
 import styles from './App.module.css';
 import Header from './components/Header/Header';
-import Page from './components/Page/Page';
 import {StoreType} from "./redux/state";
+import Page from "./components/Page/Page";
 
-const {app, body, container} = styles;
+const {app, page, container} = styles;
 
 type PropsType = {
   store: StoreType
 }
 
-const App: React.FC<PropsType> = (props) => {
+const App = (props: PropsType) => {
   return (
     <div className={app}>
       {/* шапка сайта */}
       <Header store={props.store}/>
-      <div className={body}>
+      <div className={page}>
         <div className={container}>
           {/* страница */}
-          <Page store={props.store}/>
+          <Page store={props.store} />
         </div>
       </div>
     </div>

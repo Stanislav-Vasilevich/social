@@ -1,8 +1,9 @@
 import React from 'react';
 import styles from './Page.module.css'
-import {StateType, StoreType} from '../../redux/state';
+import {StoreType} from '../../redux/state';
 import Navigation from "./Navigation/Navigation";
 import Menu from "../Menu/Menu";
+import sochi from './../../image/Sochi.jpeg'
 
 // CSS
 const {face, background, image, profile, avatar} = styles;
@@ -12,16 +13,13 @@ type PropsType = {
 }
 
 const Page = (props: PropsType) => {
-  const state = props.store.getState();
-  const menuItemsHeader = state;
-
   return (
     <>
       <div className={face}>
         {/* фон первого блока */}
         <div className={background}>
           <img className={image}
-               src="https://news-day-top.ru/iimnws/aHR0cDovL2luYy1uZXdzLnJ1L2RhdGEvaW5jL3VwbG9hZC8yMDIxLTA0LzIxL2ltYWdlLTUxNTktMTYxODk3MzA3NC5qcGc="
+               src={sochi}
                alt="Сочи"/>
         </div>
 
@@ -34,10 +32,10 @@ const Page = (props: PropsType) => {
         </div>
 
         {/* навигация */}
-        <Menu menuItems={page}/>
+        <Menu state={props.store.getState()}/>
 
         {/* главная страница */}
-        <Navigation state={props.state}/>
+        <Navigation store={props.store}/>
       </div>
     </>
   )

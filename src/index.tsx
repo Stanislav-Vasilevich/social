@@ -15,6 +15,5 @@ export const rerender = () => {
   );
 }
 
-store.rerender();
-
 store.subscriber(rerender);
+store.rerender();

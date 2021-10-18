@@ -8,6 +8,9 @@ const {page, dialogsStyle, writeSend, textArea, button} = styles;
 
 type PropsType = {
   state: StateType
+  changeDialogsMessage: (message: string) => void
+  addMessage: () => void
+  addMessageByEnter: () => void
 }
 
 const Friends: React.FC<PropsType> = (props: PropsType) => {
@@ -36,7 +39,7 @@ const Friends: React.FC<PropsType> = (props: PropsType) => {
 
   // добавляем сообщение в диалог по нажатию на кнопку
   const addMessageHandler = () => {
-    addMessage();
+    props.addMessage();
   }
 
   return (
@@ -60,7 +63,8 @@ const Friends: React.FC<PropsType> = (props: PropsType) => {
             <textarea className={textArea}
                       onChange={onChangeHandler}
                       onKeyPress={addMessageHandlerByEnter}
-                      value={state.friendsPage.valueMessage}></textarea>
+                      value={props.state.friendsPage.valueMessage}>
+            </textarea>
             <button className={button} onClick={addMessageHandler}>Отправить</button>
           </div>
         </div>
