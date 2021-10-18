@@ -1,17 +1,17 @@
 import React from 'react';
 import styles from './Menu.module.css';
 import {NavLink} from "react-router-dom";
-import {StateType} from "../../redux/state";
+import {MenuItemsType} from "../../redux/state";
 
 // CSS
 const {menu} = styles;
 
 type PropsType = {
-  state: StateType
+  menuItems: Array<MenuItemsType>
 }
 
 const Menu = (props: PropsType) => {
-  const menuItem = props.state.menu.header.map(i => {
+  const menuItem = props.menuItems.map(i => {
     return (
       <NavLink
       key={i.id}

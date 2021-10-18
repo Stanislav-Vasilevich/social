@@ -19,7 +19,7 @@ export type MenuItemsType = {
   item: string
   path: string
 }
-type MenuType = {
+export type MenuType = {
   header: Array<MenuItemsType>
   page: Array<MenuItemsType>
 }
