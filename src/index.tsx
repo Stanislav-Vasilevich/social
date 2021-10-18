@@ -5,12 +5,10 @@ import App from './App';
 import store from './redux/state';
 
 export const rerender = () => {
-  const state = store.getState();
-
   ReactDOM.render(
     <React.StrictMode>
       <BrowserRouter>
-        <App state={state}/>
+        <App store={store}/>
       </BrowserRouter>
     </React.StrictMode>,
     document.getElementById('root')

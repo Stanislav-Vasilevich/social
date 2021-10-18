@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Page.module.css'
-import {StateType} from '../../redux/state';
+import {StateType, StoreType} from '../../redux/state';
 import Navigation from "./Navigation/Navigation";
 import Menu from "../Menu/Menu";
 
@@ -8,11 +8,12 @@ import Menu from "../Menu/Menu";
 const {face, background, image, profile, avatar} = styles;
 
 type PropsType = {
-  state: StateType
+  store: StoreType
 }
 
 const Page = (props: PropsType) => {
-  const page = props.state.menu.page;
+  const state = props.store.getState();
+  const menuItemsHeader = state;
 
   return (
     <>

@@ -1,13 +1,12 @@
 import React from 'react';
 import styles from './Menu.module.css';
 import {NavLink} from "react-router-dom";
-import {MenuItemsType} from '../../redux/state';
 
 // CSS
 const {menu} = styles;
 
 type PropsType = {
-  menuItems: Array<MenuItemsType>
+  menuItems: void
 }
 
 const Menu = (props: PropsType) => {

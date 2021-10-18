@@ -2,20 +2,22 @@ import React from 'react';
 import s from './Header.module.css';
 import logo from '../../image/logo.png';
 import Menu from "../Menu/Menu";
-import {StateType} from "../../redux/state";
+import {StoreType} from "../../redux/state";
 
 type PropsType = {
-  state: StateType
+  store: StoreType
 }
 
 const Header = (props: PropsType) => {
-  const header = props.state.menu
+  const state = props.store.getState();
+  const menuItemsHeader = state;
+
   return (
     <div className={s.header}>
       <div className={s.logo}>
         <img src={logo} alt="logo"/>
       </div>
-      <Menu menuItems={header}/>
+      <Menu menuItems={menuItemsHeader}/>
       <div className="user">Станислав</div>
     </div>
   )
