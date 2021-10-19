@@ -39,7 +39,6 @@ const Friends: React.FC<PropsType> = (props: PropsType) => {
 
   // добавляем сообщение в диалог по нажатию на кнопку
   const addMessageHandler = () => {
-    console.log('addMessage');
     props.addMessage();
   }
 
