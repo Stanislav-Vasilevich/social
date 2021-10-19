@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Menu.module.css';
 import {NavLink} from "react-router-dom";
-import {MenuItemsType} from "../../redux/state";
+import {MenuItemsType} from "../../redux/store";
 
 // CSS
 const {menu} = styles;

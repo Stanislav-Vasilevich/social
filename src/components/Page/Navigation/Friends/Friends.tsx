@@ -2,13 +2,13 @@ import React, {ChangeEvent, KeyboardEvent} from 'react';
 import styles from './Friends.module.css';
 import Friend from './Friend/Friend';
 import Dialogs from './Dialogs/Dialogs';
-import {StateType} from '../../../../redux/state';
+import {ActionsType, addMessageAC, addMessageByEnterAC, changeTextAC, StateType} from '../../../../redux/store';
 
 const {page, dialogsStyle, writeSend, textArea, button} = styles;
 
 type PropsType = {
   state: StateType
-  dispatch: (action: any) => void
+  dispatch: (action: ActionsType) => void
 }
 
 const Friends: React.FC<PropsType> = (props: PropsType) => {
@@ -25,19 +25,19 @@ const Friends: React.FC<PropsType> = (props: PropsType) => {
 
   // обновляем значение change у textarea
   const onChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
-    props.dispatch({type: 'CHANGE-DIALOGS-MESSAGE', message: e.currentTarget.value})
+    props.dispatch(changeTextAC(e.currentTarget.value));
+  }
+
+  // добавляем сообщение в диалог по нажатию на кнопку
+  const addMessageHandler = () => {
+    props.dispatch(addMessageAC());
   }
 
   // добавляем сообщение в диалог по нажатию Enter
   const addMessageHandlerByEnter = (e: KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === 'Enter') {
-      props.dispatch({type: 'ADD-MESSAGE-BY-ENTER'});
+      props.dispatch(addMessageByEnterAC());
     }
-  }
-
-  // добавляем сообщение в диалог по нажатию на кнопку
-  const addMessageHandler = () => {
-    props.dispatch({type: 'ADD-MESSAGE'});
   }
 
   return (

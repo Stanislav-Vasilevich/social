@@ -2,7 +2,7 @@ import React from 'react';
 import s from './Header.module.css';
 import logo from '../../image/logo.png';
 import Menu from "../Menu/Menu";
-import {StoreType} from "../../redux/state";
+import {StoreType} from "../../redux/store";
 
 type PropsType = {
   store: StoreType

@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './App.module.css';
 import Header from './components/Header/Header';
-import {StoreType} from "./redux/state";
+import {StoreType} from "./redux/store";
 import Page from "./components/Page/Page";
 
 const {app, page, container} = styles;

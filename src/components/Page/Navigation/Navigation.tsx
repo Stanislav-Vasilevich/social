@@ -8,7 +8,7 @@ import Video from './Video/Video';
 import Else from './Else/Else';
 import Publications from './Publications/Publications';
 import Information from './Information/Information';
-import store, {StoreType} from '../../../redux/state';
+import store, {StoreType} from '../../../redux/store';
 
 const {main} = styles;
 

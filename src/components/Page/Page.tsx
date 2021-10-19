@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Page.module.css'
-import {StoreType} from '../../redux/state';
+import {StoreType} from '../../redux/store';
 import Navigation from './Navigation/Navigation';
 import Menu from '../Menu/Menu';
 import sochi from './../../image/Sochi.jpeg'

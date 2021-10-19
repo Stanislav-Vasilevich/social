@@ -1,4 +1,5 @@
 import {v1} from 'uuid';
+import {ChangeEvent} from 'react';
 
 export type FriendDataType = {
   id: string
@@ -36,8 +37,12 @@ export type StoreType = {
   _callSubscriber: () => void
   subscribe: (observer: () => void) => void
   getState: () => StateType
-  dispatch: (action: any) => void
+  dispatch: (action: ActionsType) => void
 }
+type ChangeDialogsMessageACType = ReturnType<typeof changeTextAC>
+type AddMessageACType = ReturnType<typeof addMessageAC>
+type AddMessageByEnterACType = ReturnType<typeof addMessageByEnterAC>
+export type ActionsType = AddMessageACType | AddMessageByEnterACType | ChangeDialogsMessageACType
 
 const store: StoreType = {
   _state: {
@@ -85,7 +90,12 @@ const store: StoreType = {
     return this._state;
   },
   dispatch(action) {
-    if(action.type === 'ADD-MESSAGE') {
+    if (action.type === 'CHANGE-DIALOGS-MESSAGE') {
+      this._state.friendsPage.valueMessage = action.message;
+
+      this._callSubscriber();
+    }
+    else if (action.type === 'ADD-MESSAGE') {
       console.log('ADD-MESSAGE');
 
       const newMessage: DialogsDataType = {
@@ -98,7 +108,7 @@ const store: StoreType = {
 
       this._callSubscriber();
     }
-    else if(action.type === 'ADD-MESSAGE-BY-ENTER') {
+    else if (action.type === 'ADD-MESSAGE-BY-ENTER') {
       console.log('ADD-MESSAGE-BY-ENTER');
 
       const newMessage: DialogsDataType = {
@@ -111,15 +121,22 @@ const store: StoreType = {
 
       this._callSubscriber();
     }
-    else if(action.type === 'CHANGE-DIALOGS-MESSAGE') {
-      this._state.friendsPage.valueMessage = action.message;
-
-      this._callSubscriber();
-    }
     else {
       return action;
     }
   }
+}
+
+export const changeTextAC = (text: string) => {
+  return {type: 'CHANGE-DIALOGS-MESSAGE', message: text} as const
+}
+
+export const addMessageAC = () => {
+  return {type: 'ADD-MESSAGE'} as const
+}
+
+export const addMessageByEnterAC = () => {
+  return {type: 'ADD-MESSAGE-BY-ENTER'} as const
 }
 
 export default store;
