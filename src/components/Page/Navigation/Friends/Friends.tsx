@@ -2,15 +2,13 @@ import React, {ChangeEvent, KeyboardEvent} from 'react';
 import styles from './Friends.module.css';
 import Friend from './Friend/Friend';
 import Dialogs from './Dialogs/Dialogs';
-import {StateType} from "../../../../redux/state";
+import {StateType} from '../../../../redux/state';
 
 const {page, dialogsStyle, writeSend, textArea, button} = styles;
 
 type PropsType = {
   state: StateType
-  changeDialogsMessage: (message: string) => void
-  addMessage: () => void
-  addMessageByEnter: () => void
+  dispatch: (action: any) => void
 }
 
 const Friends: React.FC<PropsType> = (props: PropsType) => {
@@ -27,19 +25,19 @@ const Friends: React.FC<PropsType> = (props: PropsType) => {
 
   // обновляем значение change у textarea
   const onChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
-    props.changeDialogsMessage(e.currentTarget.value);
+    props.dispatch({type: 'CHANGE-DIALOGS-MESSAGE', message: e.currentTarget.value})
   }
 
   // добавляем сообщение в диалог по нажатию Enter
   const addMessageHandlerByEnter = (e: KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === 'Enter') {
-      props.addMessageByEnter();
+      props.dispatch({type: 'ADD-MESSAGE-BY-ENTER'});
     }
   }
 
   // добавляем сообщение в диалог по нажатию на кнопку
   const addMessageHandler = () => {
-    props.addMessage();
+    props.dispatch({type: 'ADD-MESSAGE'});
   }
 
   return (
@@ -60,10 +58,12 @@ const Friends: React.FC<PropsType> = (props: PropsType) => {
 
           {/* написать и отправить сообщение */}
           <div className={writeSend}>
-            <textarea className={textArea}
-                      onChange={onChangeHandler}
-                      onKeyPress={addMessageHandlerByEnter}
-                      value={props.state.friendsPage.valueMessage}>
+            <textarea
+              className={textArea}
+              onChange={onChangeHandler}
+              onKeyPress={addMessageHandlerByEnter}
+              value={props.state.friendsPage.valueMessage}
+            >
             </textarea>
             <button className={button} onClick={addMessageHandler}>Отправить</button>
           </div>

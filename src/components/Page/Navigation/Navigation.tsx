@@ -8,7 +8,7 @@ import Video from './Video/Video';
 import Else from './Else/Else';
 import Publications from './Publications/Publications';
 import Information from './Information/Information';
-import {StoreType} from '../../../redux/state';
+import store, {StoreType} from '../../../redux/state';
 
 const {main} = styles;
 
@@ -22,10 +22,10 @@ const Navigation: React.FC<PropsType> = (props: PropsType) => {
       <Route path="/publications" component={Publications}/>
       <Route path="/information" component={Information}/>
       <Route path="/friends">
-        <Friends state={props.store.getState()}
-                 changeDialogsMessage={props.store.changeDialogsMessage.bind(props.store)}
-                 addMessage={props.store.addMessage.bind(props.store)}
-                 addMessageByEnter={props.store.addMessageByEnter.bind(props.store)}/>
+        <Friends
+          state={props.store.getState()}
+          dispatch={props.store.dispatch.bind(store)}
+        />
       </Route>
       <Route path="/photo" component={Photo}/>
       <Route path="/stories" component={Stories}/>

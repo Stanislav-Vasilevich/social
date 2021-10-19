@@ -33,12 +33,10 @@ export type StateType = {
 }
 export type StoreType = {
   _state: StateType
-  addMessage: () => void
-  addMessageByEnter: () => void
-  changeDialogsMessage: (message: string) => void
-  rerender: () => void
-  subscriber: (callback: () => void) => void
+  _callSubscriber: () => void
+  subscribe: (observer: () => void) => void
   getState: () => StateType
+  dispatch: (action: any) => void
 }
 
 const store: StoreType = {
@@ -77,34 +75,51 @@ const store: StoreType = {
     header: {},
     page: {},
   },
-  addMessage() {
-    const newMessage: DialogsDataType = {
-      id: v1(),
-      message: this._state.friendsPage.valueMessage
-    };
-
-    this._state.friendsPage.dialogs.push(newMessage);
-    this._state.friendsPage.valueMessage = '';
-
-    this.rerender();
-  },
-  addMessageByEnter() {
-    this.addMessage();
-  },
-  changeDialogsMessage(message) {
-    this._state.friendsPage.valueMessage = message;
-
-    this.rerender();
-  },
-  rerender() {
+  _callSubscriber() {
     console.log('обновил state');
   },
-  subscriber(callback: () => void) {
-    this.rerender = callback;
+  subscribe(observer) {
+    this._callSubscriber = observer;
   },
   getState() {
     return this._state;
   },
+  dispatch(action) {
+    if(action.type === 'ADD-MESSAGE') {
+      console.log('ADD-MESSAGE');
+
+      const newMessage: DialogsDataType = {
+        id: v1(),
+        message: this._state.friendsPage.valueMessage
+      };
+
+      this._state.friendsPage.dialogs.push(newMessage);
+      this._state.friendsPage.valueMessage = '';
+
+      this._callSubscriber();
+    }
+    else if(action.type === 'ADD-MESSAGE-BY-ENTER') {
+      console.log('ADD-MESSAGE-BY-ENTER');
+
+      const newMessage: DialogsDataType = {
+        id: v1(),
+        message: this._state.friendsPage.valueMessage
+      };
+
+      this._state.friendsPage.dialogs.push(newMessage);
+      this._state.friendsPage.valueMessage = '';
+
+      this._callSubscriber();
+    }
+    else if(action.type === 'CHANGE-DIALOGS-MESSAGE') {
+      this._state.friendsPage.valueMessage = action.message;
+
+      this._callSubscriber();
+    }
+    else {
+      return action;
+    }
+  }
 }
 
 export default store;
