@@ -1,5 +1,4 @@
 import {v1} from 'uuid';
-import {ChangeEvent} from 'react';
 
 export type FriendDataType = {
   id: string
