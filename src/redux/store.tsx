@@ -1,5 +1,9 @@
 import {v1} from 'uuid';
 
+const CHANGE_DIALOGS_MESSAGE = 'CHANGE-DIALOGS-MESSAGE';
+const ADD_MESSAGE = 'ADD-MESSAGE';
+const ADD_MESSAGE_BY_ENTER = 'ADD-MESSAGE-BY-ENTER';
+
 export type FriendDataType = {
   id: string
   name: string
@@ -89,13 +93,13 @@ const store: StoreType = {
     return this._state;
   },
   dispatch(action) {
-    if (action.type === 'CHANGE-DIALOGS-MESSAGE') {
+    if (action.type === CHANGE_DIALOGS_MESSAGE) {
       this._state.friendsPage.valueMessage = action.message;
 
       this._callSubscriber();
     }
-    else if (action.type === 'ADD-MESSAGE') {
-      console.log('ADD-MESSAGE');
+    else if (action.type === ADD_MESSAGE) {
+      console.log(ADD_MESSAGE);
 
       const newMessage: DialogsDataType = {
         id: v1(),
@@ -107,8 +111,8 @@ const store: StoreType = {
 
       this._callSubscriber();
     }
-    else if (action.type === 'ADD-MESSAGE-BY-ENTER') {
-      console.log('ADD-MESSAGE-BY-ENTER');
+    else if (action.type === ADD_MESSAGE_BY_ENTER) {
+      console.log(ADD_MESSAGE_BY_ENTER);
 
       const newMessage: DialogsDataType = {
         id: v1(),
@@ -127,15 +131,15 @@ const store: StoreType = {
 }
 
 export const changeTextAC = (text: string) => {
-  return {type: 'CHANGE-DIALOGS-MESSAGE', message: text} as const
+  return {type: CHANGE_DIALOGS_MESSAGE, message: text} as const
 }
 
 export const addMessageAC = () => {
-  return {type: 'ADD-MESSAGE'} as const
+  return {type: ADD_MESSAGE} as const
 }
 
 export const addMessageByEnterAC = () => {
-  return {type: 'ADD-MESSAGE-BY-ENTER'} as const
+  return {type: ADD_MESSAGE_BY_ENTER} as const
 }
 
 export default store;
