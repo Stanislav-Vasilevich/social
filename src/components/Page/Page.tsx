@@ -6,7 +6,7 @@ import Menu from '../Menu/Menu';
 import sochi from './../../image/Sochi.jpeg'
 
 // CSS
-const {face, background, image, profile, avatar} = styles;
+const {face, background, image, profile, avatar, name, description} = styles;
 
 type PropsType = {
   store: StoreType
@@ -28,7 +28,11 @@ const Page = (props: PropsType) => {
           <img className={avatar}
                src="https://s.starladder.com/uploads/user_logo/5/c/9/d/meta_tag_1039d807e6e9d7e403ecd6510eb61d83.jpg"
                alt=""/>
-          <h2>Енот обормот</h2>
+          <div>
+            <h2 className={name}>Станислав Василевич</h2>
+            <div className={description}>Я действующий frontend-разработчик веб-приложений на CSS, HTML, JavaScript и React</div>
+          </div>
+
         </div>
 
         {/* навигация */}

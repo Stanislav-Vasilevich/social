@@ -1,3 +1,14 @@
+.name {
+  color: #5c5c5c;
+}
+
+.description {
+  font-size: 12px;
+  font-style: italic;
+  color: grey;
+  margin: 10px 0 0 0;
+}
+
 .face {
   width: 100%;
   min-height: 593px;

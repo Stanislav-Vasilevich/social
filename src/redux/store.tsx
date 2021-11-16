@@ -65,10 +65,8 @@ const store: StoreType = {
     menu: {
       header: [
         {id: 1, item: 'Главная', path: '/publications'},
-        {id: 2, item: 'Друзья', path: '/friends'},
-        {id: 3, item: 'Watch', path: '/watch'},
-        {id: 4, item: 'Группы', path: '/group'},
-        {id: 5, item: 'Игры', path: '/games'}
+        {id: 2, item: 'Обо мне', path: '/about-me'},
+        {id: 3, item: 'Портфолио', path: '/portfolio'},
       ],
       page: [
         {id: 1, item: 'Публикации', path: '/publications'},
