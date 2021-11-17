@@ -4,6 +4,10 @@ const CHANGE_DIALOGS_MESSAGE = 'CHANGE-DIALOGS-MESSAGE';
 const ADD_MESSAGE = 'ADD-MESSAGE';
 const ADD_MESSAGE_BY_ENTER = 'ADD-MESSAGE-BY-ENTER';
 
+type HeaderType = {}
+
+type PagesType = {}
+
 export type FriendDataType = {
   id: string
   name: string
@@ -27,13 +31,11 @@ export type MenuType = {
   header: Array<MenuItemsType>
   page: Array<MenuItemsType>
 }
-type HeaderType = {}
-type PageType = {}
 export type StateType = {
+  header: HeaderType
+  pages: PagesType
   friendsPage: FriendsPageType
   menu: MenuType
-  header: HeaderType
-  page: PageType
 }
 export type StoreType = {
   _state: StateType
@@ -49,6 +51,13 @@ export type ActionsType = AddMessageACType | AddMessageByEnterACType | ChangeDia
 
 const store: StoreType = {
   _state: {
+    header: {},
+    pages: {
+      autobiography: {},
+      writeToMe: [
+        {id: 1, item: 'Написать мне', path: '/write-to-me'},
+      ],
+    },
     friendsPage: {
       friends: [
         {id: v1(), name: 'Катя', img: 'https://avatarko.ru/img/kartinka/16/Joker_minion_15661.jpg'},
@@ -65,21 +74,16 @@ const store: StoreType = {
     menu: {
       header: [
         {id: 1, item: 'Главная', path: '/publications'},
-        {id: 2, item: 'Обо мне', path: '/about-me'},
+        {id: 2, item: 'Об авторе', path: '/about-author'},
         {id: 3, item: 'Портфолио', path: '/portfolio'},
       ],
       page: [
         {id: 1, item: 'Публикации', path: '/publications'},
         {id: 2, item: 'Информация', path: '/information'},
         {id: 3, item: 'Друзья', path: '/friends'},
-        {id: 4, item: 'Фото', path: '/photo'},
-        {id: 5, item: 'Архив историй', path: '/stories'},
-        {id: 6, item: 'Видео', path: '/video'},
-        {id: 7, item: 'Еще', path: '/else'}
+        {id: 4, item: 'Автобиография', path: '/autobiography'},
       ]
     },
-    header: {},
-    page: {},
   },
   _callSubscriber() {
     console.log('обновил state');

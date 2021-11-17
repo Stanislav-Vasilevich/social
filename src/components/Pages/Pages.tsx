@@ -1,9 +1,10 @@
 import React from 'react';
 import styles from './Page.module.css'
 import {StoreType} from '../../redux/store';
-import Navigation from './Navigation/Navigation';
-import Menu from '../Menu/Menu';
+import Page from './Page/Page';
+import Menu from '../Header/Menu/Menu';
 import sochi from './../../image/Sochi.jpeg'
+import Navigation from "./Navigation/Navigation";
 
 // CSS
 const {face, background, image, profile, avatar, name, description} = styles;
@@ -12,7 +13,7 @@ type PropsType = {
   store: StoreType
 }
 
-const Page = (props: PropsType) => {
+const Pages = (props: PropsType) => {
   return (
     <>
       <div className={face}>
@@ -36,13 +37,13 @@ const Page = (props: PropsType) => {
         </div>
 
         {/* навигация */}
-        <Menu menuItems={props.store.getState().menu.page}/>
+        <Navigation menuItems={props.store.getState().menu.page}/>
 
         {/* главная страница */}
-        <Navigation store={props.store}/>
+        <Page store={props.store}/>
       </div>
     </>
   )
 }
 
-export default Page;
+export default Pages;

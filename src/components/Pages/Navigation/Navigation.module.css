@@ -1,0 +1,16 @@
+.navigation {
+  display: flex;
+}
+
+.item {
+  display: block;
+  padding: 20px;
+  text-decoration: none;
+  color: #65676B;
+  cursor: pointer;
+}
+
+.active {
+  color: #87346d;
+  text-decoration: underline;
+}
