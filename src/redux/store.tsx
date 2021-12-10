@@ -4,10 +4,6 @@ const CHANGE_DIALOGS_MESSAGE = 'CHANGE-DIALOGS-MESSAGE';
 const ADD_MESSAGE = 'ADD-MESSAGE';
 const ADD_MESSAGE_BY_ENTER = 'ADD-MESSAGE-BY-ENTER';
 
-type HeaderType = {}
-
-type PagesType = {}
-
 export type FriendDataType = {
   id: string
   name: string
@@ -17,18 +13,30 @@ type DialogsDataType = {
   id: string
   message: string
 }
+
 type FriendsPageType = {
   friends: Array<FriendDataType>
   valueMessage: string
   dialogs: Array<DialogsDataType>
 }
+
+export type PagesType = {
+  home: {}
+  autobiography: {}
+  portfolio: {}
+}
+
 export type MenuItemsType = {
   id: number
   item: string
   path: string
 }
+
+type HeaderType = {
+  menu: Array<MenuItemsType>
+}
+
 export type MenuType = {
-  header: Array<MenuItemsType>
   page: Array<MenuItemsType>
 }
 export type StateType = {
@@ -51,12 +59,20 @@ export type ActionsType = AddMessageACType | AddMessageByEnterACType | ChangeDia
 
 const store: StoreType = {
   _state: {
-    header: {},
+    header: {
+      menu: [
+        {id: 1, item: 'Главная', path: '/'},
+        {id: 2, item: 'Об авторе', path: '/about-author'},
+        {id: 3, item: 'Портфолио', path: '/portfolio'},
+      ]
+    },
     pages: {
+      home: {},
       autobiography: {},
-      writeToMe: [
-        {id: 1, item: 'Написать мне', path: '/write-to-me'},
-      ],
+      portfolio: {},
+      // writeToMe: [
+      //   {id: 1, item: 'Написать мне', path: '/write-to-me'},
+      // ],
     },
     friendsPage: {
       friends: [
@@ -72,11 +88,6 @@ const store: StoreType = {
       ],
     },
     menu: {
-      header: [
-        {id: 1, item: 'Главная', path: '/publications'},
-        {id: 2, item: 'Об авторе', path: '/about-author'},
-        {id: 3, item: 'Портфолио', path: '/portfolio'},
-      ],
       page: [
         {id: 1, item: 'Публикации', path: '/publications'},
         {id: 2, item: 'Информация', path: '/information'},

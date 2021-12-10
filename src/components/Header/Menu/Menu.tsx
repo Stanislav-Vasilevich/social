@@ -14,11 +14,13 @@ const Menu = (props: PropsType) => {
   const menuItem = props.menuItems.map(i => {
     return (
       <NavLink
-      key={i.id}
-      className={styles.item}
-      activeClassName={styles.active}
-      to={i.path}>{i.item}
-    </NavLink>
+        key={i.id}
+        className={styles.item}
+        activeClassName={styles.active}
+        to={i.path}
+      >
+        {i.item}
+      </NavLink>
     )
   });
 
