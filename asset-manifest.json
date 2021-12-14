@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/social-it-incubator/static/css/main.15c4e8c2.chunk.css",
+    "main.js": "/social-it-incubator/static/js/main.b13b46f9.chunk.js",
+    "main.js.map": "/social-it-incubator/static/js/main.b13b46f9.chunk.js.map",
+    "runtime-main.js": "/social-it-incubator/static/js/runtime-main.f2baaab7.js",
+    "runtime-main.js.map": "/social-it-incubator/static/js/runtime-main.f2baaab7.js.map",
+    "static/js/2.32693c42.chunk.js": "/social-it-incubator/static/js/2.32693c42.chunk.js",
+    "static/js/2.32693c42.chunk.js.map": "/social-it-incubator/static/js/2.32693c42.chunk.js.map",
+    "index.html": "/social-it-incubator/index.html",
+    "static/css/main.15c4e8c2.chunk.css.map": "/social-it-incubator/static/css/main.15c4e8c2.chunk.css.map",
+    "static/js/2.32693c42.chunk.js.LICENSE.txt": "/social-it-incubator/static/js/2.32693c42.chunk.js.LICENSE.txt",
+    "static/media/Sochi.8c2db466.jpeg": "/social-it-incubator/static/media/Sochi.8c2db466.jpeg",
+    "static/media/logo.6b864383.png": "/social-it-incubator/static/media/logo.6b864383.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f2baaab7.js",
+    "static/js/2.32693c42.chunk.js",
+    "static/css/main.15c4e8c2.chunk.css",
+    "static/js/main.b13b46f9.chunk.js"
+  ]
+}
