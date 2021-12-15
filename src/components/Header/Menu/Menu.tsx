@@ -27,6 +27,7 @@ const Menu = (props: PropsType) => {
   return (
     <nav className={menu}>
       {menuItem}
+      test
     </nav>
   );
 }
