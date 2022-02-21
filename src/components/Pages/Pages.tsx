@@ -1,12 +1,8 @@
 import React from 'react';
 import {StoreType} from '../../redux/store';
 import styles from './Pages.module.css';
-import sochi from './../../image/Sochi.jpeg';
 import Page from './Page/Page';
 import Navigation from "./Navigation/Navigation";
-
-// CSS
-const {pages, background, image, profile, avatar, name, description} = styles;
 
 type PropsType = {
   store: StoreType
@@ -16,12 +12,12 @@ const Pages = (props: PropsType) => {
   return (
     <>
       {/* первый блок профиля автора */}
-      <div className={pages}>
+      <div className={styles.pages}>
         {/* навигация */}
-        <Navigation menuItems={props.store.getState().menu.page}/>
+        <Navigation menuItems={props.store.getState().pages.navigation}/>
 
         {/* главная страница */}
-        <Page store={props.store.getState().pages}/>
+        <Page/>
       </div>
     </>
   )

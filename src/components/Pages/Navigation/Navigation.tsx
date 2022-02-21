@@ -1,10 +1,7 @@
 import React from 'react';
 import styles from './Navigation.module.css';
 import {NavLink} from "react-router-dom";
-import {MenuItemsType} from "./../../../redux/store";
-
-// CSS
-const {navigation} = styles;
+import {MenuItemsType} from "../../../redux/store";
 
 type PropsType = {
   menuItems: Array<MenuItemsType>
@@ -23,7 +20,7 @@ const Navigation = (props: PropsType) => {
   });
 
   return (
-    <nav className={navigation}>
+    <nav className={styles.navigation}>
       {menuItem}
     </nav>
   );

@@ -3,9 +3,6 @@ import styles from './Menu.module.css';
 import {NavLink} from "react-router-dom";
 import {MenuItemsType} from "../../../redux/store";
 
-// CSS
-const {menu} = styles;
-
 type PropsType = {
   menuItems: Array<MenuItemsType>
 }
@@ -25,9 +22,8 @@ const Menu = (props: PropsType) => {
   });
 
   return (
-    <nav className={menu}>
+    <nav className={styles.menu}>
       {menuItem}
-      test
     </nav>
   );
 }

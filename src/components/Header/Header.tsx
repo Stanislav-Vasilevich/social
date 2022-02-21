@@ -3,7 +3,6 @@ import s from './Header.module.css';
 import logo from '../../image/logo.png';
 import Menu from "./Menu/Menu";
 import {StoreType} from "../../redux/store";
-import {log} from "util";
 
 type PropsType = {
   store: StoreType

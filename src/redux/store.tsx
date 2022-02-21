@@ -21,9 +21,8 @@ type FriendsPageType = {
 }
 
 export type PagesType = {
-  home: {}
-  autobiography: {}
-  portfolio: {}
+  navigation: Array<MenuItemsType>
+  page: []
 }
 
 export type MenuItemsType = {
@@ -43,7 +42,6 @@ export type StateType = {
   header: HeaderType
   pages: PagesType
   friendsPage: FriendsPageType
-  menu: MenuType
 }
 export type StoreType = {
   _state: StateType
@@ -61,18 +59,18 @@ const store: StoreType = {
   _state: {
     header: {
       menu: [
-        {id: 1, item: 'Главная', path: '/'},
-        {id: 2, item: 'Об авторе', path: '/about-author'},
-        {id: 3, item: 'Портфолио', path: '/portfolio'},
+        {id: 1, item: 'Автор', path: '/'},
+        {id: 2, item: 'Новости', path: '/about-author'},
+        {id: 3, item: 'Друзья', path: '/portfolio'},
+        {id: 4, item: 'Группы', path: '/groups'},
       ]
     },
     pages: {
-      home: {},
-      autobiography: {},
-      portfolio: {},
-      // writeToMe: [
-      //   {id: 1, item: 'Написать мне', path: '/write-to-me'},
-      // ],
+      navigation: [
+        {id: 1, item: 'Публикации', path: '/publications'},
+        {id: 2, item: 'Сообщения', path: '/information'},
+      ],
+      page: []
     },
     friendsPage: {
       friends: [
@@ -86,14 +84,6 @@ const store: StoreType = {
         {id: v1(), message: 'Hey! I`m work, I`m find!'},
         {id: v1(), message: 'It`s good))'}
       ],
-    },
-    menu: {
-      page: [
-        {id: 1, item: 'Публикации', path: '/publications'},
-        {id: 2, item: 'Информация', path: '/information'},
-        {id: 3, item: 'Друзья', path: '/friends'},
-        {id: 4, item: 'Автобиография', path: '/autobiography'},
-      ]
     },
   },
   _callSubscriber() {

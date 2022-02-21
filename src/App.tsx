@@ -15,12 +15,13 @@ const App = (props: PropsType) => {
     <div className={app}>
       {/* шапка сайта */}
       <Header store={props.store}/>
-      {/* страница */}
-      <div className={page}>
+      {/* основной контент */}
+      <main className={page}>
+        {/* контейнер */}
         <div className={container}>
           <Pages store={props.store} />
         </div>
-      </div>
+      </main>
     </div>
   );
 }
