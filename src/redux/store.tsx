@@ -14,15 +14,19 @@ type DialogsDataType = {
   message: string
 }
 
-type FriendsPageType = {
+// type FriendsPageType = {
+//   friends: Array<FriendDataType>
+//   valueMessage: string
+//   dialogs: Array<DialogsDataType>
+// }
+
+export type FriendsType = {
   friends: Array<FriendDataType>
-  valueMessage: string
-  dialogs: Array<DialogsDataType>
 }
 
 export type PagesType = {
   navigation: Array<MenuItemsType>
-  page: []
+  page: FriendsType
 }
 
 export type MenuItemsType = {
@@ -41,7 +45,7 @@ export type MenuType = {
 export type StateType = {
   header: HeaderType
   pages: PagesType
-  friendsPage: FriendsPageType
+  // friendsPage: FriendsPageType
 }
 export type StoreType = {
   _state: StateType
@@ -71,21 +75,27 @@ const store: StoreType = {
         {id: 2, item: 'Сообщения', path: '/messages'},
         {id: 3, item: 'Фото', path: '/photo'},
       ],
-      page: []
+      page: {
+        friends: [
+          {id: v1(), name: 'Катя', img: 'https://avatarko.ru/img/kartinka/16/Joker_minion_15661.jpg'},
+          {id: v1(), name: 'Паша', img: 'https://klike.net/uploads/posts/2018-06/1528369868_15.jpg'},
+          {id: v1(), name: 'Вова', img: 'https://pbs.twimg.com/media/Ce43PAzW4AA_g9g.jpg'}
+        ]
+      }
     },
-    friendsPage: {
-      friends: [
-        {id: v1(), name: 'Катя', img: 'https://avatarko.ru/img/kartinka/16/Joker_minion_15661.jpg'},
-        {id: v1(), name: 'Паша', img: 'https://klike.net/uploads/posts/2018-06/1528369868_15.jpg'},
-        {id: v1(), name: 'Вова', img: 'https://pbs.twimg.com/media/Ce43PAzW4AA_g9g.jpg'}
-      ],
-      valueMessage: 'Как твои дела бро?',
-      dialogs: [
-        {id: v1(), message: 'Hello! How are you?'},
-        {id: v1(), message: 'Hey! I`m work, I`m find!'},
-        {id: v1(), message: 'It`s good))'}
-      ],
-    },
+    // friendsPage: {
+    //   friends: [
+    //     {id: v1(), name: 'Катя', img: 'https://avatarko.ru/img/kartinka/16/Joker_minion_15661.jpg'},
+    //     {id: v1(), name: 'Паша', img: 'https://klike.net/uploads/posts/2018-06/1528369868_15.jpg'},
+    //     {id: v1(), name: 'Вова', img: 'https://pbs.twimg.com/media/Ce43PAzW4AA_g9g.jpg'}
+    //   ],
+    //   valueMessage: 'Как твои дела бро?',
+    //   dialogs: [
+    //     {id: v1(), message: 'Hello! How are you?'},
+    //     {id: v1(), message: 'Hey! I`m work, I`m find!'},
+    //     {id: v1(), message: 'It`s good))'}
+    //   ],
+    // },
   },
   _callSubscriber() {
     console.log('обновил state');

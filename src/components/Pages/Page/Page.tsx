@@ -9,6 +9,11 @@ import Groups from "./Groups/Groups";
 import Publications from "./Publications/Publications";
 import Messages from "./Messages/Messages";
 import Photo from "./Photo/Photo";
+import {FriendsType} from "../../../redux/store";
+
+type PropsType = {
+  pages: FriendsType
+}
 
 const Page = () => {
   return (
@@ -21,6 +26,7 @@ const Page = () => {
         <Route path="/publications" component={Publications}/>
         <Route path="/messages" component={Messages}/>
         <Route path="/photo" component={Photo}/>
+        {/*<Route path="/social-it-incubator" component={AboutAuthor}/>*/}
       </Switch>
     </section>
   )

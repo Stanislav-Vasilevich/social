@@ -11,8 +11,9 @@ type PropsType = {
   dispatch: (action: ActionsType) => void
 }
 
-const Friends: React.FC<PropsType> = (props: PropsType) => {
-  console.log(props)
+const Friends = (props: PropsType) => {
+  console.log(props);
+
   // массив друзей => друг
   const arrayFriends = props.state.friendsPage.friends.map(i => {
     return <Friend key={i.id} id={i.id} name={i.name} img={i.img}/>
