@@ -1,15 +1,15 @@
 import React from 'react';
-import styles from './Information.module.css';
+import styles from './Groups.module.css';
 
 // деструктуризация CSS модулей
 const {main, section, info, nav, friends, photo, sport, music, films} = styles;
 
-const Information = () => {
+const Groups = () => {
   return (
     <section className={main}>
       <div className={section}>
         <div className={info}>
-          <h2>Информация</h2>
+          <h2>Группы</h2>
           <nav className={nav}>
             <a href="/">Общие сведения</a>
             <a href="/">Работа и образование</a>
@@ -101,4 +101,4 @@ const Information = () => {
   )
 }
 
-export default Information;
+export default Groups;

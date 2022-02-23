@@ -19,7 +19,9 @@ const AboutAuthor = () => {
              alt=""/>
         <div>
           <h2 className={styles.name}>Станислав Василевич</h2>
-          <div className={styles.description}>Я действующий frontend-разработчик веб-приложений на CSS, HTML, JavaScript и React</div>
+          <div className={styles.description}>Я действующий frontend-разработчик веб-приложений на CSS, HTML, JavaScript
+            и React
+          </div>
         </div>
       </div>
     </div>

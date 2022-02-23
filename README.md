@@ -3,6 +3,9 @@
 
 Посмотреть в браузере [Create React App](https://github.com/facebook/create-react-app).
 
+## Карта проекта на miro:
+[перейти в карту](https://miro.com/welcomeonboard/SEFkd0Q5Q2dqY2xENzJiODloMTgyYnRNNTM5ZXoyRE5hbmc3aFVvZGNONEdyMFg2a0RjZE1sZXg1UGVwS3ZiRHwzMDc0NDU3MzY0OTIwMDA2Mjgx?invite_link_id=196204276072)
+
 ## Запустить проект
 
    1. клонировать на локальный компьютер:

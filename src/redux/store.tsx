@@ -60,15 +60,16 @@ const store: StoreType = {
     header: {
       menu: [
         {id: 1, item: 'Автор', path: '/'},
-        {id: 2, item: 'Новости', path: '/about-author'},
-        {id: 3, item: 'Друзья', path: '/portfolio'},
+        {id: 2, item: 'Новости', path: '/news'},
+        {id: 3, item: 'Друзья', path: '/friends'},
         {id: 4, item: 'Группы', path: '/groups'},
       ]
     },
     pages: {
       navigation: [
         {id: 1, item: 'Публикации', path: '/publications'},
-        {id: 2, item: 'Сообщения', path: '/information'},
+        {id: 2, item: 'Сообщения', path: '/messages'},
+        {id: 3, item: 'Фото', path: '/photo'},
       ],
       page: []
     },
