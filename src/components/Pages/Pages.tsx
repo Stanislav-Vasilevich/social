@@ -17,7 +17,10 @@ const Pages = (props: PropsType) => {
         <Navigation menuItems={props.store.getState().pages.navigation}/>
 
         {/* главная страница */}
-        <Page page={props.store.getState().pages.page}/>
+        <Page
+          pages={props.store.getState().pages}
+          dispatch={props.store.dispatch}
+        />
       </div>
     </>
   )

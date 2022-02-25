@@ -45,7 +45,6 @@ export type MenuType = {
 export type StateType = {
   header: HeaderType
   pages: PagesType
-  friendsPage: FriendsPageType
 }
 export type StoreType = {
   _state: StateType
@@ -91,19 +90,6 @@ const store: StoreType = {
         },
       }
     },
-    friendsPage: {
-      persons: [
-        {id: v1(), name: 'Катя', img: 'https://avatarko.ru/img/kartinka/16/Joker_minion_15661.jpg'},
-        {id: v1(), name: 'Паша', img: 'https://klike.net/uploads/posts/2018-06/1528369868_15.jpg'},
-        {id: v1(), name: 'Вова', img: 'https://pbs.twimg.com/media/Ce43PAzW4AA_g9g.jpg'}
-      ],
-      valueMessage: 'Как твои дела бро?',
-      dialogs: [
-        {id: v1(), message: 'Hello! How are you?'},
-        {id: v1(), message: 'Hey! I`m work, I`m find!'},
-        {id: v1(), message: 'It`s good))'}
-      ],
-    },
   },
   _callSubscriber() {
     console.log('обновил state');
@@ -116,7 +102,7 @@ const store: StoreType = {
   },
   dispatch(action) {
     if (action.type === CHANGE_DIALOGS_MESSAGE) {
-      this._state.friendsPage.valueMessage = action.message;
+      this._state.pages.page.friends.valueMessage = action.message;
 
       this._callSubscriber();
     }
@@ -125,11 +111,11 @@ const store: StoreType = {
 
       const newMessage: DialogsDataType = {
         id: v1(),
-        message: this._state.friendsPage.valueMessage
+        message: this._state.pages.page.friends.valueMessage
       };
 
-      this._state.friendsPage.dialogs.push(newMessage);
-      this._state.friendsPage.valueMessage = '';
+      this._state.pages.page.friends.dialogs.push(newMessage);
+      this._state.pages.page.friends.valueMessage = '';
 
       this._callSubscriber();
     }
@@ -138,11 +124,11 @@ const store: StoreType = {
 
       const newMessage: DialogsDataType = {
         id: v1(),
-        message: this._state.friendsPage.valueMessage
+        message: this._state.pages.page.friends.valueMessage
       };
 
-      this._state.friendsPage.dialogs.push(newMessage);
-      this._state.friendsPage.valueMessage = '';
+      this._state.pages.page.friends.dialogs.push(newMessage);
+      this._state.pages.page.friends.valueMessage = '';
 
       this._callSubscriber();
     }

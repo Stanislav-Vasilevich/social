@@ -9,10 +9,11 @@ import Groups from "./Groups/Groups";
 import Publications from "./Publications/Publications";
 import Messages from "./Messages/Messages";
 import Photo from "./Photo/Photo";
-import {PageType} from "../../../redux/store";
+import {ActionsType, PagesType} from "../../../redux/store";
 
 type PropsType = {
-  page: PageType
+  pages: PagesType
+  dispatch: (action: ActionsType) => void
 }
 
 const Page = (props: PropsType) => {
@@ -22,13 +23,16 @@ const Page = (props: PropsType) => {
         <Route exact path="/" component={AboutAuthor}/>
         <Route path="/news" component={News}/>
         <Route path="/friends">
-          <Friends page={props.page.friends}/>
+          <Friends
+            page={props.pages.page.friends}
+            dispatch={props.dispatch}
+          />
         </Route>
         <Route path="/groups" component={Groups}/>
         <Route path="/publications" component={Publications}/>
         <Route path="/messages" component={Messages}/>
         <Route path="/photo" component={Photo}/>
-        {/*<Route path="/social-it-incubator" component={AboutAuthor}/>*/}
+        <Route path="/social-it-incubator" component={AboutAuthor}/>
       </Switch>
     </section>
   )

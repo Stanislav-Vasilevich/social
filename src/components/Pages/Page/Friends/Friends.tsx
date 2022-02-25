@@ -1,16 +1,18 @@
 import React, {ChangeEvent, KeyboardEvent} from 'react';
 import styles from './Friends.module.css';
-import {FriendDataType, FriendsPageType} from '../../../../redux/store';
+import {
+  ActionsType,
+  addMessageAC,
+  addMessageByEnterAC,
+  changeTextAC,
+  FriendsPageType,
+} from '../../../../redux/store';
 import Friend from "./Friend/Friend";
 import Dialogs from "./Dialogs/Dialogs";
 
-// type PropsType = {
-//   state: StateType
-//   dispatch: (action: ActionsType) => void
-// }
-
 type PropsType = {
   page: FriendsPageType
+  dispatch: (action: ActionsType) => void
 }
 
 const Friends = (props: PropsType) => {
@@ -25,19 +27,19 @@ const Friends = (props: PropsType) => {
   });
 
   // обновляем значение change у textarea
-  // const onChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
-  //   props.dispatch(changeTextAC(e.currentTarget.value));
-  // }
+  const onChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    props.dispatch(changeTextAC(e.currentTarget.value));
+  }
 
   // добавляем сообщение в диалог по нажатию на кнопку
   const addMessageHandler = () => {
-    // props.dispatch(addMessageAC());
+    props.dispatch(addMessageAC());
   }
 
   // добавляем сообщение в диалог по нажатию Enter
   const addMessageHandlerByEnter = (e: KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === 'Enter') {
-      // props.dispatch(addMessageByEnterAC());
+      props.dispatch(addMessageByEnterAC());
     }
   }
 
@@ -61,15 +63,14 @@ const Friends = (props: PropsType) => {
           <div className={styles.writeSend}>
             <textarea
               className={styles.textArea}
-              // onChange={onChangeHandler}
-              // onKeyPress={addMessageHandlerByEnter}
-              // value={props.state.friendsPage.valueMessage}
+              onChange={onChangeHandler}
+              onKeyPress={addMessageHandlerByEnter}
+              value={props.page.valueMessage}
             >
             </textarea>
             <button className={styles.button} onClick={addMessageHandler}>Отправить</button>
           </div>
         </div>
-
       </div>
     </section>
   )
