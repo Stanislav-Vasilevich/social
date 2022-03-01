@@ -1,13 +1,14 @@
 import React from 'react';
 import styles from './App.module.css';
 import Header from './components/Header/Header';
-import {StoreType} from "./redux/store";
+import {ActionsType, StoreType} from "./redux/store";
 import Pages from "./components/Pages/Pages";
 
 const {app, page, container} = styles;
 
 type PropsType = {
   store: StoreType
+  dispatch: (action: ActionsType) => void
 }
 
 const App = (props: PropsType) => {
@@ -19,7 +20,7 @@ const App = (props: PropsType) => {
       <main className={page}>
         {/* контейнер */}
         <div className={container}>
-          <Pages store={props.store} />
+          <Pages store={props.store} dispatch={props.dispatch} />
         </div>
       </main>
     </div>

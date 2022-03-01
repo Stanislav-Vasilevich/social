@@ -18,12 +18,25 @@ type PropsType = {
 const Friends = (props: PropsType) => {
   // массив друзей => друг
   const arrayFriends = props.page.persons.map(i => {
-    return <Friend key={i.id} id={i.id} name={i.name} img={i.img}/>
+    return (
+      <Friend
+        key={i.id}
+        id={i.id}
+        name={i.name}
+        img={i.img}
+      />
+    )
   });
 
   // массив диалогов => диалог
   const arrayDialogs = props.page.dialogs.map(i => {
-    return <Dialogs key={i.id} id={i.id} message={i.message}/>
+    return (
+      <Dialogs
+        key={i.id}
+        id={i.id}
+        message={i.message}
+      />
+    )
   });
 
   // обновляем значение change у textarea

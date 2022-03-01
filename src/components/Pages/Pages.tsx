@@ -1,11 +1,12 @@
 import React from 'react';
-import {StoreType} from '../../redux/store';
+import {ActionsType, StoreType} from '../../redux/store';
 import styles from './Pages.module.css';
 import Page from './Page/Page';
 import Navigation from "./Navigation/Navigation";
 
 type PropsType = {
   store: StoreType
+  dispatch: (action: ActionsType) => void
 }
 
 const Pages = (props: PropsType) => {
@@ -19,7 +20,7 @@ const Pages = (props: PropsType) => {
         {/* главная страница */}
         <Page
           pages={props.store.getState().pages}
-          dispatch={props.store.dispatch}
+          dispatch={props.dispatch}
         />
       </div>
     </>

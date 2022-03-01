@@ -85,7 +85,7 @@ const store: StoreType = {
           dialogs: [
             {id: v1(), message: 'Hello! How are you?'},
             {id: v1(), message: 'Hey! I`m work, I`m find!'},
-            {id: v1(), message: 'It`s good))'}
+            {id: v1(), message: 'It`s good))'},
           ],
         },
       }
@@ -107,8 +107,6 @@ const store: StoreType = {
       this._callSubscriber();
     }
     else if (action.type === ADD_MESSAGE) {
-      console.log(ADD_MESSAGE);
-
       const newMessage: DialogsDataType = {
         id: v1(),
         message: this._state.pages.page.friends.valueMessage
@@ -120,8 +118,6 @@ const store: StoreType = {
       this._callSubscriber();
     }
     else if (action.type === ADD_MESSAGE_BY_ENTER) {
-      console.log(ADD_MESSAGE_BY_ENTER);
-
       const newMessage: DialogsDataType = {
         id: v1(),
         message: this._state.pages.page.friends.valueMessage
