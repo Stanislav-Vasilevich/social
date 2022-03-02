@@ -8,10 +8,10 @@ type PropsType = {
   message: string
 }
 
-const Dialogs: React.FC<PropsType> = ({id, message}) => {
+const Dialogs = (props: PropsType) => {
   return (
     <section className={main}>
-      <div className={item}>{message}</div>
+      <div className={item}>{props.message}</div>
     </section>
   )
 }

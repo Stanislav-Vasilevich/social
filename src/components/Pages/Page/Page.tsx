@@ -9,7 +9,7 @@ import Groups from "./Groups/Groups";
 import Publications from "./Publications/Publications";
 import Messages from "./Messages/Messages";
 import Photo from "./Photo/Photo";
-import {ActionsType, PagesType} from "../../../redux/store";
+import {ActionsType, PagesType, UserType} from "../../../redux/store";
 
 type PropsType = {
   pages: PagesType
@@ -29,7 +29,12 @@ const Page = (props: PropsType) => {
           />
         </Route>
         <Route path="/groups" component={Groups}/>
-        <Route path="/publications" component={Publications}/>
+        <Route path="/publications">
+          <Publications
+            page={props.pages.page.publications}
+            dispatch={props.dispatch}
+          />
+        </Route>
         <Route path="/messages" component={Messages}/>
         <Route path="/photo" component={Photo}/>
         <Route path="/social-it-incubator" component={AboutAuthor}/>

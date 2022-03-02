@@ -1,27 +1,24 @@
 import React from 'react';
 import styles from './Post.module.css';
-
-const {section, avatar, text, likesHand} = styles;
+import {ActionsType} from "../../../../../../../redux/store";
 
 type PostPropsType = {
-  id: number
-  title: string,
-  img: string
+  id: string
+  avatar: string
+  title: string
+  text: string
   likesCount: number
-  changeLikesCount: (id: number) => void
+  dispatch: (action: ActionsType) => void
 }
 
-const Post: React.FC<PostPropsType> = (props) => {
-  const addLike = () => {
-    props.changeLikesCount(props.id);
-  }
-
+const Post = (props: PostPropsType) => {
   return (
-    <div className={section}>
-      <img className={avatar} src={props.img} alt={''}/>
+    <div className={styles.section}>
+      <img className={styles.avatar} src={props.avatar} alt={''}/>
       <div>
-        <p className={text}>{props.title}</p>
-        <span className={likesHand} onClick={addLike}>&#128077;</span>
+        <h2 className={styles.title}>{props.title}</h2>
+        <p className={styles.text}>{props.text}</p>
+        <span className={styles.likesHand} onClick={() => console.log('hello')}>&#128077;</span>
         <span>{props.likesCount}</span>
       </div>
     </div>

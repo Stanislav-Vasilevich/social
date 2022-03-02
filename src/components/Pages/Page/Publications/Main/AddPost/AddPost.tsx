@@ -1,23 +1,38 @@
-import React, {createRef} from 'react';
+import React, {ChangeEvent} from 'react';
 import styles from './AddPost.module.css';
+import {ActionsType, AddingPostType, addPostAC, changeAddPostMessageAC} from "../../../../../../redux/store";
 
-const {section, avatar, textArea, btn} = styles;
+type PropsType = {
+  addingPost: AddingPostType
+  dispatch: (action: ActionsType) => void
+}
 
-const AddPost = () => {
-  const textAreaElement = createRef<HTMLTextAreaElement>();
+const AddPost = (props: PropsType) => {
+  const changeAddPostTextHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    props.dispatch(changeAddPostMessageAC(e.currentTarget.value));
+  }
 
   const addPostHandler = () => {
-    const text = textAreaElement.current?.value;
-    console.log(text);
+    props.dispatch(addPostAC());
   }
 
   return (
-    <div className={section}>
-      <img className={avatar}
-           src={'https://s.starladder.com/uploads/user_logo/b/f/2/d/meta_tag_d6ca03e719804347cb71d8338d5bce5a.jpg'}
-           alt={''}></img>
-      <textarea className={textArea} ref={textAreaElement}/>
-      <button className={btn} onClick={addPostHandler}>Отправить</button>
+    <div className={styles.section}>
+      <img className={styles.avatar} src={props.addingPost.avatar} alt={props.addingPost.name}/>
+      <div>
+        <input className={styles.input}
+               type="text"
+               placeholder={'заголовок'}
+        />
+        <textarea className={styles.textArea}
+                  value={props.addingPost.valueTextArea}
+                  onChange={changeAddPostTextHandler}
+                  placeholder={'текст..'}
+        />
+        <div className={styles.row}>
+          <button className={styles.btn} onClick={addPostHandler}>Отправить</button>
+        </div>
+      </div>
     </div>
   )
 }

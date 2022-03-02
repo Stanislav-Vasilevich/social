@@ -1,9 +1,13 @@
 .section {
   display: flex;
-  align-items: center;
+  align-items: self-start;
   padding: 15px;
   background-color: #f1dca6;
   border-radius: 10px;
+}
+
+.section div {
+  width: 100%;
 }
 
 .avatar {
@@ -13,15 +17,37 @@
   margin: 0 15px 0 0;
 }
 
-.textArea {
-  width: 60%;
-  min-height: 40px;
+.input, .textArea {
   border: 1px solid #f0fff1;
   border-radius: 30px;
   font-size: 16px;
   line-height: 16px;
+  color: #7b6c45;
+  outline: none;
   padding: 0 10px;
   margin: 0 15px 0 0;
+}
+
+.input {
+  width: 60%;
+  min-height: 30px;
+  margin: 0 0 3px 0;
+  padding: 5px 20px;
+}
+
+.input::placeholder {
+  color: rgba(123, 108, 69, 0.64);
+}
+
+.textArea {
+  min-width: 80%;
+  max-width: 92%;
+  min-height: 60px;
+  padding: 10px 20px;
+}
+
+.textArea::placeholder {
+  color: rgba(123, 108, 69, 0.64);
 }
 
 .textArea:hover {
@@ -30,6 +56,12 @@
 
 .textArea:focus-visible {
   outline: none;
+}
+
+.row {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .btn {

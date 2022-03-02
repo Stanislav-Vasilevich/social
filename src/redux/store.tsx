@@ -1,8 +1,20 @@
 import {v1} from 'uuid';
 
 const CHANGE_DIALOGS_MESSAGE = 'CHANGE-DIALOGS-MESSAGE';
+const CHANGE_ADD_POST_TEXT = 'CHANGE_ADD_POST_TEXT';
 const ADD_MESSAGE = 'ADD-MESSAGE';
 const ADD_MESSAGE_BY_ENTER = 'ADD-MESSAGE-BY-ENTER';
+const ADD_POST = 'ADD_POST';
+
+export type UserType = {
+  name: string
+  avatar: string
+}
+
+type HeaderType = {
+  menu: Array<MenuItemsType>
+  user: UserType
+}
 
 export type FriendDataType = {
   id: string
@@ -20,8 +32,28 @@ export type FriendsPageType = {
   dialogs: Array<DialogsDataType>
 }
 
+export type PostsType = {
+  id: string
+  avatar: string
+  title: string
+  text: string
+  likesCount: number
+}
+
+export type AddingPostType = {
+  name: string
+  avatar: string
+  valueTextArea: string
+}
+
+export type PublicationsPageType = {
+  addingPost: AddingPostType
+  posts: Array<PostsType>
+}
+
 export type PageType = {
   friends: FriendsPageType
+  publications: PublicationsPageType
 }
 
 export type PagesType = {
@@ -35,13 +67,6 @@ export type MenuItemsType = {
   path: string
 }
 
-type HeaderType = {
-  menu: Array<MenuItemsType>
-}
-
-export type MenuType = {
-  page: Array<MenuItemsType>
-}
 export type StateType = {
   header: HeaderType
   pages: PagesType
@@ -53,10 +78,17 @@ export type StoreType = {
   getState: () => StateType
   dispatch: (action: ActionsType) => void
 }
-type ChangeDialogsMessageACType = ReturnType<typeof changeTextAC>
+type ChangeDialogsMessageACType = ReturnType<typeof changeDialogsMessageAC>
 type AddMessageACType = ReturnType<typeof addMessageAC>
 type AddMessageByEnterACType = ReturnType<typeof addMessageByEnterAC>
-export type ActionsType = AddMessageACType | AddMessageByEnterACType | ChangeDialogsMessageACType
+type ChangePostMessageACType = ReturnType<typeof changeAddPostMessageAC>
+type AddPostACType = ReturnType<typeof addPostAC>
+export type ActionsType =
+  ChangeDialogsMessageACType
+  | AddMessageACType
+  | AddMessageByEnterACType
+  | ChangePostMessageACType
+  | AddPostACType
 
 const store: StoreType = {
   _state: {
@@ -66,7 +98,11 @@ const store: StoreType = {
         {id: 2, item: 'Новости', path: '/news'},
         {id: 3, item: 'Друзья', path: '/friends'},
         {id: 4, item: 'Группы', path: '/groups'},
-      ]
+      ],
+      user: {
+        name: 'Stanislav',
+        avatar: 'https://s.starladder.com/uploads/user_logo/b/f/2/d/meta_tag_d6ca03e719804347cb71d8338d5bce5a.jpg'
+      }
     },
     pages: {
       navigation: [
@@ -88,6 +124,43 @@ const store: StoreType = {
             {id: v1(), message: 'It`s good))'},
           ],
         },
+        publications: {
+          addingPost: {
+            name: 'Stanislav',
+            avatar: 'https://s.starladder.com/uploads/user_logo/b/f/2/d/meta_tag_d6ca03e719804347cb71d8338d5bce5a.jpg',
+            valueTextArea: ''
+          },
+          posts: [
+            {
+              id: v1(),
+              avatar: 'https://yt3.ggpht.com/a/AATXAJzp71mv5MJ56d1-PrE7tL31GVRDbGP73QmS1Q=s900-c-k-c0xffffffff-no-rj-mo',
+              title: 'Аффирмации на каждый день',
+              text: 'Аффирмация на каждый день и далее пошел целый сплошной текст, который приводит к каким-то последствиям и заставляет нас применить свои усилия, чтобы понять, что тут вобще написано',
+              likesCount: 6
+            },
+            {
+              id: v1(),
+              avatar: 'https://im0-tub-ru.yandex.net/i?id=70bde5566a6078f6bca01933fc2a412f&ref=rim&n=33&w=300&h=300',
+              title: 'Программирование на javascript',
+              text: 'Программирование на javascript и далее пошел целый сплошной текст, который приводит к каким-то посдедствиям и заставляет нас применить свои усилия, чтобы понять, что тут вобще написано',
+              likesCount: 2
+            },
+            {
+              id: v1(),
+              avatar: 'https://sun9-10.userapi.com/xMtkKxtrmIts_wJ8cOH_rhasMaGGftbw6m3XEg/mFWBoDS8ZjI.jpg',
+              title: 'Обучение финансовой грамотности',
+              text: 'Обучение финансовой грамотности и далее пошел целый сплошной текст, который приводит к каким-то посдедствиям и заставляет нас применить свои усилия, чтобы понять, что тут вобще написано',
+              likesCount: 4
+            },
+            {
+              id: v1(),
+              avatar: 'https://yt3.ggpht.com/ytc/AAUvwnjbnydVEHlADfNrG_bVJP6GvmlelF9MwZczb10h2g=s900-c-k-c0x00ffffff-no-rj',
+              title: 'Поездка на Бали',
+              text: 'Поездка на Бали и далее пошел целый сплошной текст, который приводит к каким-то посдедствиям и заставляет нас применить свои усилия, чтобы понять, что тут вообще написано',
+              likesCount: 1
+            },
+          ]
+        }
       }
     },
   },
@@ -105,8 +178,7 @@ const store: StoreType = {
       this._state.pages.page.friends.valueMessage = action.message;
 
       this._callSubscriber();
-    }
-    else if (action.type === ADD_MESSAGE) {
+    } else if (action.type === ADD_MESSAGE) {
       const newMessage: DialogsDataType = {
         id: v1(),
         message: this._state.pages.page.friends.valueMessage
@@ -116,8 +188,7 @@ const store: StoreType = {
       this._state.pages.page.friends.valueMessage = '';
 
       this._callSubscriber();
-    }
-    else if (action.type === ADD_MESSAGE_BY_ENTER) {
+    } else if (action.type === ADD_MESSAGE_BY_ENTER) {
       const newMessage: DialogsDataType = {
         id: v1(),
         message: this._state.pages.page.friends.valueMessage
@@ -127,14 +198,32 @@ const store: StoreType = {
       this._state.pages.page.friends.valueMessage = '';
 
       this._callSubscriber();
-    }
-    else {
+    } else if (action.type === CHANGE_ADD_POST_TEXT) {
+      this._state.pages.page.publications.addingPost.valueTextArea = action.message;
+
+      this._callSubscriber();
+    } else if (action.type === ADD_POST) {
+      const newPost = {
+        id: v1(),
+        avatar: 'https://yt3.ggpht.com/ytc/AAUvwnjbnydVEHlADfNrG_bVJP6GvmlelF9MwZczb10h2g=s900-c-k-c0x00ffffff-no-rj',
+        title: 'Мир на земле',
+        text: 'Человечеству нужен Мир на земле и далее пошел целый сплошной текст, который приводит к каким-то последствиям и заставляет нас применить свои усилия, чтобы понять, что тут вобще написано',
+        likesCount: 0
+      };
+
+      this._state.pages.page.publications.addingPost.valueTextArea = '';
+
+      this._state.pages.page.publications.posts.unshift(newPost);
+
+      this._callSubscriber();
+    } else {
       return action;
     }
   }
 }
 
-export const changeTextAC = (text: string) => {
+// add dialog from page friends
+export const changeDialogsMessageAC = (text: string) => {
   return {type: CHANGE_DIALOGS_MESSAGE, message: text} as const
 }
 
@@ -144,6 +233,15 @@ export const addMessageAC = () => {
 
 export const addMessageByEnterAC = () => {
   return {type: ADD_MESSAGE_BY_ENTER} as const
+}
+
+// add post
+export const changeAddPostMessageAC = (message: string) => {
+  return {type: CHANGE_ADD_POST_TEXT, message: message} as const
+}
+
+export const addPostAC = () => {
+  return {type: ADD_POST} as const
 }
 
 export default store;

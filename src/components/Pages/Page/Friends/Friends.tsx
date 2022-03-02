@@ -3,8 +3,7 @@ import styles from './Friends.module.css';
 import {
   ActionsType,
   addMessageAC,
-  addMessageByEnterAC,
-  changeTextAC,
+  addMessageByEnterAC, changeDialogsMessageAC,
   FriendsPageType,
 } from '../../../../redux/store';
 import Friend from "./Friend/Friend";
@@ -41,7 +40,7 @@ const Friends = (props: PropsType) => {
 
   // обновляем значение change у textarea
   const onChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
-    props.dispatch(changeTextAC(e.currentTarget.value));
+    props.dispatch(changeDialogsMessageAC(e.currentTarget.value));
   }
 
   // добавляем сообщение в диалог по нажатию на кнопку

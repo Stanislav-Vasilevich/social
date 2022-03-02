@@ -10,12 +10,16 @@ type PropsType = {
   img: string
 }
 
-const Friend: React.FC<PropsType> = ({id, name, img}) => {
+const Friend = (props: PropsType) => {
   return (
     <section className={main}>
-      <NavLink className={friend} activeClassName={active} to={`/friends/${id}`}>
-        <img src={img} alt={name}/>
-        <h2>{name}</h2>
+      <NavLink
+        className={friend}
+        activeClassName={active}
+        to={`/friends/${props.id}`}
+      >
+        <img src={props.img} alt={props.name}/>
+        <h2>{props.name}</h2>
       </NavLink>
     </section>
   )
