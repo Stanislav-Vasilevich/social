@@ -1,13 +1,9 @@
 import React, {ChangeEvent, KeyboardEvent} from 'react';
 import styles from './Friends.module.css';
-import {
-  ActionsType,
-  addMessageAC,
-  addMessageByEnterAC, changeDialogsMessageAC,
-  FriendsPageType,
-} from '../../../../redux/store';
 import Friend from "./Friend/Friend";
 import Dialogs from "./Dialogs/Dialogs";
+import {ActionsType, FriendsPageType} from "../../../../redux/store";
+import {addMessageAC, addMessageByEnterAC, changeDialogsMessageAC} from "../../../../redux/friends-reducer";
 
 type PropsType = {
   page: FriendsPageType

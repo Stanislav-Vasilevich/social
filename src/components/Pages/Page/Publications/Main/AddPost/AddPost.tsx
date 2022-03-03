@@ -1,6 +1,7 @@
 import React, {ChangeEvent} from 'react';
 import styles from './AddPost.module.css';
-import {ActionsType, AddingPostType, addPostAC, changeAddPostMessageAC} from "../../../../../../redux/store";
+import {ActionsType, AddingPostType} from "../../../../../../redux/store";
+import {addPostAC, changeAddPostTextAC, changeAddPostTitleAC} from "../../../../../../redux/publications-reducer";
 
 type PropsType = {
   addingPost: AddingPostType
@@ -8,8 +9,12 @@ type PropsType = {
 }
 
 const AddPost = (props: PropsType) => {
+  const changeAddPostTitleHandler = (e: ChangeEvent<HTMLInputElement>) => {
+    props.dispatch(changeAddPostTitleAC(e.currentTarget.value));
+  }
+
   const changeAddPostTextHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
-    props.dispatch(changeAddPostMessageAC(e.currentTarget.value));
+    props.dispatch(changeAddPostTextAC(e.currentTarget.value));
   }
 
   const addPostHandler = () => {
@@ -21,13 +26,15 @@ const AddPost = (props: PropsType) => {
       <img className={styles.avatar} src={props.addingPost.avatar} alt={props.addingPost.name}/>
       <div>
         <input className={styles.input}
+               onChange={changeAddPostTitleHandler}
                type="text"
                placeholder={'заголовок'}
+               value={props.addingPost.valueTitle}
         />
         <textarea className={styles.textArea}
-                  value={props.addingPost.valueTextArea}
                   onChange={changeAddPostTextHandler}
                   placeholder={'текст..'}
+                  value={props.addingPost.valueText}
         />
         <div className={styles.row}>
           <button className={styles.btn} onClick={addPostHandler}>Отправить</button>

@@ -1,10 +1,6 @@
 import {v1} from 'uuid';
-
-const CHANGE_DIALOGS_MESSAGE = 'CHANGE-DIALOGS-MESSAGE';
-const CHANGE_ADD_POST_TEXT = 'CHANGE_ADD_POST_TEXT';
-const ADD_MESSAGE = 'ADD-MESSAGE';
-const ADD_MESSAGE_BY_ENTER = 'ADD-MESSAGE-BY-ENTER';
-const ADD_POST = 'ADD_POST';
+import {addMessageAC, addMessageByEnterAC, changeDialogsMessageAC, friendsReducer} from "./friends-reducer";
+import {addPostAC, changeAddPostTextAC, changeAddPostTitleAC, publicationsReducer} from "./publications-reducer";
 
 export type UserType = {
   name: string
@@ -21,7 +17,7 @@ export type FriendDataType = {
   name: string
   img: string
 }
-type DialogsDataType = {
+export type DialogsDataType = {
   id: string
   message: string
 }
@@ -43,7 +39,8 @@ export type PostsType = {
 export type AddingPostType = {
   name: string
   avatar: string
-  valueTextArea: string
+  valueTitle: string
+  valueText: string
 }
 
 export type PublicationsPageType = {
@@ -78,16 +75,18 @@ export type StoreType = {
   getState: () => StateType
   dispatch: (action: ActionsType) => void
 }
-type ChangeDialogsMessageACType = ReturnType<typeof changeDialogsMessageAC>
-type AddMessageACType = ReturnType<typeof addMessageAC>
-type AddMessageByEnterACType = ReturnType<typeof addMessageByEnterAC>
-type ChangePostMessageACType = ReturnType<typeof changeAddPostMessageAC>
-type AddPostACType = ReturnType<typeof addPostAC>
+export type ChangeDialogsMessageACType = ReturnType<typeof changeDialogsMessageAC>
+export type AddMessageACType = ReturnType<typeof addMessageAC>
+export type AddMessageByEnterACType = ReturnType<typeof addMessageByEnterAC>
+export type ChangePostTitleACType = ReturnType<typeof changeAddPostTitleAC>
+export type ChangePostTextACType = ReturnType<typeof changeAddPostTextAC>
+export type AddPostACType = ReturnType<typeof addPostAC>
 export type ActionsType =
   ChangeDialogsMessageACType
   | AddMessageACType
   | AddMessageByEnterACType
-  | ChangePostMessageACType
+  | ChangePostTitleACType
+  | ChangePostTextACType
   | AddPostACType
 
 const store: StoreType = {
@@ -128,7 +127,8 @@ const store: StoreType = {
           addingPost: {
             name: 'Stanislav',
             avatar: 'https://s.starladder.com/uploads/user_logo/b/f/2/d/meta_tag_d6ca03e719804347cb71d8338d5bce5a.jpg',
-            valueTextArea: ''
+            valueTitle: '',
+            valueText: ''
           },
           posts: [
             {
@@ -174,74 +174,11 @@ const store: StoreType = {
     return this._state;
   },
   dispatch(action) {
-    if (action.type === CHANGE_DIALOGS_MESSAGE) {
-      this._state.pages.page.friends.valueMessage = action.message;
+    friendsReducer(this._state.pages.page.friends, action);
+    publicationsReducer(this._state.pages.page.publications, action);
 
-      this._callSubscriber();
-    } else if (action.type === ADD_MESSAGE) {
-      const newMessage: DialogsDataType = {
-        id: v1(),
-        message: this._state.pages.page.friends.valueMessage
-      };
-
-      this._state.pages.page.friends.dialogs.push(newMessage);
-      this._state.pages.page.friends.valueMessage = '';
-
-      this._callSubscriber();
-    } else if (action.type === ADD_MESSAGE_BY_ENTER) {
-      const newMessage: DialogsDataType = {
-        id: v1(),
-        message: this._state.pages.page.friends.valueMessage
-      };
-
-      this._state.pages.page.friends.dialogs.push(newMessage);
-      this._state.pages.page.friends.valueMessage = '';
-
-      this._callSubscriber();
-    } else if (action.type === CHANGE_ADD_POST_TEXT) {
-      this._state.pages.page.publications.addingPost.valueTextArea = action.message;
-
-      this._callSubscriber();
-    } else if (action.type === ADD_POST) {
-      const newPost = {
-        id: v1(),
-        avatar: 'https://yt3.ggpht.com/ytc/AAUvwnjbnydVEHlADfNrG_bVJP6GvmlelF9MwZczb10h2g=s900-c-k-c0x00ffffff-no-rj',
-        title: 'Мир на земле',
-        text: 'Человечеству нужен Мир на земле и далее пошел целый сплошной текст, который приводит к каким-то последствиям и заставляет нас применить свои усилия, чтобы понять, что тут вобще написано',
-        likesCount: 0
-      };
-
-      this._state.pages.page.publications.addingPost.valueTextArea = '';
-
-      this._state.pages.page.publications.posts.unshift(newPost);
-
-      this._callSubscriber();
-    } else {
-      return action;
-    }
+    this._callSubscriber();
   }
-}
-
-// add dialog from page friends
-export const changeDialogsMessageAC = (text: string) => {
-  return {type: CHANGE_DIALOGS_MESSAGE, message: text} as const
-}
-
-export const addMessageAC = () => {
-  return {type: ADD_MESSAGE} as const
-}
-
-export const addMessageByEnterAC = () => {
-  return {type: ADD_MESSAGE_BY_ENTER} as const
-}
-
-// add post
-export const changeAddPostMessageAC = (message: string) => {
-  return {type: CHANGE_ADD_POST_TEXT, message: message} as const
-}
-
-export const addPostAC = () => {
-  return {type: ADD_POST} as const
 }
 
 export default store;
