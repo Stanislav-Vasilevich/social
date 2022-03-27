@@ -11,6 +11,7 @@
 }
 
 .active {
-  color: #87346d;
-  text-decoration: underline;
+  color: blueviolet;
+  text-decoration: none;
+  padding: 20px;
 }

@@ -15,7 +15,6 @@ const Friend = (props: PropsType) => {
     <section className={main}>
       <NavLink
         className={friend}
-        activeClassName={active}
         to={`/friends/${props.id}`}
       >
         <img src={props.img} alt={props.name}/>

@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Menu.module.css';
+import s from './Menu.module.css';
 import {NavLink} from "react-router-dom";
 import {MenuItemsType} from "../../../redux/store";
 
@@ -12,8 +12,7 @@ const Menu = (props: PropsType) => {
     return (
       <NavLink
         key={i.id}
-        className={styles.item}
-        activeClassName={styles.active}
+        className={(params) => params.isActive ? s.active : s.item}
         to={i.path}
       >
         {i.item}
@@ -22,7 +21,7 @@ const Menu = (props: PropsType) => {
   });
 
   return (
-    <nav className={styles.menu}>
+    <nav className={s.menu}>
       {menuItem}
     </nav>
   );

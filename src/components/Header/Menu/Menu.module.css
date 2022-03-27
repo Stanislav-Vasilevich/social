@@ -4,13 +4,14 @@
 
 .item {
   display: block;
-  padding: 20px;
   text-decoration: none;
   color: #65676B;
   cursor: pointer;
+  padding: 20px;
 }
 
 .active {
-  color: #87346d;
-  text-decoration: underline;
+  color: red;
+  text-decoration: none;
+  padding: 20px;
 }
