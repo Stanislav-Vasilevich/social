@@ -1,17 +1,15 @@
 import {v1} from 'uuid';
-import {addMessageAC, addMessageByEnterAC, changeDialogsMessageAC, friendsReducer} from "./friends-reducer";
-import {addPostAC, changeAddPostTextAC, changeAddPostTitleAC, publicationsReducer} from "./publications-reducer";
+import {addMessageAC, addMessageByEnterAC, changeDialogsMessageAC, friendsReducer} from './friends-reducer';
+import {addPostAC, changeAddPostTextAC, changeAddPostTitleAC, publicationsReducer} from './publications-reducer';
 
 export type UserType = {
   name: string
   avatar: string
 }
-
 type HeaderType = {
   menu: Array<MenuItemsType>
   user: UserType
 }
-
 export type FriendDataType = {
   id: string
   name: string
@@ -21,13 +19,11 @@ export type DialogsDataType = {
   id: string
   message: string
 }
-
 export type FriendsPageType = {
   persons: Array<FriendDataType>
   valueMessage: string
   dialogs: Array<DialogsDataType>
 }
-
 export type PostsType = {
   id: string
   avatar: string
@@ -35,35 +31,29 @@ export type PostsType = {
   text: string
   likesCount: number
 }
-
 export type AddingPostType = {
   name: string
   avatar: string
   valueTitle: string
   valueText: string
 }
-
 export type PublicationsPageType = {
   addingPost: AddingPostType
   posts: Array<PostsType>
 }
-
 export type PageType = {
   friends: FriendsPageType
   publications: PublicationsPageType
 }
-
 export type PagesType = {
   navigation: Array<MenuItemsType>
   page: PageType
 }
-
 export type MenuItemsType = {
   id: number
   item: string
   path: string
 }
-
 export type StateType = {
   header: HeaderType
   pages: PagesType
@@ -174,8 +164,8 @@ const store: StoreType = {
     return this._state;
   },
   dispatch(action) {
-    friendsReducer(this._state.pages.page.friends, action);
-    publicationsReducer(this._state.pages.page.publications, action);
+    this._state.pages.page.friends = friendsReducer(this._state.pages.page.friends, action);
+    this._state.pages.page.publications = publicationsReducer(this._state.pages.page.publications, action);
 
     this._callSubscriber();
   }
