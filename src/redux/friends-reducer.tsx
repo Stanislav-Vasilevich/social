@@ -19,7 +19,7 @@ const initialState = {
   ],
 }
 
-export const friendsReducer = (state = initialState: FriendsPageType, action: ActionsType) => {
+export const friendsReducer = (state: FriendsPageType = initialState, action: ActionsType) => {
   switch (action.type) {
     case CHANGE_DIALOGS_MESSAGE:
       state.valueMessage = action.message;

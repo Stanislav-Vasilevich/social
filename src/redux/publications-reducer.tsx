@@ -44,7 +44,7 @@ const initialState = {
   ]
 }
 
-export const publicationsReducer = (state = initialState: PublicationsPageType, action: ActionsType) => {
+export const publicationsReducer = (state: PublicationsPageType = initialState, action: ActionsType) => {
   switch (action.type) {
     case CHANGE_ADD_POST_TITLE:
       state.addingPost.valueTitle = action.message;
