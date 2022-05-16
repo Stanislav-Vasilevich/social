@@ -7,11 +7,11 @@ const ADD_MESSAGE_BY_ENTER = 'ADD-MESSAGE-BY-ENTER';
 
 const initialState = {
   persons: [
-    {id: v1(), name: 'Катя', img: 'https://avatarko.ru/img/kartinka/16/Joker_minion_15661.jpg'},
+    {id: v1(), name: 'Настя', img: 'https://avatarko.ru/img/kartinka/16/Joker_minion_15661.jpg'},
     {id: v1(), name: 'Паша', img: 'https://klike.net/uploads/posts/2018-06/1528369868_15.jpg'},
     {id: v1(), name: 'Вова', img: 'https://pbs.twimg.com/media/Ce43PAzW4AA_g9g.jpg'}
   ],
-  valueMessage: 'Как твои дела бро?',
+  valueMessage: 'Как твои дела бро, а?',
   dialogs: [
     {id: v1(), message: 'Hello! How are you?'},
     {id: v1(), message: 'Hey! I`m work, I`m find!'},

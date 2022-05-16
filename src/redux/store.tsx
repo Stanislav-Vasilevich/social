@@ -10,6 +10,23 @@ type HeaderType = {
   menu: Array<MenuItemsType>
   user: UserType
 }
+export type AuthorPageType = {
+  background: string
+  altBackground: string
+  avatar: string
+  name: string
+  description: string
+}
+export type NewsPageType = {
+  avatar: string
+  name: string
+  data: string
+  title: string
+  text: string
+  photo: string
+  alt: string
+  likesCount: number
+}
 export type FriendDataType = {
   id: string
   name: string
@@ -42,6 +59,8 @@ export type PublicationsPageType = {
   posts: Array<PostsType>
 }
 export type PageType = {
+  author: AuthorPageType
+  news: NewsPageType
   friends: FriendsPageType
   publications: PublicationsPageType
 }
@@ -50,7 +69,7 @@ export type PagesType = {
   page: PageType
 }
 export type MenuItemsType = {
-  id: number
+  id: string
   item: string
   path: string
 }
@@ -83,10 +102,10 @@ const store: StoreType = {
   _state: {
     header: {
       menu: [
-        {id: 1, item: 'Автор', path: '/'},
-        {id: 2, item: 'Новости', path: '/news'},
-        {id: 3, item: 'Друзья', path: '/friends'},
-        {id: 4, item: 'Группы', path: '/groups'},
+        {id: v1(), item: 'Автор', path: '/'},
+        {id: v1(), item: 'Новости', path: '/news'},
+        {id: v1(), item: 'Друзья', path: '/friends'},
+        {id: v1(), item: 'Группы', path: '/groups'},
       ],
       user: {
         name: 'Stanislav',
@@ -95,11 +114,28 @@ const store: StoreType = {
     },
     pages: {
       navigation: [
-        {id: 1, item: 'Публикации', path: '/publications'},
-        {id: 2, item: 'Сообщения', path: '/messages'},
-        {id: 3, item: 'Фото', path: '/photo'},
+        {id: v1(), item: 'Публикации', path: '/publications'},
+        {id: v1(), item: 'Сообщения', path: '/messages'},
+        {id: v1(), item: 'Фото', path: '/photo'},
       ],
       page: {
+        author: {
+          background: 'https://www.sgmbg.ru/upload/resize_cache/iblock/e71/1450_750_2/e71bd49ed67671a260e4748d6793e299.jpg',
+          altBackground: 'Сочи',
+          avatar: 'https://s.starladder.com/uploads/user_logo/5/c/9/d/meta_tag_1039d807e6e9d7e403ecd6510eb61d83.jpg',
+          name: 'Станислав Василевич',
+          description: 'Я действующий frontend-разработчик веб-приложений на CSS, HTML, JavaScript и React',
+        },
+        news: {
+          avatar: 'https://www.neizvestniy-geniy.ru/images/users/2020/04/148421.jpg',
+          name: 'Алексей Етеревсков',
+          data: '12.08.2021',
+          title: 'Был в Крыму',
+          text: 'Ездил в Крым, классно отдохнул, посмотрел на местные виды и сделал отличное фото!',
+          photo: 'https://top10a.ru/wp-content/uploads/2020/01/lastochkino_gnezdo_swallow_nest2-1shyu.jpg',
+          alt: 'Крым',
+          likesCount: 4,
+        },
         friends: {
           persons: [
             {id: v1(), name: 'Катя', img: 'https://avatarko.ru/img/kartinka/16/Joker_minion_15661.jpg'},

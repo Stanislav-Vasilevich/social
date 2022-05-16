@@ -19,8 +19,18 @@ const Page = (props: PropsType) => {
   return (
     <section className={styles.main}>
       <Routes>
-        <Route path="/" element={AboutAuthor}/>
-        <Route path="/news" element={News}/>
+        <Route path="/" element={(
+          <AboutAuthor
+            page={props.pages.page.author}
+            dispatch={props.dispatch}
+          />
+          )}/>
+        <Route path="/news" element={(
+          <News
+            page={props.pages.page.news}
+            dispatch={props.dispatch}
+          />
+        )}/>
         <Route path="/friends" element={(
           <Friends
             page={props.pages.page.friends}

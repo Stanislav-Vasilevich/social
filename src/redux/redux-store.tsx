@@ -6,8 +6,8 @@ type ReducersType = typeof reducers;
 type AppStateType = ReturnType<ReducersType>;
 
 const reducers = combineReducers({
-  friends: friendsReducer,
-  publications: publicationsReducer
+  friendsPage: friendsReducer,
+  publicationsPage: publicationsReducer
 });
 
 const store = createStore(reducers);

@@ -1,27 +1,26 @@
-import React from "react";
-import sochi from "../../../../image/Sochi.jpeg";
-import styles from "../../Pages.module.css";
+import React from 'react';
+import s from '../../Pages.module.css';
+import {ActionsType, AuthorPageType} from '../../../../redux/store';
 
-const AboutAuthor = () => {
+type PropsType = {
+  page: AuthorPageType
+  dispatch: (action: ActionsType) => void
+}
+
+const AboutAuthor = (props: PropsType) => {
   return (
     <div>
       {/* фон первого блока */}
-      <div className={styles.background}>
-        <img className={styles.image}
-             src={sochi}
-             alt="Сочи"/>
+      <div className={s.background}>
+        <img className={s.image} src={props.page.background} alt={props.page.altBackground}/>
       </div>
 
       {/* профиль пользователя */}
-      <div className={styles.profile}>
-        <img className={styles.avatar}
-             src="https://s.starladder.com/uploads/user_logo/5/c/9/d/meta_tag_1039d807e6e9d7e403ecd6510eb61d83.jpg"
-             alt=""/>
+      <div className={s.profile}>
+        <img className={s.avatar} src={props.page.avatar} alt={props.page.name}/>
         <div>
-          <h2 className={styles.name}>Станислав Василевич</h2>
-          <div className={styles.description}>Я действующий frontend-разработчик веб-приложений на CSS, HTML, JavaScript
-            и React
-          </div>
+          <h2 className={s.name}>{props.page.name}</h2>
+          <div className={s.description}>{props.page.description}</div>
         </div>
       </div>
     </div>
