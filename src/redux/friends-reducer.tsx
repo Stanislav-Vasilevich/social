@@ -6,6 +6,11 @@ const ADD_MESSAGE = 'ADD-MESSAGE';
 const ADD_MESSAGE_BY_ENTER = 'ADD-MESSAGE-BY-ENTER';
 
 const initialState = {
+  navigation: [
+    {id: v1(), item: 'Публикации', path: '/publications'},
+    {id: v1(), item: 'Сообщения', path: '/messages'},
+    {id: v1(), item: 'Фото', path: '/photo'},
+  ],
   persons: [
     {id: v1(), name: 'Настя', img: 'https://avatarko.ru/img/kartinka/16/Joker_minion_15661.jpg'},
     {id: v1(), name: 'Паша', img: 'https://klike.net/uploads/posts/2018-06/1528369868_15.jpg'},

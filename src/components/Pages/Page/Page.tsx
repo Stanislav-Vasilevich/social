@@ -8,10 +8,10 @@ import Groups from './Groups/Groups';
 import Publications from './Publications/Publications';
 import Messages from './Messages/Messages';
 import Photo from './Photo/Photo';
-import {ActionsType, PagesType} from '../../../redux/store';
+import {ActionsType, PagesType, StoreType} from '../../../redux/store';
 
 type PropsType = {
-  pages: PagesType
+  store: StoreType
   dispatch: (action: ActionsType) => void
 }
 
@@ -21,26 +21,32 @@ const Page = (props: PropsType) => {
       <Routes>
         <Route path="/" element={(
           <AboutAuthor
-            page={props.pages.page.author}
+            page={props.store.author}
+            dispatch={props.dispatch}
+          />
+          )}/>
+        <Route path="/social-it-incubator" element={(
+          <AboutAuthor
+            page={props.store.author}
             dispatch={props.dispatch}
           />
           )}/>
         <Route path="/news" element={(
           <News
-            page={props.pages.page.news}
+            page={props.store.news}
             dispatch={props.dispatch}
           />
         )}/>
         <Route path="/friends" element={(
           <Friends
-            page={props.pages.page.friends}
+            page={props.store.friendsPage}
             dispatch={props.dispatch}
           />
         )}/>
         <Route path="/groups" element={Groups}/>
         <Route path="/publications" element={(
           <Publications
-            page={props.pages.page.publications}
+            page={props.store.publicationsPage}
             dispatch={props.dispatch}
           />
         )}/>

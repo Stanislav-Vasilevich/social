@@ -14,12 +14,9 @@ const Pages = (props: PropsType) => {
     <>
       {/* первый блок профиля автора */}
       <div className={styles.pages}>
-        {/* навигация */}
-        <Navigation menuItems={props.store.getState().pages.navigation}/>
-
         {/* главная страница */}
         <Page
-          pages={props.store.getState().pages}
+          store={props.store}
           dispatch={props.dispatch}
         />
       </div>

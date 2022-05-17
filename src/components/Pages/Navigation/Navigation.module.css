@@ -1,5 +1,7 @@
 .navigation {
   display: flex;
+  background: #f8e6ca;
+  margin: 0 0 30px 0;
 }
 
 .item {
@@ -8,6 +10,10 @@
   text-decoration: none;
   color: #65676B;
   cursor: pointer;
+}
+
+.item:hover {
+  background: rgba(255, 217, 180, 0.55);
 }
 
 .active {

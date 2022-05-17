@@ -4,6 +4,7 @@ import Friend from "./Friend/Friend";
 import Dialogs from "./Dialogs/Dialogs";
 import {ActionsType, FriendsPageType} from "../../../../redux/store";
 import {addMessageAC, addMessageByEnterAC, changeDialogsMessageAC} from "../../../../redux/friends-reducer";
+import Navigation from '../../Navigation/Navigation';
 
 type PropsType = {
   page: FriendsPageType
@@ -53,6 +54,9 @@ const Friends = (props: PropsType) => {
 
   return (
     <section>
+      {/* навигация */}
+      <Navigation menuItems={props.page.navigation}/>
+
       <h2>Друзья</h2>
 
       {/* блок с друзьями */}
