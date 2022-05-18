@@ -1,6 +1,6 @@
 .page {
   display: grid;
-  grid-template-columns: 6fr 6fr;
+  grid-template-columns: 1fr 1.5fr;
   gap: 0 15px;
   background-color: #f8e6ca;
   padding: 15px;

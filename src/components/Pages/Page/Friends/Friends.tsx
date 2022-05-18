@@ -1,9 +1,9 @@
 import React, {ChangeEvent, KeyboardEvent} from 'react';
-import styles from './Friends.module.css';
-import Friend from "./Friend/Friend";
-import Dialogs from "./Dialogs/Dialogs";
-import {ActionsType, FriendsPageType} from "../../../../redux/store";
-import {addMessageAC, addMessageByEnterAC, changeDialogsMessageAC} from "../../../../redux/friends-reducer";
+import s from './Friends.module.css';
+import Friend from './Friend/Friend';
+import Dialogs from './Dialogs/Dialogs';
+import {ActionsType, FriendsPageType} from '../../../../redux/store';
+import {addMessageAC, addMessageByEnterAC, changeDialogsMessageAC} from '../../../../redux/friends-reducer';
 import Navigation from '../../Navigation/Navigation';
 
 type PropsType = {
@@ -60,27 +60,27 @@ const Friends = (props: PropsType) => {
       <h2>Друзья</h2>
 
       {/* блок с друзьями */}
-      <div className={styles.page}>
+      <div className={s.page}>
 
         {/* друзья */}
-        <div>
+        <div className={s.arrayFriends}>
           {arrayFriends}
         </div>
 
         {/* диалоги */}
-        <div className={styles.dialogsStyle}>
+        <div className={s.dialogsStyle}>
           {arrayDialogs}
 
           {/* написать и отправить сообщение */}
-          <div className={styles.writeSend}>
+          <div className={s.writeSend}>
             <textarea
-              className={styles.textArea}
+              className={s.textArea}
               onChange={onChangeHandler}
               onKeyPress={addMessageHandlerByEnter}
               value={props.page.valueMessage}
             >
             </textarea>
-            <button className={styles.button} onClick={addMessageHandler}>Отправить</button>
+            <button className={s.button} onClick={addMessageHandler}>Отправить</button>
           </div>
         </div>
       </div>

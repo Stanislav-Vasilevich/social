@@ -1,6 +1,11 @@
 .main {
   width: 100%;
+  box-sizing: border-box;
   padding: 15px;
+}
+
+.item {
+  width: 100%;
 }
 
 .item:not(:first-child) {

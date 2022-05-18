@@ -1,7 +1,5 @@
 import {addMessageAC, addMessageByEnterAC, changeDialogsMessageAC, friendsReducer} from './friends-reducer';
 import {addPostAC, changeAddPostTextAC, changeAddPostTitleAC, publicationsReducer} from './publications-reducer';
-import authorReducer from './author-reducer';
-import newsReducer from './news-reducer';
 
 export type UserType = {
   name: string
@@ -74,10 +72,6 @@ export type MenuItemsType = {
   item: string
   path: string
 }
-// export type StateType = {
-//   header: HeaderType
-//   pages: PagesType
-// }
 export type StoreType = {
   header: HeaderType
   author: AuthorPageType

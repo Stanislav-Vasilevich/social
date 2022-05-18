@@ -1,6 +1,7 @@
 import React from 'react';
 import s from '../../Pages.module.css';
 import {ActionsType, AuthorPageType} from '../../../../redux/store';
+import {changeDescriptionAC} from '../../../../redux/author-reducer';
 
 type PropsType = {
   page: AuthorPageType
@@ -8,6 +9,11 @@ type PropsType = {
 }
 
 const AboutAuthor = (props: PropsType) => {
+  const onChangeDescriptionHandler = () => {
+    // changeDescriptionAC()
+    console.log(props)
+  }
+
   return (
     <div>
       {/* фон первого блока */}
@@ -20,7 +26,7 @@ const AboutAuthor = (props: PropsType) => {
         <img className={s.avatar} src={props.page.avatar} alt={props.page.name}/>
         <div>
           <h2 className={s.name}>{props.page.name}</h2>
-          <div className={s.description}>{props.page.description}</div>
+          <div className={s.description} onDoubleClick={onChangeDescriptionHandler}>{props.page.description}</div>
         </div>
       </div>
     </div>
