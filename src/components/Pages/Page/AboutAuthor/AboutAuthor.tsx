@@ -1,7 +1,7 @@
 import React from 'react';
 import s from '../../Pages.module.css';
-import {ActionsType, AuthorPageType} from '../../../../redux/store';
-import {changeDescriptionAC} from '../../../../redux/author-reducer';
+import {AuthorPageType} from '../../../../redux/author-reducer';
+import {ActionsType} from '../../../../index';
 
 type PropsType = {
   page: AuthorPageType

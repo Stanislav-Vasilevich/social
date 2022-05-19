@@ -1,8 +1,9 @@
 import React from 'react';
 import styles from './Main.module.css';
-import AddPost from './AddPost/AddPost';
 import Posts from './Posts/Posts';
-import {ActionsType, PublicationsPageType} from "../../../../../redux/store";
+import {PublicationsPageType} from '../../../../../redux/publications-reducer';
+import {ActionsType} from '../../../../../index';
+import AddPostContainer from './AddPost/AddPostContainer';
 
 type PropsType = {
   mainContent: PublicationsPageType
@@ -12,7 +13,7 @@ type PropsType = {
 export function Main(props: PropsType) {
   return (
     <section className={styles.main}>
-      <AddPost
+      <AddPostContainer
         addingPost={props.mainContent.addingPost}
         dispatch={props.dispatch}
       />

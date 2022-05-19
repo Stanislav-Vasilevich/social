@@ -1,7 +1,8 @@
 import React from 'react';
 import styles from './Posts.module.css';
 import Post from './Post/Post';
-import {ActionsType, PostsType} from "../../../../../../redux/store";
+import {PostsType} from '../../../../../../redux/publications-reducer';
+import {ActionsType} from '../../../../../../index';
 
 const {section} = styles;
 

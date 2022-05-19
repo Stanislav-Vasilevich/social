@@ -1,24 +1,25 @@
 import React, {ChangeEvent} from 'react';
 import styles from './AddPost.module.css';
-import {ActionsType, AddingPostType} from "../../../../../../redux/store";
-import {addPostAC, changeAddPostTextAC, changeAddPostTitleAC} from "../../../../../../redux/publications-reducer";
+import {AddingPostType} from '../../../../../../redux/publications-reducer';
 
 type PropsType = {
+  changeAddPostTitle: (text: string) => void
+  changeAddPostText: (text: string) => void
+  addPost: () => void
   addingPost: AddingPostType
-  dispatch: (action: ActionsType) => void
 }
 
 const AddPost = (props: PropsType) => {
   const changeAddPostTitleHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    props.dispatch(changeAddPostTitleAC(e.currentTarget.value));
+    props.changeAddPostTitle(e.currentTarget.value);
   }
 
   const changeAddPostTextHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
-    props.dispatch(changeAddPostTextAC(e.currentTarget.value));
+    props.changeAddPostText(e.currentTarget.value);
   }
 
   const addPostHandler = () => {
-    props.dispatch(addPostAC());
+    props.addPost();
   }
 
   return (

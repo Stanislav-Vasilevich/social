@@ -1,5 +1,15 @@
 import {v1} from 'uuid';
-import {ActionsType, HeaderType} from './store';
+import {FriendsNavigationType} from './friends-reducer';
+
+export type UserType = {
+  name: string
+  avatar: string
+}
+export type HeaderType = {
+  menu: Array<FriendsNavigationType>
+  user: UserType
+}
+export type HeaderPageActionType = {}
 
 const initialState = {
   menu: [
@@ -14,7 +24,7 @@ const initialState = {
   }
 }
 
-export const headerReducer = (state: HeaderType = initialState, action: ActionsType) => {
+export const headerReducer = (state: HeaderType = initialState, action: HeaderPageActionType) => {
   return state;
 }
 

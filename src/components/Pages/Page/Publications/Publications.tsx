@@ -1,7 +1,8 @@
 import React from 'react';
 import styles from './Publications.module.css';
 import {Main} from './Main/Main';
-import {ActionsType, PublicationsPageType} from "../../../../redux/store";
+import {PublicationsPageType} from '../../../../redux/publications-reducer';
+import {ActionsType} from '../../../../index';
 
 type PropsType = {
   page: PublicationsPageType

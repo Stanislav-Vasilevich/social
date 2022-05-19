@@ -1,13 +1,14 @@
 import React from 'react';
 import styles from './App.module.css';
 import Header from './components/Header/Header';
-import {ActionsType, StoreType} from "./redux/store";
 import Pages from "./components/Pages/Pages";
+import {ActionsType} from './index';
+import {AppStateType} from './redux/redux-store';
 
 const {app, page, container} = styles;
 
 type PropsType = {
-  store: StoreType
+  store: AppStateType
   dispatch: (action: ActionsType) => void
 }
 

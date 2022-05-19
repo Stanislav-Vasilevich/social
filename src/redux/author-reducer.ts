@@ -1,14 +1,12 @@
-import {
-  AddMessageACType,
-  AddMessageByEnterACType, AddPostACType,
-  AuthorPageType,
-  ChangeDialogsMessageACType, ChangePostTextACType,
-  ChangePostTitleACType
-} from './store';
-import {changeDialogsMessageAC} from './friends-reducer';
-
 const CHANGE_DESCRIPTION = 'CHANGE-DESCRIPTION';
 
+export type AuthorPageType = {
+  background: string
+  altBackground: string
+  avatar: string
+  name: string
+  description: string
+}
 type StateType = {
   background: string
   altBackground: string
@@ -16,10 +14,7 @@ type StateType = {
   name: string
   description: string
 }
-
-export type changeDescriptionACType = ReturnType<typeof changeDescriptionAC>
-
-type ActionsType = changeDescriptionACType
+export type AuthorPageActionsType = ReturnType<typeof changeDescriptionAC>
 
 const initialState: StateType = {
   background: 'https://www.sgmbg.ru/upload/resize_cache/iblock/e71/1450_750_2/e71bd49ed67671a260e4748d6793e299.jpg',
@@ -29,7 +24,7 @@ const initialState: StateType = {
   description: 'Я действующий frontend-разработчик веб-приложений на CSS, HTML, JavaScript и React',
 }
 
-const authorReducer = (state: AuthorPageType = initialState, action: ActionsType) => {
+const authorReducer = (state: AuthorPageType = initialState, action: AuthorPageActionsType) => {
   if(action.type === CHANGE_DESCRIPTION) {
 
   }

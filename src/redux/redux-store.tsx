@@ -6,7 +6,7 @@ import authorReducer from './author-reducer';
 import newsReducer from './news-reducer';
 
 type ReducersType = typeof reducers;
-type AppStateType = ReturnType<ReducersType>;
+export type AppStateType = ReturnType<ReducersType>;
 
 const reducers = combineReducers({
   header: headerReducer,

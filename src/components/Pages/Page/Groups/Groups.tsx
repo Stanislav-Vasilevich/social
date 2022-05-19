@@ -1,16 +1,13 @@
 import React from 'react';
-import styles from './Groups.module.css';
-
-// деструктуризация CSS модулей
-const {main, section, info, nav, friends, photo, sport, music, films} = styles;
+import s from './Groups.module.css';
 
 const Groups = () => {
   return (
-    <section className={main}>
-      <div className={section}>
-        <div className={info}>
+    <section className={s.main}>
+      <div className={s.section}>
+        <div className={s.info}>
           <h2>Группы</h2>
-          <nav className={nav}>
+          <nav className={s.nav}>
             <a href="/">Общие сведения</a>
             <a href="/">Работа и образование</a>
             <a href="/">Места проживания</a>
@@ -92,11 +89,11 @@ const Groups = () => {
             exercitationem, harum illo magni maxime necessitatibus nihil omnis, placeat quibusdam sed sunt?</p>
         </div>
       </div>
-      <div className={friends}></div>
-      <div className={photo}></div>
-      <div className={sport}></div>
-      <div className={music}></div>
-      <div className={films}></div>
+      <div className={s.friends}></div>
+      <div className={s.photo}></div>
+      <div className={s.sport}></div>
+      <div className={s.music}></div>
+      <div className={s.films}></div>
     </section>
   )
 }

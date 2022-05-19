@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Post.module.css';
-import {ActionsType} from "../../../../../../../redux/store";
+import {ActionsType} from '../../../../../../../index';
 
 type PostPropsType = {
   id: string

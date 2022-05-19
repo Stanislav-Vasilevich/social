@@ -1,9 +1,32 @@
 import {v1} from 'uuid';
-import {ActionsType, PublicationsPageType} from './store';
 
 const ADD_POST = 'ADD_POST';
 const CHANGE_ADD_POST_TITLE = 'CHANGE_ADD_POST_TITLE';
 const CHANGE_ADD_POST_TEXT = 'CHANGE_ADD_POST_TEXT';
+
+export type AddingPostType = {
+  name: string
+  avatar: string
+  valueTitle: string
+  valueText: string
+}
+export type PostsType = {
+  id: string
+  avatar: string
+  title: string
+  text: string
+  likesCount: number
+}
+export type PublicationsPageType = {
+  addingPost: AddingPostType
+  posts: Array<PostsType>
+}
+export type ChangePostTitleACType = ReturnType<typeof changeAddPostTitleAC>
+export type ChangePostTextACType = ReturnType<typeof changeAddPostTextAC>
+export type AddPostACType = ReturnType<typeof addPostAC>
+export type PublicationPageActionType = ChangePostTitleACType
+  | ChangePostTextACType
+  | AddPostACType
 
 const initialState = {
   addingPost: {
@@ -44,18 +67,16 @@ const initialState = {
   ]
 }
 
-export const publicationsReducer = (state: PublicationsPageType = initialState, action: ActionsType) => {
+export const publicationsReducer = (state: PublicationsPageType = initialState, action: PublicationPageActionType) => {
   switch (action.type) {
     case CHANGE_ADD_POST_TITLE:
       state.addingPost.valueTitle = action.message;
 
       return state;
-
     case CHANGE_ADD_POST_TEXT:
       state.addingPost.valueText = action.message;
 
       return state;
-
     case ADD_POST:
       const newPost = {
         id: v1(),
@@ -71,7 +92,6 @@ export const publicationsReducer = (state: PublicationsPageType = initialState, 
       state.posts.unshift(newPost);
 
       return state;
-
     default:
       return state;
   }

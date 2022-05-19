@@ -1,10 +1,10 @@
 import React from 'react';
 import s from './Menu.module.css';
 import {NavLink} from "react-router-dom";
-import {MenuItemsType} from "../../../redux/store";
+import {FriendsNavigationType} from '../../../redux/friends-reducer';
 
 type PropsType = {
-  menuItems: Array<MenuItemsType>
+  menuItems: Array<FriendsNavigationType>
 }
 
 const Menu = (props: PropsType) => {

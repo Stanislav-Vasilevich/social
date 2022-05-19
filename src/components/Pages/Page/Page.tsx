@@ -8,10 +8,11 @@ import Groups from './Groups/Groups';
 import Publications from './Publications/Publications';
 import Messages from './Messages/Messages';
 import Photo from './Photo/Photo';
-import {ActionsType, PagesType, StoreType} from '../../../redux/store';
+import {ActionsType} from '../../../index';
+import {AppStateType} from '../../../redux/redux-store';
 
 type PropsType = {
-  store: StoreType
+  store: AppStateType
   dispatch: (action: ActionsType) => void
 }
 
@@ -43,16 +44,17 @@ const Page = (props: PropsType) => {
             dispatch={props.dispatch}
           />
         )}/>
-        <Route path="/groups" element={Groups}/>
+        <Route path="/groups" element={(
+          <Groups />
+        )}/>
         <Route path="/publications" element={(
           <Publications
             page={props.store.publicationsPage}
             dispatch={props.dispatch}
           />
         )}/>
-        <Route path="/messages" element={Messages}/>
+        <Route path="/messages" element={(<Messages />)}/>
         <Route path="/photo" element={Photo}/>
-        <Route path="/social-it-incubator" element={AboutAuthor}/>
         {/*<Route path="/*" element={<Error404/>}/>*/}
       </Routes>
     </section>

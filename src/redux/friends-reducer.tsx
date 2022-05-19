@@ -1,11 +1,35 @@
-import {v1} from "uuid";
-import {ActionsType, DialogsDataType, FriendsPageType} from "./store";
+import {v1} from 'uuid';
 
 const CHANGE_DIALOGS_MESSAGE = 'CHANGE-DIALOGS-MESSAGE';
 const ADD_MESSAGE = 'ADD-MESSAGE';
 const ADD_MESSAGE_BY_ENTER = 'ADD-MESSAGE-BY-ENTER';
 
-const initialState = {
+export type FriendsNavigationType = {
+  id: string
+  item: string
+  path: string
+}
+type FriendDataType = {
+  id: string
+  name: string
+  img: string
+}
+type DialogsDataType = {
+  id: string
+  message: string
+}
+export type FriendsPageType = {
+  navigation: Array<FriendsNavigationType>
+  persons: Array<FriendDataType>
+  valueMessage: string
+  dialogs: Array<DialogsDataType>
+}
+export type FriendsPageActionsType =
+  ReturnType<typeof changeDialogsMessageAC>
+  | ReturnType<typeof addMessageAC>
+  | ReturnType<typeof addMessageByEnterAC>
+
+const initialState: FriendsPageType = {
   navigation: [
     {id: v1(), item: 'Публикации', path: '/publications'},
     {id: v1(), item: 'Сообщения', path: '/messages'},
@@ -24,13 +48,12 @@ const initialState = {
   ],
 }
 
-export const friendsReducer = (state: FriendsPageType = initialState, action: ActionsType) => {
+export const friendsReducer = (state: FriendsPageType = initialState, action: FriendsPageActionsType) => {
   switch (action.type) {
     case CHANGE_DIALOGS_MESSAGE:
       state.valueMessage = action.message;
 
       return state;
-
     case ADD_MESSAGE:
       const newMessage: DialogsDataType = {
         id: v1(),
@@ -41,7 +64,6 @@ export const friendsReducer = (state: FriendsPageType = initialState, action: Ac
       state.valueMessage = '';
 
       return state;
-
     case ADD_MESSAGE_BY_ENTER:
       const newMessageByEnter: DialogsDataType = {
         id: v1(),
@@ -51,7 +73,6 @@ export const friendsReducer = (state: FriendsPageType = initialState, action: Ac
       state.dialogs.push(newMessageByEnter);
       state.valueMessage = '';
       return state;
-
     default:
       return state;
   }

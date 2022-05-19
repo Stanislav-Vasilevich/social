@@ -2,10 +2,13 @@ import ReactDOM from 'react-dom';
 import React from 'react';
 import {BrowserRouter} from 'react-router-dom';
 import App from './App';
-import store from './redux/redux-store';
-import {StoreType} from './redux/store';
+import store, {AppStateType} from './redux/redux-store';
+import {FriendsPageActionsType} from './redux/friends-reducer';
+import {PublicationPageActionType} from './redux/publications-reducer';
 
-export const rerender = (state: StoreType) => {
+export type ActionsType = PublicationPageActionType | FriendsPageActionsType;
+
+export const rerender = (state: AppStateType) => {
   ReactDOM.render(
     <React.StrictMode>
       <BrowserRouter>

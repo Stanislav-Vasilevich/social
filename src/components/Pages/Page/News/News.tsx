@@ -1,6 +1,7 @@
 import React from "react";
-import {ActionsType, NewsPageType} from '../../../../redux/store';
 import s from './News.module.css';
+import {NewsPageType} from '../../../../redux/news-reducer';
+import {ActionsType} from '../../../../index';
 
 type PropsType = {
   page: NewsPageType

@@ -2,10 +2,10 @@ import React from 'react';
 import s from './Header.module.css';
 import logo from '../../image/logo.png';
 import Menu from "./Menu/Menu";
-import {StoreType} from "../../redux/store";
+import {AppStateType} from '../../redux/redux-store';
 
 type PropsType = {
-  store: StoreType
+  store: AppStateType
 }
 
 const Header = (props: PropsType) => {
