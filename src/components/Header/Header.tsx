@@ -10,13 +10,13 @@ type PropsType = {
 
 const Header = (props: PropsType) => {
   return (
-    <div className={s.header}>
+    <header className={s.header}>
       <div className={s.logo}>
         <img src={logo} alt="logo"/>
       </div>
       <Menu menuItems={props.store.header.menu}/>
       <div className="user">Станислав</div>
-    </div>
+    </header>
   )
 }
 

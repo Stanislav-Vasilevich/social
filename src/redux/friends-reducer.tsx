@@ -38,7 +38,7 @@ const initialState: FriendsPageType = {
   persons: [
     {id: v1(), name: 'Настя', img: 'https://avatarko.ru/img/kartinka/16/Joker_minion_15661.jpg'},
     {id: v1(), name: 'Паша', img: 'https://klike.net/uploads/posts/2018-06/1528369868_15.jpg'},
-    {id: v1(), name: 'Вова', img: 'https://pbs.twimg.com/media/Ce43PAzW4AA_g9g.jpg'}
+    {id: v1(), name: 'Вова', img: 'https://coolsen.ru/wp-content/uploads/2021/09/78.jpg'}
   ],
   valueMessage: 'Как твои дела бро, а?',
   dialogs: [

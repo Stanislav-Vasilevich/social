@@ -1,6 +1,6 @@
 import React from 'react';
 import {Routes, Route} from 'react-router-dom';
-import styles from './Page.module.css';
+import s from './Page.module.css';
 import News from './News/News';
 import AboutAuthor from './AboutAuthor/AboutAuthor';
 import Friends from './Friends/Friends';
@@ -18,20 +18,20 @@ type PropsType = {
 
 const Page = (props: PropsType) => {
   return (
-    <section className={styles.main}>
+    <section className={s.page}>
       <Routes>
         <Route path="/" element={(
           <AboutAuthor
             page={props.store.author}
             dispatch={props.dispatch}
           />
-          )}/>
+        )}/>
         <Route path="/social-it-incubator" element={(
           <AboutAuthor
             page={props.store.author}
             dispatch={props.dispatch}
           />
-          )}/>
+        )}/>
         <Route path="/news" element={(
           <News
             page={props.store.news}
@@ -45,7 +45,7 @@ const Page = (props: PropsType) => {
           />
         )}/>
         <Route path="/groups" element={(
-          <Groups />
+          <Groups/>
         )}/>
         <Route path="/publications" element={(
           <Publications
@@ -53,7 +53,7 @@ const Page = (props: PropsType) => {
             dispatch={props.dispatch}
           />
         )}/>
-        <Route path="/messages" element={(<Messages />)}/>
+        <Route path="/messages" element={(<Messages/>)}/>
         <Route path="/photo" element={Photo}/>
         {/*<Route path="/*" element={<Error404/>}/>*/}
       </Routes>
