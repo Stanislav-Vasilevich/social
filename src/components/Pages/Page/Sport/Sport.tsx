@@ -1,7 +1,7 @@
 import React from 'react';
-import s from './Groups.module.css';
+import s from './Sport.module.css';
 
-const Groups = () => {
+const Sport = () => {
   return (
     <section className={s.main}>
       <div className={s.section}>
@@ -98,4 +98,4 @@ const Groups = () => {
   )
 }
 
-export default Groups;
+export default Sport;

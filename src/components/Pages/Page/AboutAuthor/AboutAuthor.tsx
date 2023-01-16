@@ -26,6 +26,7 @@ const AboutAuthor = (props: PropsType) => {
         <img className={s.avatar} src={props.page.avatar} alt={props.page.name}/>
         <div>
           <h2 className={s.name}>{props.page.name}</h2>
+					<div className={s.town}>{props.page.altBackground}</div>
           <div className={s.description} onDoubleClick={onChangeDescriptionHandler}>{props.page.description}</div>
         </div>
       </div>

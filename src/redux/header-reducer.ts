@@ -14,13 +14,14 @@ export type HeaderPageActionType = {}
 const initialState = {
   menu: [
     {id: v1(), item: 'Автор', path: '/'},
-    {id: v1(), item: 'Новости', path: '/news'},
+    {id: v1(), item: 'Программирование', path: '/programming'},
+    {id: v1(), item: 'Инвестирование', path: '/investing'},
     {id: v1(), item: 'Друзья', path: '/friends'},
-    {id: v1(), item: 'Группы', path: '/groups'},
+    {id: v1(), item: 'Спорт', path: '/sport'},
   ],
   user: {
-    name: 'Stanislav',
-    avatar: 'https://s.starladder.com/uploads/user_logo/b/f/2/d/meta_tag_d6ca03e719804347cb71d8338d5bce5a.jpg'
+    name: 'Станислав',
+    avatar: 'https://s.starladder.com/uploads/user_logo/5/c/9/d/meta_tag_1039d807e6e9d7e403ecd6510eb61d83.jpg'
   }
 }
 

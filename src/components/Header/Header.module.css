@@ -41,3 +41,14 @@
 .user:hover {
   color: dimgrey;
 }
+
+.header__user {
+	display: flex;
+	align-items: center;
+	gap: 5px;
+}
+
+.header__avatar {
+	width: 50px;
+	border-radius: 50%;
+}

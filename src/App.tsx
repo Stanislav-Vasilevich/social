@@ -5,7 +5,7 @@ import Pages from './components/Pages/Pages';
 import {ActionsType} from './index';
 import {AppStateType} from './redux/redux-store';
 
-const {app, page, container} = styles;
+const {app, container} = styles;
 
 type PropsType = {
   store: AppStateType

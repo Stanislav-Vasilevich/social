@@ -17,11 +17,12 @@ type StateType = {
 export type AuthorPageActionsType = ReturnType<typeof changeDescriptionAC>
 
 const initialState: StateType = {
-  background: 'https://www.sgmbg.ru/upload/resize_cache/iblock/e71/1450_750_2/e71bd49ed67671a260e4748d6793e299.jpg',
-  altBackground: 'Сочи',
+  background: 'https://img.geliophoto.com/parkkrasnodar/01_parkkrasnodar.jpg',
+  altBackground: 'г.Краснодар',
   avatar: 'https://s.starladder.com/uploads/user_logo/5/c/9/d/meta_tag_1039d807e6e9d7e403ecd6510eb61d83.jpg',
   name: 'Станислав Василевич',
-  description: 'Я действующий frontend-разработчик веб-приложений на CSS, HTML, JavaScript и React',
+  description: 'Действующий frontend-разработчик сайтов и веб-приложений. Стек технологий: CSS, HTML, JavaScript и React. ' +
+		'Инвестор. Занимаюсь бегом и силовыми тренировками.',
 }
 
 const authorReducer = (state: AuthorPageType = initialState, action: AuthorPageActionsType) => {

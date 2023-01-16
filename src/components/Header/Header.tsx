@@ -15,7 +15,10 @@ const Header = (props: PropsType) => {
         <img src={logo} alt="logo"/>
       </div>
       <Menu menuItems={props.store.header.menu}/>
-      <div className="user">Станислав</div>
+      <div className={s.header__user}>
+				<img className={s.header__avatar} src={props.store.header.user.avatar} alt=""/>
+				{props.store.header.user.name}
+			</div>
     </header>
   )
 }
