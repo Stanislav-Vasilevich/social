@@ -1,0 +1,19 @@
+.content {
+	padding: 20px;
+}
+
+.menu {
+	display: flex;
+	gap: 20px;
+	width: min-content;
+	margin: 0 auto;
+}
+
+.menuItem {
+	text-decoration: none;
+	color: #9d6a00;
+}
+
+.menuItemActive {
+	color: #845701;
+}

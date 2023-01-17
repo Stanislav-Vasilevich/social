@@ -11,6 +11,7 @@ import {AppStateType} from '../../../redux/redux-store';
 import Investing from "./Investing/Investing";
 import Sport from "./Sport/Sport";
 import Programming from "./Programming/Programming";
+import Error404 from "./Error404/Error404";
 
 type PropsType = {
   store: AppStateType
@@ -62,7 +63,7 @@ const Page = (props: PropsType) => {
         )}/>
         <Route path="/messages" element={(<Messages/>)}/>
         <Route path="/photo" element={Photo}/>
-        {/*<Route path="/*" element={<Error404/>}/>*/}
+        <Route path="/*" element={<Error404/>}/>
       </Routes>
     </section>
   )

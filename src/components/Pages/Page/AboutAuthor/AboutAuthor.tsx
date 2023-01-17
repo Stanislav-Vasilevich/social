@@ -27,7 +27,15 @@ const AboutAuthor = (props: PropsType) => {
         <div>
           <h2 className={s.name}>{props.page.name}</h2>
 					<div className={s.town}>{props.page.altBackground}</div>
-          <div className={s.description} onDoubleClick={onChangeDescriptionHandler}>{props.page.description}</div>
+          <div className={s.description} onDoubleClick={onChangeDescriptionHandler}>
+						{`${props.page.description[0]}`}
+					</div>
+					<div className={s.description} onDoubleClick={onChangeDescriptionHandler}>
+						{`${props.page.description[1]}`}
+					</div>
+					<div className={s.description} onDoubleClick={onChangeDescriptionHandler}>
+						Х];Хзкщзыюзфпуювуыскшзешщтх2ъЪ]Ъ
+					</div>
         </div>
       </div>
     </div>

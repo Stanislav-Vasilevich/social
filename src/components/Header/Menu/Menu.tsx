@@ -9,6 +9,7 @@ type PropsType = {
 
 const Menu = (props: PropsType) => {
   const menuItem = props.menuItems.map(i => {
+		console.log(i)
     return (
       <NavLink
         key={i.id}
