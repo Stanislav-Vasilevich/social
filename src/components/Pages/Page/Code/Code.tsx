@@ -1,15 +1,15 @@
 import React from 'react';
-import {NewsPageType} from "../../../../redux/news-reducer";
 import {ActionsType} from "../../../../index";
 import {NavLink} from "react-router-dom";
-import s from './Programming.module.css';
+import s from './Code.module.css';
+import {CodePageType} from "../../../../redux/code-reducer";
 
 type PropsType = {
-	page: NewsPageType
+	page: CodePageType
 	dispatch: (action: ActionsType) => void
 }
 
-const Programming = (props: PropsType) => {
+const Code = (props: PropsType) => {
 	return (
 		<div className={s.content}>
 			<nav className={s.menu}>
@@ -21,4 +21,4 @@ const Programming = (props: PropsType) => {
 	);
 };
 
-export default Programming;
+export default Code;

@@ -13,11 +13,13 @@ export type HeaderPageActionType = {}
 
 const initialState = {
   menu: [
-    {id: v1(), item: 'Автор', path: '/'},
-    {id: v1(), item: 'Программирование', path: '/programming'},
+    {id: v1(), item: 'Главная', path: '/'},
+    {id: v1(), item: 'Мотивация', path: '/motivation'},
+		{id: v1(), item: 'Спорт', path: '/sport'},
+		{id: v1(), item: 'Код', path: '/code'},
     {id: v1(), item: 'Инвестирование', path: '/investing'},
     {id: v1(), item: 'Друзья', path: '/friends'},
-    {id: v1(), item: 'Спорт', path: '/sport'},
+		{id: v1(), item: 'Автор', path: '/author'},
   ],
   user: {
     name: 'Станислав',
