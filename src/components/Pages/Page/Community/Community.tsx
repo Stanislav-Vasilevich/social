@@ -1,5 +1,5 @@
 import React, {ChangeEvent, KeyboardEvent} from 'react';
-import s from './Friends.module.css';
+import s from './Community.module.css';
 import Friend from './Friend/Friend';
 import Dialogs from './Dialogs/Dialogs';
 import Navigation from '../../Navigation/Navigation';
@@ -7,16 +7,16 @@ import {
   addMessageAC,
   addMessageByEnterAC,
   changeDialogsMessageAC,
-  FriendsPageType
-} from '../../../../redux/friends-reducer';
+	CommunityPageType
+} from '../../../../redux/сommunity-reducer';
 import {ActionsType} from '../../../../index';
 
 type PropsType = {
-  page: FriendsPageType
+  page: CommunityPageType
   dispatch: (action: ActionsType) => void
 }
 
-const Friends = (props: PropsType) => {
+const Community = (props: PropsType) => {
   // массив друзей => друг
   const arrayFriends = props.page.persons.map(i => {
     return (
@@ -93,4 +93,4 @@ const Friends = (props: PropsType) => {
   )
 }
 
-export default Friends;
+export default Community;

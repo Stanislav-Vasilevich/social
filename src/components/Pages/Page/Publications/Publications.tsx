@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Publications.module.css';
-import {Main} from './Main/Main';
+import {AddComment} from './AddComment/AddComment';
 import {PublicationsPageType} from '../../../../redux/publications-reducer';
 import {ActionsType} from '../../../../index';
 
@@ -13,14 +13,14 @@ const Publications = (props: PropsType) => {
   return (
     <section className={styles.main}>
       {/* сайт-бар */}
-      <aside className={styles.sideBar}>
-        <div className={styles.info}>Краткая информация</div>
-        <div className={styles.photo}>Фото</div>
-        <div className={styles.friends}>Друзья</div>
-        <div className={styles.footer}>Подвал сайта</div>
-      </aside>
+      {/*<aside className={styles.sideBar}>*/}
+      {/*  <div className={styles.info}>Краткая информация</div>*/}
+      {/*  <div className={styles.photo}>Фото</div>*/}
+      {/*  <div className={styles.friends}>Друзья</div>*/}
+      {/*  <div className={styles.footer}>Подвал сайта</div>*/}
+      {/*</aside>*/}
       {/* главный контент */}
-      <Main
+      <AddComment
         mainContent={props.page}
         dispatch={props.dispatch}
       />

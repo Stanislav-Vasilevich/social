@@ -3,10 +3,10 @@ import React from 'react';
 import {BrowserRouter} from 'react-router-dom';
 import App from './App';
 import store, {AppStateType} from './redux/redux-store';
-import {FriendsPageActionsType} from './redux/friends-reducer';
+import {CommunityPageActionsType} from './redux/сommunity-reducer';
 import {PublicationPageActionType} from './redux/publications-reducer';
 
-export type ActionsType = PublicationPageActionType | FriendsPageActionsType;
+export type ActionsType = PublicationPageActionType | CommunityPageActionsType;
 
 export const rerender = (state: AppStateType) => {
   ReactDOM.render(

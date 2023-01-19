@@ -4,12 +4,12 @@ const CHANGE_DIALOGS_MESSAGE = 'CHANGE-DIALOGS-MESSAGE';
 const ADD_MESSAGE = 'ADD-MESSAGE';
 const ADD_MESSAGE_BY_ENTER = 'ADD-MESSAGE-BY-ENTER';
 
-export type FriendsNavigationType = {
+export type CommunityPageNavigationType = {
   id: string
   item: string
   path: string
 }
-type FriendDataType = {
+type CommunityDataType = {
   id: string
   name: string
   img: string
@@ -18,18 +18,18 @@ type DialogsDataType = {
   id: string
   message: string
 }
-export type FriendsPageType = {
-  navigation: Array<FriendsNavigationType>
-  persons: Array<FriendDataType>
+export type CommunityPageType = {
+  navigation: Array<CommunityPageNavigationType>
+  persons: Array<CommunityDataType>
   valueMessage: string
   dialogs: Array<DialogsDataType>
 }
-export type FriendsPageActionsType =
+export type CommunityPageActionsType =
   ReturnType<typeof changeDialogsMessageAC>
   | ReturnType<typeof addMessageAC>
   | ReturnType<typeof addMessageByEnterAC>
 
-const initialState: FriendsPageType = {
+const initialState: CommunityPageType = {
   navigation: [
     {id: v1(), item: 'Публикации', path: '/publications'},
     {id: v1(), item: 'Сообщения', path: '/messages'},
@@ -48,7 +48,7 @@ const initialState: FriendsPageType = {
   ],
 }
 
-export const friendsReducer = (state: FriendsPageType = initialState, action: FriendsPageActionsType) => {
+export const communityReducer = (state: CommunityPageType = initialState, action: CommunityPageActionsType) => {
   switch (action.type) {
     case CHANGE_DIALOGS_MESSAGE:
       state.valueMessage = action.message;

@@ -1,12 +1,12 @@
 import {v1} from 'uuid';
-import {FriendsNavigationType} from './friends-reducer';
+import {CommunityPageNavigationType} from "./сommunity-reducer";
 
 export type UserType = {
   name: string
   avatar: string
 }
 export type HeaderType = {
-  menu: Array<FriendsNavigationType>
+  menu: Array<CommunityPageNavigationType>
   user: UserType
 }
 export type HeaderPageActionType = {}
@@ -18,7 +18,7 @@ const initialState = {
 		{id: v1(), item: 'Спорт', path: '/sport'},
 		{id: v1(), item: 'Код', path: '/code'},
     {id: v1(), item: 'Инвестирование', path: '/investing'},
-    {id: v1(), item: 'Друзья', path: '/friends'},
+    {id: v1(), item: 'Сообщество', path: '/community'},
 		{id: v1(), item: 'Автор', path: '/author'},
   ],
   user: {

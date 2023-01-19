@@ -2,7 +2,6 @@ import React from 'react';
 import {Routes, Route} from 'react-router-dom';
 import s from './Page.module.css';
 import AboutAuthor from './AboutAuthor/AboutAuthor';
-import Friends from './Friends/Friends';
 import Publications from './Publications/Publications';
 import Messages from './Messages/Messages';
 import Photo from './Photo/Photo';
@@ -14,6 +13,7 @@ import Code from "./Code/Code";
 import Error404 from "./Error404/Error404";
 import Main from "./Main/Main";
 import Motivation from "./Motivation/Motivation";
+import Community from "./Community/Community";
 
 type PropsType = {
 	store: AppStateType
@@ -26,48 +26,48 @@ const Page = (props: PropsType) => {
 			<Routes>
 				<Route path="/" element={(
 					<Main
-						page={props.store.main}
+						page={props.store.mainPage}
 						dispatch={props.dispatch}
 					/>
 				)}/>
 				<Route path="/motivation" element={(
 					<Motivation
-						page={props.store.motivation}
+						page={props.store.motivationPage}
 						dispatch={props.dispatch}
 					/>
 				)}/>
 				<Route path="/sport" element={(
 					<Sport
-						page={props.store.sport}
+						page={props.store.sportPage}
 						dispatch={props.dispatch}
 					/>
 				)}/>
 				<Route path="/code" element={(
 					<Code
-						page={props.store.code}
+						page={props.store.codePage}
 						dispatch={props.dispatch}
 					/>
 				)}/>
 				<Route path="/investing" element={(
 					<Investing
-						page={props.store.investing}
+						page={props.store.investingPage}
 						dispatch={props.dispatch}
 					/>
 				)}/>
-				<Route path="/friends" element={(
-					<Friends
-						page={props.store.friendsPage}
+				<Route path="/community" element={(
+					<Community
+						page={props.store.communityPage}
 						dispatch={props.dispatch}
 					/>
 				)}/>
 				<Route path={'/author'} element={(
 					<AboutAuthor
-						page={props.store.author}
+						page={props.store.authorPage}
 						dispatch={props.dispatch}
 					/>
 				)}
 				/>
-				{/* вынести отсюда */}
+				{/* блоки на страницах */}
 				<Route path="/publications" element={(
 					<Publications
 						page={props.store.publicationsPage}

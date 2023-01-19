@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Main.module.css';
+import s from './AddComment.module.css';
 import Posts from './Posts/Posts';
 import {PublicationsPageType} from '../../../../../redux/publications-reducer';
 import {ActionsType} from '../../../../../index';
@@ -10,9 +10,9 @@ type PropsType = {
   dispatch: (action: ActionsType) => void
 }
 
-export function Main(props: PropsType) {
+export function AddComment(props: PropsType) {
   return (
-    <section className={styles.main}>
+    <section className={s.block}>
       <AddPostContainer
         addingPost={props.mainContent.addingPost}
         dispatch={props.dispatch}

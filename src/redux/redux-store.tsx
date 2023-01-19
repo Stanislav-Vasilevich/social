@@ -1,5 +1,4 @@
 import {combineReducers, createStore} from 'redux';
-import {friendsReducer} from './friends-reducer';
 import {publicationsReducer} from './publications-reducer';
 import headerReducer from './header-reducer';
 import authorReducer from './author-reducer';
@@ -9,6 +8,7 @@ import sportReducer from "./sport-educer";
 import codeReducer from "./code-reducer";
 import investingReducer from "./investing-reducer";
 import mainReducer from "./main-reducer";
+import {communityReducer} from "./сommunity-reducer";
 
 type ReducersType = typeof reducers;
 export type AppStateType = ReturnType<ReducersType>;
@@ -18,13 +18,13 @@ const reducers = combineReducers({
 	// шапка сайта
   header: headerReducer,
 	// меню
-	main: mainReducer,
-	motivation: motivationReducer,
-	sport: sportReducer,
-	code: codeReducer,
-	investing: investingReducer,
-	friendsPage: friendsReducer,
-  author: authorReducer,
+	mainPage: mainReducer,
+	motivationPage: motivationReducer,
+	sportPage: sportReducer,
+	codePage: codeReducer,
+	investingPage: investingReducer,
+	communityPage: communityReducer,
+  authorPage: authorReducer,
 	// подменю
   news: newsReducer,
   publicationsPage: publicationsReducer

@@ -11,7 +11,7 @@ type PropsType = {
 const Investing = (props: PropsType) => {
 	return (
 		<div className={s.news}>
-			{props.page}
+			{props.page.text}
 		</div>
 	)
 }
