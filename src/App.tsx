@@ -14,12 +14,14 @@ type PropsType = {
 
 const App = (props: PropsType) => {
   return (
-    <main className={app}>
-      <Header store={props.store}/>
-      <div className={container}>
-        <Pages store={props.store} dispatch={props.dispatch}/>
-      </div>
-    </main>
+		<div className={app}>
+			<Header store={props.store}/>
+			<main>
+				<div className={container}>
+					<Pages store={props.store} dispatch={props.dispatch}/>
+				</div>
+			</main>
+		</div>
   );
 }
 
