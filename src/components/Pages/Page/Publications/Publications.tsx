@@ -11,7 +11,7 @@ type PropsType = {
 
 const Publications = (props: PropsType) => {
   return (
-    <section className={styles.main}>
+    <section>
       {/* сайт-бар */}
       {/*<aside className={styles.sideBar}>*/}
       {/*  <div className={styles.info}>Краткая информация</div>*/}
@@ -20,10 +20,11 @@ const Publications = (props: PropsType) => {
       {/*  <div className={styles.footer}>Подвал сайта</div>*/}
       {/*</aside>*/}
       {/* главный контент */}
-      <AddComment
-        mainContent={props.page}
-        dispatch={props.dispatch}
-      />
+      {/*<AddComment*/}
+      {/*  mainContent={props.page}*/}
+      {/*  dispatch={props.dispatch}*/}
+      {/*/>*/}
+			hello i am publications
     </section>
   )
 }

@@ -1,0 +1,11 @@
+div {
+	margin: 0 0 5px;
+}
+
+.photo {
+	width: 100%;
+}
+
+.like {
+	cursor: pointer;
+}

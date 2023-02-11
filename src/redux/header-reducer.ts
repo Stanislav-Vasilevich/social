@@ -14,6 +14,7 @@ export type HeaderPageActionType = {}
 const initialState = {
   menu: [
     {id: v1(), item: 'Главная', path: '/'},
+    {id: v1(), item: 'Новости', path: '/news'},
     {id: v1(), item: 'Мотивация', path: '/motivation'},
 		{id: v1(), item: 'Спорт', path: '/sport'},
 		{id: v1(), item: 'Код', path: '/code'},

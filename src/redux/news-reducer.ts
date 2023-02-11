@@ -1,5 +1,4 @@
 export type NewsPageType = {
-  avatar: string
   name: string
   data: string
   title: string
@@ -11,13 +10,12 @@ export type NewsPageType = {
 export type NewsPageActionType = {}
 
 const initialState = {
-  avatar: 'https://www.neizvestniy-geniy.ru/images/users/2020/04/148421.jpg',
-    name: 'Алексей Етеревсков',
+    name: 'Станислав Василевич',
     data: '12.08.2021',
-    title: 'Был в Крыму',
-    text: 'Ездил в Крым, классно отдохнул, посмотрел на местные виды и сделал отличное фото!',
-    photo: 'https://top10a.ru/wp-content/uploads/2020/01/lastochkino_gnezdo_swallow_nest2-1shyu.jpg',
-    alt: 'Крым',
+    title: 'Поездка в Геленджик',
+    text: 'Едем в Геленджик, ранний подъем, поезд, прибытие, съем жилья, экскурсия по набережной и по местным достопримечательностям',
+    photo: 'https://funart.pro/uploads/posts/2021-03/1617192695_3-p-oboi-abkhaziya-gelendzhik-3.jpg',
+    alt: 'Геленджик',
     likesCount: 4,
 };
 

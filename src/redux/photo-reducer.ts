@@ -1,6 +1,6 @@
-type StatePype = {}
+type StateType = {}
 export type PhotoPageActionType = {}
 
-const photoReducer = (state: StatePype, action: PhotoPageActionType) => {
+const photoReducer = (state: StateType, action: PhotoPageActionType) => {
   return state;
 }

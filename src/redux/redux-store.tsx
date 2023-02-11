@@ -4,7 +4,7 @@ import headerReducer from './header-reducer';
 import authorReducer from './author-reducer';
 import newsReducer from './news-reducer';
 import motivationReducer from "./motivation-reducer";
-import sportReducer from "./sport-educer";
+import sportReducer from "./sport-reducer";
 import codeReducer from "./code-reducer";
 import investingReducer from "./investing-reducer";
 import mainReducer from "./main-reducer";
@@ -17,8 +17,9 @@ export type AppStateType = ReturnType<ReducersType>;
 const reducers = combineReducers({
 	// шапка сайта
   header: headerReducer,
-	// меню
+	// pages and menu
 	mainPage: mainReducer,
+	newsPage: newsReducer,
 	motivationPage: motivationReducer,
 	sportPage: sportReducer,
 	codePage: codeReducer,
@@ -26,7 +27,6 @@ const reducers = combineReducers({
 	communityPage: communityReducer,
   authorPage: authorReducer,
 	// подменю
-  news: newsReducer,
   publicationsPage: publicationsReducer
 });
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import s from './Sport.module.css';
 import {ActionsType} from "../../../../index";
-import {SportPageType} from "../../../../redux/sport-educer";
+import {SportPageType} from "../../../../redux/sport-reducer";
 
 type PropsType = {
 	page: SportPageType
