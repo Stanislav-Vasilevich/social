@@ -31,12 +31,22 @@ const Page = (props: PropsType) => {
 						dispatch={props.dispatch}
 					/>
 				)}/>
+
 				<Route path="/news" element={(
 					<News
 						page={props.store}
 						dispatch={props.dispatch}
 					/>
-				)}/>
+					<Routes>
+						<Route path="/news/publications" element={(
+							<Publications
+								page={props.store.publicationsPage}
+								dispatch={props.dispatch}
+							/>
+						)}/>
+					</Routes>
+					)}/>
+
 				<Route path="/motivation" element={(
 					<Motivation
 						page={props.store.motivationPage}
@@ -74,13 +84,6 @@ const Page = (props: PropsType) => {
 					/>
 				)}
 				/>
-				{/* блоки на страницах */}
-				{/*<Route path="/publications" element={(*/}
-				{/*	<Publications*/}
-				{/*		page={props.store.publicationsPage}*/}
-				{/*		dispatch={props.dispatch}*/}
-				{/*	/>*/}
-				{/*)}/>*/}
 				{/*<Route path="/messages" element={(<Messages/>)}/>*/}
 				{/*<Route path="/photo" element={Photo}/>*/}
 				<Route path="/*" element={<Error404/>}/>

@@ -2,7 +2,7 @@ import React from 'react';
 import {ActionsType} from "../../../../index";
 import {NewsPageType} from "../../../../redux/news-reducer";
 import s from './News.module.css';
-import {Routes, Route} from "react-router-dom";
+import {Routes, Route, NavLink} from "react-router-dom";
 import Publications from "../Publications/Publications";
 import {AppStateType} from "../../../../redux/redux-store";
 
@@ -23,16 +23,17 @@ const News = (props: PropsType) => {
 				<div className={s.like}>&#128077; {props.page.newsPage.likesCount}</div>
 				<div>{props.page.newsPage.name}</div>
 				<div>{props.page.newsPage.data}</div>
+				<NavLink to={'./publications'}>Открыть публикации</NavLink>
 			</div>
 
-			<Routes>
-				<Route path="/publications" element={(
-					<Publications
-						page={props.page.publicationsPage}
-						dispatch={props.dispatch}
-					/>
-				)}/>
-			</Routes>
+			{/*<Routes>*/}
+			{/*	<Route path="/publications" element={(*/}
+			{/*		<Publications*/}
+			{/*			page={props.page.publicationsPage}*/}
+			{/*			dispatch={props.dispatch}*/}
+			{/*		/>*/}
+			{/*	)}/>*/}
+			{/*</Routes>*/}
 		</section>
 	);
 };
