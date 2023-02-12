@@ -13,10 +13,10 @@ type PropsType = {
 export function AddComment(props: PropsType) {
   return (
     <section className={s.block}>
-      <AddPostContainer
-        addingPost={props.mainContent.addingPost}
-        dispatch={props.dispatch}
-      />
+      {/*<AddPostContainer*/}
+      {/*  addingPost={props.mainContent.addingPost}*/}
+      {/*  dispatch={props.dispatch}*/}
+      {/*/>*/}
       <Posts
         data={props.mainContent.posts}
         dispatch={props.dispatch}

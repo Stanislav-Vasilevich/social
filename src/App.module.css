@@ -14,3 +14,12 @@
   max-width: 1095px;
   margin: 0 auto;
 }
+
+.blockquote {
+	font-style: italic;
+	color: #845701;
+	background: rgba(132, 87, 1, 0.14);
+	border-radius: 10px;
+	padding: 20px;
+	margin: 0 0 10px;
+}

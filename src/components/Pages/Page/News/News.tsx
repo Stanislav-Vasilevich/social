@@ -1,10 +1,10 @@
 import React from 'react';
 import {ActionsType} from "../../../../index";
-import {NewsPageType} from "../../../../redux/news-reducer";
 import s from './News.module.css';
 import {Routes, Route, NavLink} from "react-router-dom";
 import Publications from "../Publications/Publications";
 import {AppStateType} from "../../../../redux/redux-store";
+import styles from './../../../../App.module.css';
 
 type PropsType = {
 	page: AppStateType
@@ -13,27 +13,11 @@ type PropsType = {
 
 const News = (props: PropsType) => {
 	return (
-		<section>
-			<div>
-				<h1>Здесь я буду выкладывать свои новости по поездкам, технологиям и вобще по каждому направлению и новым курсам</h1>
-				<img className={s.photo} src={props.page.newsPage.photo}/>
-				<div>{props.page.newsPage.title}</div>
-				<div>{props.page.newsPage.text}</div>
-				<div>{props.page.newsPage.alt}</div>
-				<div className={s.like}>&#128077; {props.page.newsPage.likesCount}</div>
-				<div>{props.page.newsPage.name}</div>
-				<div>{props.page.newsPage.data}</div>
-				<NavLink to={'./publications'}>Открыть публикации</NavLink>
-			</div>
-
-			{/*<Routes>*/}
-			{/*	<Route path="/publications" element={(*/}
-			{/*		<Publications*/}
-			{/*			page={props.page.publicationsPage}*/}
-			{/*			dispatch={props.dispatch}*/}
-			{/*		/>*/}
-			{/*	)}/>*/}
-			{/*</Routes>*/}
+		<section className={s.news}>
+			{/*<Publications*/}
+			{/*	page={props.page.publicationsPage}*/}
+			{/*	dispatch={props.dispatch}*/}
+			{/*/>*/}
 		</section>
 	);
 };

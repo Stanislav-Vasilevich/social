@@ -32,20 +32,18 @@ const Page = (props: PropsType) => {
 					/>
 				)}/>
 
-				<Route path="/news" element={(
-					<News
-						page={props.store}
-						dispatch={props.dispatch}
-					/>
-					<Routes>
-						<Route path="/news/publications" element={(
-							<Publications
-								page={props.store.publicationsPage}
-								dispatch={props.dispatch}
-							/>
-						)}/>
-					</Routes>
-					)}/>
+				<Route path="/publications/*" element={(
+					<div>
+						{/*<News*/}
+						{/*	page={props.store}*/}
+						{/*	dispatch={props.dispatch}*/}
+						{/*/>*/}
+						{/*<Publications*/}
+						{/*	page={props.store.publicationsPage}*/}
+						{/*	dispatch={props.dispatch}*/}
+						{/*/>*/}
+					</div>
+				)}/>
 
 				<Route path="/motivation" element={(
 					<Motivation
