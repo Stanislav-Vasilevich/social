@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Pages.module.css';
+import s from './Pages.module.css';
 import Page from './Page/Page';
 import {ActionsType} from '../../index';
 import {AppStateType} from '../../redux/redux-store';
@@ -13,7 +13,7 @@ const Pages = (props: PropsType) => {
   return (
     <>
       {/* первый блок профиля автора */}
-      <div className={styles.pages}>
+      <div className={s.pages}>
         {/* главная страница */}
         <Page
           store={props.store}

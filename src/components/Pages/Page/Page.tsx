@@ -2,9 +2,6 @@ import React from 'react';
 import {Routes, Route} from 'react-router-dom';
 import s from './Page.module.css';
 import AboutAuthor from './AboutAuthor/AboutAuthor';
-import Publications from './Publications/Publications';
-import Messages from './Messages/Messages';
-import Photo from './Photo/Photo';
 import {ActionsType} from '../../../index';
 import {AppStateType} from '../../../redux/redux-store';
 import Investing from "./Investing/Investing";
@@ -14,7 +11,7 @@ import Error404 from "./Error404/Error404";
 import Main from "./Main/Main";
 import Motivation from "./Motivation/Motivation";
 import Community from "./Community/Community";
-import News from "./News/News";
+import Publications from "./Publications/Publications";
 
 type PropsType = {
 	store: AppStateType
@@ -38,10 +35,10 @@ const Page = (props: PropsType) => {
 						{/*	page={props.store}*/}
 						{/*	dispatch={props.dispatch}*/}
 						{/*/>*/}
-						{/*<Publications*/}
-						{/*	page={props.store.publicationsPage}*/}
-						{/*	dispatch={props.dispatch}*/}
-						{/*/>*/}
+						<Publications
+							page={props.store.publicationsPage}
+							dispatch={props.dispatch}
+						/>
 					</div>
 				)}/>
 

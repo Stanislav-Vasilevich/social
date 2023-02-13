@@ -1,11 +1,12 @@
-.news {
-	padding: 50px;
-}
-
 .post {
 	background: rgba(192, 192, 192, 0.38);
 	border-radius: 10px;
 	padding: 30px;
+	margin: 0 0 30px;
+}
+
+.post:last-of-type {
+	margin: 0;
 }
 
 .title {

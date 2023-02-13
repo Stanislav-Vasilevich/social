@@ -45,7 +45,7 @@
 .header__user {
 	display: flex;
 	align-items: center;
-	gap: 5px;
+	grid-gap: 5px;
 }
 
 .header__avatar {

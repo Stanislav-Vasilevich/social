@@ -1,15 +1,13 @@
 import {combineReducers, createStore} from 'redux';
-// import {publicationsReducer} from './publications-reducer';
 import headerReducer from './header-reducer';
 import authorReducer from './author-reducer';
-import newsReducer from './news-reducer';
 import motivationReducer from "./motivation-reducer";
 import sportReducer from "./sport-reducer";
 import codeReducer from "./code-reducer";
 import investingReducer from "./investing-reducer";
 import mainReducer from "./main-reducer";
 import {communityReducer} from "./сommunity-reducer";
-import postReducer from './post-reducer';
+import {publicationsReducer} from "./publications-reducer";
 
 type ReducersType = typeof reducers;
 export type AppStateType = ReturnType<ReducersType>;
@@ -20,7 +18,6 @@ const reducers = combineReducers({
   header: headerReducer,
 	// pages and menu
 	mainPage: mainReducer,
-	newsPage: newsReducer,
 	motivationPage: motivationReducer,
 	sportPage: sportReducer,
 	codePage: codeReducer,
@@ -28,9 +25,7 @@ const reducers = combineReducers({
 	communityPage: communityReducer,
   authorPage: authorReducer,
 	// подменю
-  // publicationsPage: publicationsReducer,
-	// post
-	posts: postReducer
+  publicationsPage: publicationsReducer,
 });
 
 const store = createStore(reducers);
