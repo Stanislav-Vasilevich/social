@@ -2,6 +2,7 @@ import React from 'react';
 import s from './Main.module.css';
 import {MainPageType} from "../../../../redux/main-reducer";
 import {ActionsType} from "../../../../index";
+import styles from './../../../../App.module.css';
 
 type PropsType = {
 	page: MainPageType
@@ -13,7 +14,7 @@ const Main = (props: PropsType) => {
 		alert('add post');
 	}
 	return (
-		<section className={s.main}>
+		<section className={`${styles.page} ${s.main}`}>
 			<div>{props.page.text}</div>
 			<div className={s.content}>
 				<h1 className={s.title}>{props.page.title}</h1>

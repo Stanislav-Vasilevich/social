@@ -1,6 +1,8 @@
 import React from 'react';
 import {ActionsType} from "../../../../index";
 import {MotivationPageType} from "../../../../redux/motivation-reducer";
+import styles from "../../../../App.module.css";
+import s from "../Publications/Publications.module.css";
 
 type PropsType = {
 	page: MotivationPageType
@@ -9,9 +11,9 @@ type PropsType = {
 
 const Motivation = (props: PropsType) => {
 	return (
-		<div>
+		<section className={`${styles.page} ${s.motivation}`}>
 			{props.page.text}
-		</div>
+		</section>
 	);
 };
 

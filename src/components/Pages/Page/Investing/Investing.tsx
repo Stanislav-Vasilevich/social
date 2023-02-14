@@ -2,6 +2,7 @@ import s from './Investing.module.css';
 import React from "react";
 import {ActionsType} from '../../../../index';
 import {InvestingPageType} from "../../../../redux/investing-reducer";
+import styles from './../../../../App.module.css';
 
 type PropsType = {
 	page: InvestingPageType
@@ -10,9 +11,9 @@ type PropsType = {
 
 const Investing = (props: PropsType) => {
 	return (
-		<div className={s.news}>
+		<section className={`${styles.page} ${s.investing}`}>
 			{props.page.text}
-		</div>
+		</section>
 	)
 }
 export default Investing;

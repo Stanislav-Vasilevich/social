@@ -3,6 +3,7 @@ import s from './Publications.module.css';
 import {PublicationsPageType} from '../../../../redux/publications-reducer';
 import {ActionsType} from '../../../../index';
 import Post from "./Post/Post";
+import styles from "../../../../App.module.css";
 
 
 type PropsType = {
@@ -32,7 +33,7 @@ const Publications = (props: PropsType) => {
 	});
 
   return (
-    <section className={s.publications}>
+    <section className={`${styles.page} ${s.publications}`}>
 			{showPosts}
     </section>
   )

@@ -31,9 +31,9 @@ export type CommunityPageActionsType =
 
 const initialState: CommunityPageType = {
   navigation: [
-    {id: v1(), item: 'Публикации', path: '/publications'},
-    {id: v1(), item: 'Сообщения', path: '/messages'},
-    {id: v1(), item: 'Фото', path: '/photo'},
+		{id: v1(), item: 'Форум', path: '/community/forum'},
+    {id: v1(), item: 'Друзья', path: '/community/friends'},
+		{id: v1(), item: 'Поддержка', path: '/community/support'},
   ],
   persons: [
     {id: v1(), name: 'Настя', img: 'https://avatarko.ru/img/kartinka/16/Joker_minion_15661.jpg'},

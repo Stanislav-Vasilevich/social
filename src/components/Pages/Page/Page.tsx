@@ -12,6 +12,7 @@ import Main from "./Main/Main";
 import Motivation from "./Motivation/Motivation";
 import Community from "./Community/Community";
 import Publications from "./Publications/Publications";
+import Forum from "./Community/Forum/Forum";
 
 type PropsType = {
 	store: AppStateType
@@ -28,20 +29,12 @@ const Page = (props: PropsType) => {
 						dispatch={props.dispatch}
 					/>
 				)}/>
-
-				<Route path="/publications/*" element={(
-					<div>
-						{/*<News*/}
-						{/*	page={props.store}*/}
-						{/*	dispatch={props.dispatch}*/}
-						{/*/>*/}
-						<Publications
-							page={props.store.publicationsPage}
-							dispatch={props.dispatch}
-						/>
-					</div>
+				<Route path="/publications" element={(
+					<Publications
+						page={props.store.publicationsPage}
+						dispatch={props.dispatch}
+					/>
 				)}/>
-
 				<Route path="/motivation" element={(
 					<Motivation
 						page={props.store.motivationPage}
@@ -66,7 +59,7 @@ const Page = (props: PropsType) => {
 						dispatch={props.dispatch}
 					/>
 				)}/>
-				<Route path="/community" element={(
+				<Route path="/community/*" element={(
 					<Community
 						page={props.store.communityPage}
 						dispatch={props.dispatch}
@@ -79,8 +72,6 @@ const Page = (props: PropsType) => {
 					/>
 				)}
 				/>
-				{/*<Route path="/messages" element={(<Messages/>)}/>*/}
-				{/*<Route path="/photo" element={Photo}/>*/}
 				<Route path="/*" element={<Error404/>}/>
 			</Routes>
 		</section>

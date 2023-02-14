@@ -1,15 +1,15 @@
-import React, {ChangeEvent, KeyboardEvent} from 'react';
+import React from 'react';
 import s from './Community.module.css';
-import Friend from './Friend/Friend';
-import Dialogs from './Dialogs/Dialogs';
+import Friends from './Friends/Friends';
 import Navigation from '../../Navigation/Navigation';
 import {
-  addMessageAC,
-  addMessageByEnterAC,
-  changeDialogsMessageAC,
 	CommunityPageType
 } from '../../../../redux/сommunity-reducer';
 import {ActionsType} from '../../../../index';
+import styles from './../../../../App.module.css';
+import {Routes, Route} from "react-router-dom";
+import Forum from "./Forum/Forum";
+import Support from "./Support/Support";
 
 type PropsType = {
   page: CommunityPageType
@@ -17,78 +17,16 @@ type PropsType = {
 }
 
 const Community = (props: PropsType) => {
-  // массив друзей => друг
-  const arrayFriends = props.page.persons.map(i => {
-    return (
-      <Friend
-        key={i.id}
-        id={i.id}
-        name={i.name}
-        img={i.img}
-      />
-    )
-  });
-
-  // массив диалогов => диалог
-  const arrayDialogs = props.page.dialogs.map(i => {
-    return (
-      <Dialogs
-        key={i.id}
-        id={i.id}
-        message={i.message}
-      />
-    )
-  });
-
-  // обновляем значение change у textarea
-  const onChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
-    props.dispatch(changeDialogsMessageAC(e.currentTarget.value));
-  }
-
-  // добавляем сообщение в диалог по нажатию на кнопку
-  const addMessageHandler = () => {
-    props.dispatch(addMessageAC());
-  }
-
-  // добавляем сообщение в диалог по нажатию Enter
-  const addMessageHandlerByEnter = (e: KeyboardEvent<HTMLTextAreaElement>) => {
-    if (e.key === 'Enter') {
-      props.dispatch(addMessageByEnterAC());
-    }
-  }
-
   return (
-    <section>
+    <section className={`${styles.page} ${s.community}`}>
       {/* навигация */}
       <Navigation menuItems={props.page.navigation}/>
 
-      <h2>Друзья</h2>
-
-      {/* блок с друзьями */}
-      <div className={s.page}>
-
-        {/* друзья */}
-        <div className={s.arrayFriends}>
-          {arrayFriends}
-        </div>
-
-        {/* диалоги */}
-        <div className={s.dialogsStyle}>
-          {arrayDialogs}
-
-          {/* написать и отправить сообщение */}
-          <div className={s.writeSend}>
-            <textarea
-              className={s.textArea}
-              onChange={onChangeHandler}
-              onKeyPress={addMessageHandlerByEnter}
-              value={props.page.valueMessage}
-            >
-            </textarea>
-            <button className={s.button} onClick={addMessageHandler}>Отправить</button>
-          </div>
-        </div>
-      </div>
+			<Routes>
+				<Route path={'/forum'} element={(<Forum/>)}/>
+				<Route path={'/friends'} element={(<Friends/>)}/>
+				<Route path={'/support'} element={(<Support/>)}/>
+			</Routes>
     </section>
   )
 }
