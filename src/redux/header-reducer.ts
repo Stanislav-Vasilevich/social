@@ -17,9 +17,9 @@ const initialState = {
     {id: v1(), item: 'Публикации', path: '/publications'},
     {id: v1(), item: 'Мотивация', path: '/motivation'},
 		{id: v1(), item: 'Спорт', path: '/sport'},
-		{id: v1(), item: 'Код', path: '/code'},
+		{id: v1(), item: 'Код', path: '/code/html'},
     {id: v1(), item: 'Инвестирование', path: '/investing'},
-    {id: v1(), item: 'Сообщество', path: '/community'},
+    {id: v1(), item: 'Сообщество', path: '/community/forum'},
 		{id: v1(), item: 'Автор', path: '/author'},
   ],
   user: {

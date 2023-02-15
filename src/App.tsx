@@ -1,11 +1,9 @@
 import React from 'react';
 import styles from './App.module.css';
 import Header from './components/Header/Header';
-import Pages from './components/Pages/Pages';
 import {ActionsType} from './index';
 import {AppStateType} from './redux/redux-store';
-
-const {app, container} = styles;
+import Page from "./components/Page/Page";
 
 type PropsType = {
   store: AppStateType
@@ -14,12 +12,10 @@ type PropsType = {
 
 const App = (props: PropsType) => {
   return (
-		<div className={app}>
+		<div className={styles.app}>
 			<Header store={props.store}/>
-			<main>
-				<div className={container}>
-					<Pages store={props.store} dispatch={props.dispatch}/>
-				</div>
+			<main className={styles.main}>
+				<Page store={props.store} dispatch={props.dispatch}/>
 			</main>
 		</div>
   );

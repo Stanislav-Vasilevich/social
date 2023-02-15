@@ -1,0 +1,17 @@
+.menu {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	width: min-content;
+	margin: 0 auto;
+}
+
+.menuItem {
+	text-decoration: none;
+	color: #9d6a00;
+}
+
+.active {
+	color: red;
+	text-decoration: none;
+}
