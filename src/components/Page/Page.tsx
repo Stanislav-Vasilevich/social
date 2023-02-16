@@ -28,6 +28,12 @@ const Page = (props: PropsType) => {
 						dispatch={props.dispatch}
 					/>
 				)}/>
+				<Route path="/social-it-incubator" element={(
+					<Main
+						page={props.store.mainPage}
+						dispatch={props.dispatch}
+					/>
+				)}/>
 				<Route path="/publications" element={(
 					<Publications
 						page={props.store.publicationsPage}

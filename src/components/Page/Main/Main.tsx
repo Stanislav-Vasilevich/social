@@ -10,16 +10,12 @@ type PropsType = {
 }
 
 const Main = (props: PropsType) => {
-	const AddPost = () => {
-		alert('add post');
-	}
 	return (
 		<div className={`${styles.page} ${styles.container} ${s.main}`}>
 			<div>{props.page.text}</div>
 			<div className={s.content}>
 				<h1 className={s.title}>{props.page.title}</h1>
 			</div>
-			<button onClick={() => AddPost()}>Add</button>
 		</div>
 	);
 };
