@@ -2,6 +2,7 @@
 	display: grid;
 	grid-template-columns: 300px 1fr;
 	grid-template-rows: 1fr;
+	gap: 50px;
 }
 
 .menu {
@@ -22,7 +23,9 @@
 }
 
 .sidebar {
-
+	background: #ecf1e8;
+	padding: 20px;
+	border-radius: 20px;
 }
 
 .title {
