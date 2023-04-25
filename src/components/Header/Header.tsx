@@ -10,7 +10,6 @@ type PropsType = {
 }
 
 const Header = (props: PropsType) => {
-	console.log('props: ', props)
   return (
     <header className={s.header}>
       <div className={s.logo}>

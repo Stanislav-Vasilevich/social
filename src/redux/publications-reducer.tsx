@@ -1,8 +1,8 @@
 import {v1} from 'uuid';
 
-const ADD_POST = 'ADD_POST';
-const CHANGE_ADD_POST_TITLE = 'CHANGE_ADD_POST_TITLE';
-const CHANGE_ADD_POST_TEXT = 'CHANGE_ADD_POST_TEXT';
+const ADD_POST = 'ADD-POST';
+const CHANGE_ADD_POST_TITLE = 'CHANGE-ADD-POST-TITLE';
+const CHANGE_ADD_POST_TEXT = 'CHANGE-ADD-POST-TEXT';
 
 type PostType = {
 	id: string
@@ -62,6 +62,7 @@ const initialState = {
 export const publicationsReducer = (state: PublicationsPageType = initialState, action: PublicationPageActionType) => {
   return state;
 }
+
 export const changeAddPostTitleAC = (message: string) => {
   return {type: CHANGE_ADD_POST_TITLE, message: message} as const
 }

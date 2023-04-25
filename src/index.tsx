@@ -11,7 +11,7 @@ export const rerender = (state: AppStateType) => {
   ReactDOM.render(
     <React.StrictMode>
       <BrowserRouter>
-        <App store={state} dispatch={store.dispatch.bind(store)}/>
+        <App state={state} dispatch={store.dispatch.bind(store)}/>
       </BrowserRouter>
     </React.StrictMode>,
     document.getElementById('root')

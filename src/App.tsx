@@ -6,16 +6,16 @@ import {AppStateType} from './redux/redux-store';
 import Page from "./components/Page/Page";
 
 type PropsType = {
-  store: AppStateType
+  state: AppStateType
   dispatch: (action: ActionsType) => void
 }
 
 const App = (props: PropsType) => {
   return (
 		<div className={styles.app}>
-			<Header store={props.store}/>
+			<Header store={props.state}/>
 			<main className={styles.main}>
-				<Page store={props.store} dispatch={props.dispatch}/>
+				<Page store={props.state} dispatch={props.dispatch}/>
 			</main>
 		</div>
   );
