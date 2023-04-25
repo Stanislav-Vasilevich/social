@@ -14,17 +14,24 @@
 
 .menuItem {
 	text-decoration: none;
-	color: #9d6a00;
+	color: #959595;
+	cursor: pointer;
+	transition: .4s all;
+}
+
+.menuItem:hover {
+	color: #000;
 }
 
 .active {
 	color: red;
 	text-decoration: none;
+	cursor: auto;
 }
 
 .sidebar {
-	background: #ecf1e8;
-	padding: 20px;
+	background: #f2f2f2;
+	padding: 40px;
 	border-radius: 20px;
 }
 
