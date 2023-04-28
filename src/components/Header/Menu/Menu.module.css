@@ -22,26 +22,45 @@
 	box-sizing: content-box;
 }
 
+.itemHome_active {
+	width: 30px;
+	height: 30px;
+	padding: 0 20px;
+	box-sizing: content-box;
+}
+
 .item:hover {
   color: white;
 }
 
 .itemHome__img {
+	display: block;
 	width: 100%;
 	height: 100%;
 	transition: .4s all;
+	background-image: url("./../../../image/home.webp");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	cursor: pointer;
 }
 
 .itemHome:hover .itemHome__img {
-	cursor: pointer;
 	background-image: url("./../../../image/home_hover.webp");
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
 }
 
+.itemHome_active .itemHome__img {
+	background-image: url("./../../../image/home_active.webp");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
 .active {
-  color: red;
+  color: wheat;
   text-decoration: none;
   padding: 20px;
 }

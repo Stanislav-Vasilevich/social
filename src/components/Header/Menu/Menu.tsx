@@ -10,16 +10,14 @@ type PropsType = {
 
 const Menu = (props: PropsType) => {
 	const menuItem = props.menuItems.map(i => {
-		console.log('i: ', i.path);
-
 		if (i.path === '/') {
 			return (
 				<NavLink
 					key={i.id}
-					className={s.itemHome}
+					className={(params) => params.isActive ? s.itemHome_active : s.itemHome}
 					to={i.path}
 				>
-					<img className={s.itemHome__img} src={imageHome} alt="home"/>
+					<span className={s.itemHome__img}></span>
 				</NavLink>
 			)
 		}
